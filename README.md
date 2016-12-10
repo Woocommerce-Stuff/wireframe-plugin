@@ -41,7 +41,7 @@ Wireframe Plugin encourage Developers to use the requirements listed below, but 
 ---
 
 ## Points Of Interest
-Wireframe_Plugin takes a unique approach to WordPress theme development...
+Wireframe Plugin takes a unique approach to WordPress theme development...
 
 * [Object Oriented Programming](http://stackoverflow.com/questions/1530868/simple-explanation-php-oop-vs-procedural) (OOP)
 * [Inversion of Control](http://stackoverflow.com/questions/18562752/understanding-ioc-containers-and-dependency-injection) (IoC)
@@ -124,11 +124,11 @@ Think you've found a bug or wish to help make Wireframe_Plugin better? We love a
 
 ## Copyright
 
-Wireframe_Plugin is Copyright © 2016 [MixaTheme](https://mixatheme.com). All rights reserved.<br>
+Wireframe Plugin is Copyright © 2016 [MixaTheme](https://mixatheme.com). All rights reserved.<br>
 
 ## License
 
-Wireframe_Plugin is licensed under GPL-2.0+ ( see [LICENSE](https://github.com/mixatheme/wireframe-plugin/blob/master/LICENSE) )<br>
+Wireframe Plugin is licensed under GPL-2.0+ ( see [LICENSE](https://github.com/mixatheme/wireframe-plugin/blob/master/LICENSE) )<br>
 
 Wireframe_Plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
