@@ -59,15 +59,15 @@ function wireframe_plugin_config_dbtables() {
 	 * 	+ You must put each field on its own line in your SQL statement.
 	 *  + You must have two spaces between the words PRIMARY KEY and the
 	 *    definition of your primary key.
-	 * 	+ You must use the key word KEY rather than its synonym INDEX and you
+	 * 	+ You must use the keyword KEY rather than its synonym INDEX and you
 	 * 	  must include at least one KEY.
-	 *  + KEY must be followed by a SINGLE SPACE then the key name then a space
-	 *    then open parenthesis with the field name then a closed parenthesis.
+	 *  + KEY must be followed by a SINGLE SPACE, then the key name, then a space,
+	 *    then open parenthesis with the field name, then a closed parenthesis.
 	 *  + You must not use any apostrophes or backticks around field names.
 	 *  + Field types must be all lowercase.
 	 *  + SQL keywords, like CREATE TABLE and UPDATE, must be uppercase.
 	 *  + You must specify the length of all fields that accept a length
-	 *    parameter. int(11), for example.
+	 *    parameter, for example: int(11).
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array
