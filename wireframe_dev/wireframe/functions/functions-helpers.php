@@ -22,11 +22,48 @@
  */
 
 /**
- * Admin Check.
+ * Check Screen.
  *
  * @since 1.0.0 Wireframe_Plugin
+ * @see   helpers-functions.php
  */
-function wireframe_plugin_admin_check() {
+function wireframe_plugin_check_screen() {
+
+	$toplevel = 'toplevel_page_wireframe';
+	$screen   = get_current_screen();
+
+	/*
+	* Check if current screen is My Admin Page
+	* Don't add help tab if it's not
+	*/
+	if ( $screen->id = $toplevel ) {
+		$css = 'toplevel';
+	} else {
+		switch ( $screen->id ) {
+			case 'wireframe-plugin_page_wireframe-plugin-page2':
+				$css = 'page2';
+				break;
+			case 'wireframe-plugin_page_wireframe-plugin-page3':
+				$css = 'page3';
+				break;
+			case 'wireframe-plugin_page_wireframe-plugin-page4':
+				$css = 'page4';
+				break;
+			default:
+				$css = 'toplevel_page_wireframe-plugin';
+				break;
+		}
+	}
+	var_dump( $screen->id, $css );
+}
+
+/**
+ * Check Admin.
+ *
+ * @since 1.0.0 Wireframe_Plugin
+ * @see   helpers-functions.php
+ */
+function wireframe_plugin_check_admin() {
 	if ( ! is_admin() ) {
 		wp_die( 'You are not authorized to access this page.' );
 	}
