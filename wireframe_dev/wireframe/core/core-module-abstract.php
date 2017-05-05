@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,55 +41,91 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 	/**
-	 * Core_Module_Abstract is is a core Wireframe contract for wiring actions & hooks.
+	 * Core_Module_Abstract is is a Wireframe core contract for wiring actions & hooks.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	abstract class Core_Module_Abstract {
 		/**
-		 * Wired.
-		 *
-		 * @access protected
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    bool $wired
-		 */
-		protected $wired;
-
-		/**
 		 * Prefix.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    string $prefix
+		 * @var    array $_prefix
 		 */
-		protected $prefix;
+		protected $_prefix = null;
+
+		/**
+		 * Wired.
+		 *
+		 * @access protected
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $_wired
+		 */
+		protected $_wired = false;
 
 		/**
 		 * Actions.
 		 *
-		 * @access private
+		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_actions
 		 */
-		private $_actions;
+		protected $_actions = array();
 
 		/**
 		 * Filters.
 		 *
-		 * @access private
+		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_filters
 		 */
-		private $_filters;
+		protected $_filters = array();
+
+		/**
+		 * Constructor runs when this class instantiates.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $config Data via config file.
+		 */
+		public function __construct( $config ) {
+
+			// Declare default properties for this class and sub-classes.
+			$this->_prefix  = $config['prefix'];
+			$this->_wired   = $config['wired'];
+			$this->_actions = $config['actions'];
+			$this->_filters = $config['filters'];
+
+			/**
+			 * Most objects are not required to be wired (hooked) when instantiated.
+			 * In your object config file(s), you can set the `$wired` value
+			 * to true or false. If false, you can decouple any hooks and declare
+			 * them elsewhere. If true, then objects fire hooks onload.
+			 *
+			 * Config data files are located in: `wireframe_dev/wireframe/config/`
+			 */
+			if ( isset( $this->_wired ) && true === $this->_wired ) {
+				$this->wire_actions( $this->_actions );
+				$this->wire_filters( $this->_filters );
+			}
+		}
 
 		/**
 		 * Get property.
 		 *
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  string $var Property to get.
 		 */
@@ -101,6 +139,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Wire Actions.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  array $actions Actions to hook.
 		 */
@@ -116,6 +155,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Wire Filters.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  array $filters Filters to hook.
 		 */
@@ -127,6 +167,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 			}
 		}
 
-	} // Core_Module_Abstract.
+	} // Wireframe.
 
 endif; // Thanks for using MixaTheme products!

@@ -1,10 +1,7 @@
-/* global jQuery */
-/* jshint devel:true */
-
 /**!
- * wireframe_plugin.js script file by MixaTheme.
+ * Wirefarme_Plugin stylesheet for print.
  *
- * jQuery 1.12.4
+ * SASS 3.4.22
  *
  * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
@@ -22,10 +19,3 @@
  * You should have received a copy of the GNU General Public License
  * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
-
-jQuery( function( $ ) {
-	'use strict';
-
-	// Your code here...
-
-} ); // Thanks for using MixaTheme products!

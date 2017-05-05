@@ -74,20 +74,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Enqueue_Interface' ) ) :
 		 */
 		public function mediamodal();
 
-		/**
-		 * Enqueue the main style.css stylesheet.
-		 *
-		 * @since 1.0.0 Wireframe_Plugin
-		 */
-		public function stylecss();
-
-		/**
-		 * Enqueue the main `comment-reply` script.
-		 *
-		 * @since 1.0.0 Wireframe_Plugin
-		 */
-		public function commentjs();
-
 	} // Core_Enqueue_Interface.
 
 endif; // Thanks for using MixaTheme products!

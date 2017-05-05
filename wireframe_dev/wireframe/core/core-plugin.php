@@ -69,17 +69,28 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		private $_admin;
 
 		/**
+		 * UI object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_ui
+		 */
+		private $_ui;
+
+		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param object $controller Interface for controller.
 		 * @param object $admin      Interface for admin screens.
+		 * @param object $ui         Interface for front-end UI.
 		 */
-		public function __construct( Core_Controller_Interface $controller, Plugin_Admin_Interface $admin ) {
+		public function __construct( Core_Controller_Interface $controller, Plugin_Admin_Interface $admin, Plugin_UI_Interface $ui ) {
 
 			// Default properties required for this class.
 			$this->_controller = $controller;
 			$this->_admin      = $admin;
+			$this->_ui         = $ui;
 		}
 
 		/**
@@ -101,6 +112,17 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		public function admin() {
 			if ( isset( $this->_admin ) ) {
 				return $this->_admin;
+			}
+		}
+
+		/**
+		 * Get UI.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function ui() {
+			if ( isset( $this->_ui ) ) {
+				return $this->_ui;
 			}
 		}
 

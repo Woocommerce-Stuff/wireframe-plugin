@@ -22,20 +22,15 @@
  */
 
 /**
- * Check Screen.
+ * Wireframe Plugin Admin Check Screen.
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
  */
-function wireframe_plugin_check_screen() {
+function wireframe_plugin_admin_check_screen() {
 
 	$toplevel = 'toplevel_page_wireframe';
 	$screen   = get_current_screen();
 
-	/*
-	* Check if current screen is My Admin Page
-	* Don't add help tab if it's not
-	*/
 	if ( $screen->id = $toplevel ) {
 		$css = 'toplevel';
 	} else {
@@ -54,16 +49,16 @@ function wireframe_plugin_check_screen() {
 				break;
 		}
 	}
-	var_dump( $screen->id, $css );
 }
 
 /**
- * Check Admin.
+ * Wireframe Plugin Admin Check.
+ *
+ * Check if the current user has Admin permmissions.
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
  */
-function wireframe_plugin_check_admin() {
+function wireframe_plugin_admin_check() {
 	if ( ! is_admin() ) {
 		wp_die( 'You are not authorized to access this page.' );
 	}

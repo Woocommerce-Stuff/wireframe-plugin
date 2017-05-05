@@ -38,8 +38,8 @@
  * @see   helpers-functions.php
  */
 function wireframe_plugin_tpl_tabs() {
-	wireframe_plugin_check_admin();
-	wireframe_plugin_check_screen();
+	wireframe_plugin_admin_check();
+	wireframe_plugin_admin_check_screen();
 	?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Landing', 'wireframe-plugin' ); ?></a>
@@ -57,7 +57,7 @@ function wireframe_plugin_tpl_tabs() {
  * @see   helpers-functions.php
  */
 function wireframe_plugin_view_quickstart() {
-	wireframe_plugin_check_admin();
+	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
 		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
@@ -81,7 +81,7 @@ function wireframe_plugin_view_quickstart() {
  * @see   helpers-functions.php
  */
 function wireframe_plugin_view_sub2() {
-	wireframe_plugin_check_admin();
+	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
 		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?>&nbsp;<?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
@@ -105,7 +105,7 @@ function wireframe_plugin_view_sub2() {
  * @see   helpers-functions.php
  */
 function wireframe_plugin_view_sub3() {
-	wireframe_plugin_check_admin();
+	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
 		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?>&nbsp;<?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
@@ -129,7 +129,7 @@ function wireframe_plugin_view_sub3() {
  * @see   helpers-functions.php
  */
 function wireframe_plugin_view_sub4() {
-	wireframe_plugin_check_admin();
+	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
 		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?>&nbsp;<?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>

@@ -31,4 +31,6 @@ return array(
     'MixaTheme\\Wireframe\\Plugin\\Plugin_Shortcode_Interface' => $baseDir . '/wireframe_dev/wireframe/plugin/shortcode/plugin-shortcode-interface.php',
     'MixaTheme\\Wireframe\\Plugin\\Plugin_Taxonomy' => $baseDir . '/wireframe_dev/wireframe/plugin/taxonomy/plugin-taxonomy.php',
     'MixaTheme\\Wireframe\\Plugin\\Plugin_Taxonomy_Interface' => $baseDir . '/wireframe_dev/wireframe/plugin/taxonomy/plugin-taxonomy-interface.php',
+    'MixaTheme\\Wireframe\\Plugin\\Plugin_UI' => $baseDir . '/wireframe_dev/wireframe/plugin/plugin-ui.php',
+    'MixaTheme\\Wireframe\\Plugin\\Plugin_UI_Interface' => $baseDir . '/wireframe_dev/wireframe/plugin/plugin-ui-interface.php',
 );
