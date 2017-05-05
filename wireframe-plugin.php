@@ -9,7 +9,7 @@
  * Author:      MixaTheme, Tada Burke
  * Author URI:  https://mixatheme.com
  * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package   Wireframe_Plugin
  * @copyright 2016 MixaTheme

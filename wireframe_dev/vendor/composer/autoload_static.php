@@ -42,8 +42,8 @@ class ComposerStaticInit8e005a614c615605ae3b968eb91c54c4
         'MixaTheme\\Wireframe\\Plugin\\Plugin_Shortcode_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/shortcode/plugin-shortcode-interface.php',
         'MixaTheme\\Wireframe\\Plugin\\Plugin_Taxonomy' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/taxonomy/plugin-taxonomy.php',
         'MixaTheme\\Wireframe\\Plugin\\Plugin_Taxonomy_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/taxonomy/plugin-taxonomy-interface.php',
-        'MixaTheme\\Wireframe\\Plugin\\Plugin_UI' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/plugin-ui.php',
-        'MixaTheme\\Wireframe\\Plugin\\Plugin_UI_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/plugin-ui-interface.php',
+        'MixaTheme\\Wireframe\\Plugin\\Plugin_UI' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/ui/plugin-ui.php',
+        'MixaTheme\\Wireframe\\Plugin\\Plugin_UI_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/plugin/ui/plugin-ui-interface.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
