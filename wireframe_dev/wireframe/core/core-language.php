@@ -52,13 +52,24 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language' ) ) :
 	 */
 	final class Core_Language extends Core_Module_Abstract implements Core_Language_Interface {
 		/**
-		 * Path.
+		 * Relative path to ABSPATH of a folder, where the .mo file resides.
+		 * Deprecated, but still functional until 2.7.
 		 *
 		 * @access protected
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $path
+		 * @var    array $abs_rel_path
 		 */
-		protected $path;
+		protected $abs_rel_path;
+
+		/**
+		 * Relative path to WP_PLUGIN_DIR. This is the preferred argument to use.
+		 * It takes precedence over .
+		 *
+		 * @access protected
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $plugin_rel_path
+		 */
+		protected $plugin_rel_path;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -69,7 +80,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language' ) ) :
 		public function __construct( $config ) {
 
 			// Custom properties required for this class.
-			$this->path = $config['path'];
+			$this->abs_rel_path    = $config['abs_rel_path'];
+			$this->plugin_rel_path = $config['plugin_rel_path'];
 
 			// Default properties via Wireframe abstract class.
 			$this->wired    = $config['wired'];
@@ -99,9 +111,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language' ) ) :
 		 * @see    load_plugin_textdomain( $domain, $abs_rel_path, $plugin_rel_path )
 		 */
 		public function textdomain() {
-			if ( isset( $this->prefix ) && isset( $this->path ) ) {
-				load_plugin_textdomain( $this->prefix, $this->path );
-				load_plugin_textdomain( 'my-plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+			if ( isset( $this->prefix ) && isset( $this->plugin_rel_path ) ) {
+				load_plugin_textdomain(
+					$this->prefix,
+					$this->abs_rel_path,
+					$this->plugin_rel_path
+				);
 			}
 		}
 

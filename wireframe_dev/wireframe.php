@@ -166,35 +166,35 @@ define( 'WIREFRAME_PLUGIN_OBJECTS', WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wiref
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_TPL', WIREFRAME_PLUGIN_DIR . 'wireframe_client/tpl/' );
+define( 'WIREFRAME_PLUGIN_TPL', WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT . 'tpl/' );
 
 /**
  * §.03. Constant: Plugin URI for CSS files (optional).
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_CSS', WIREFRAME_PLUGIN_URI . 'wireframe_client/css/' );
+define( 'WIREFRAME_PLUGIN_CSS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'css/' );
 
 /**
  * §.03. Constant: Plugin URI for images (optional).
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_IMG', WIREFRAME_PLUGIN_URI . 'wireframe_client/img/' );
+define( 'WIREFRAME_PLUGIN_IMG', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'img/' );
 
 /**
  * §.03. Constant: Plugin URI for JavaScript files (optional).
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_JS', WIREFRAME_PLUGIN_URI . 'wireframe_client/js/' );
+define( 'WIREFRAME_PLUGIN_JS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'js/' );
 
 /**
  * §.03. Constant: Plugin URI for language files.
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_DIR . 'wireframe_client/lang/' );
+define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_PLUGIN_CLIENT . 'lang/' );
 
 /**
  * §.04. Functions: Load helper functions.
@@ -301,6 +301,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
+	require_once WIREFRAME_PLUGIN_API . 'config/config-language.php';
 	require_once WIREFRAME_PLUGIN_API . 'config/config-admin.php';
 	require_once WIREFRAME_PLUGIN_API . 'config/config-dbtables.php';
 	require_once WIREFRAME_PLUGIN_API . 'config/config-cpt.php';
@@ -324,8 +325,22 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	require_once WIREFRAME_PLUGIN_API . 'config/config-controller.php';
 
 	/**
-	 * §.08. Service: Core_Controller.
+	 * § 08. Service: Language.
 	 * =========================================================================
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Core_Language object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_language()
+	 * @return object Core_Language( @param array Object args. )
+	 */
+	$wireframe_plugin_container->language = function () {
+		return new Core_Language( wireframe_plugin_config_language() );
+	};
+
+	/**
+	 * §.08. Service: Core_Controller.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Core_Controller object with config data passed-in.
@@ -385,12 +400,14 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @var    object $wireframe_plugin
 	 * @return object Core_Plugin(
+	 *         @param object Core_Language   DI the default language.
 	 *         @param object Core_Controller DI the default controller.
 	 *         @param object Plugin_Admin    DI the default Admin views.
 	 *         @param object Plugin_UI       DI the default front-end UI.
 	 * )
 	 */
 	$wireframe_plugin = new Core_Plugin(
+		$wireframe_plugin_container->language,
 		$wireframe_plugin_container->controller,
 		$wireframe_plugin_container->admin,
 		$wireframe_plugin_container->ui

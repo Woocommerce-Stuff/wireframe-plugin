@@ -51,6 +51,15 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 */
 	final class Core_Plugin implements Core_Plugin_Interface {
 		/**
+		 * Plugins must wire Core_Language.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_language
+		 */
+		private $_language;
+
+		/**
 		 * Controller object.
 		 *
 		 * @access private
@@ -81,16 +90,30 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @param object $controller Interface for controller.
-		 * @param object $admin      Interface for admin screens.
-		 * @param object $ui         Interface for front-end UI.
+		 * @param object $language   Core_Language_Interface.
+		 * @param object $controller Core_Controller_Interface.
+		 * @param object $admin      Plugin_Admin_Interface.
+		 * @param object $ui         Plugin_UI_Interface.
 		 */
-		public function __construct( Core_Controller_Interface $controller, Plugin_Admin_Interface $admin, Plugin_UI_Interface $ui ) {
+		public function __construct( Core_Language_Interface $language, Core_Controller_Interface $controller, Plugin_Admin_Interface $admin, Plugin_UI_Interface $ui ) {
 
 			// Default properties required for this class.
+			$this->_language   = $language;
 			$this->_controller = $controller;
 			$this->_admin      = $admin;
 			$this->_ui         = $ui;
+		}
+
+		/**
+		 * Get Language.
+		 *
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_language
+		 */
+		public function language() {
+			if ( isset( $this->_language ) ) {
+				return $this->_language;
+			}
 		}
 
 		/**
