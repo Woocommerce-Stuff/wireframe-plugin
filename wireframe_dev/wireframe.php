@@ -208,7 +208,6 @@ define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_DIR . 'wireframe_client/lang/'
  */
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-helpers.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
-require_once WIREFRAME_PLUGIN_API . 'functions/functions-settings.php';
 
 /**
  * § 05. Objects.
