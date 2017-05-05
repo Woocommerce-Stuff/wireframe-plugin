@@ -28,16 +28,26 @@
  * Compatibility Checker.
  *
  * Checks WordPress version, then initializes wireframe.php. In this example,
- * Wireframe Theme only works with WordPress 4.7.2 or later. If the version is
+ * Wireframe_Plugin only works with WordPress 4.7.2 or later. If the version is
  * incompatible, load any backwards compatibility helpers; else continue setup.
  *
  * @since 1.0.0 Wireframe_Plugin
+ * @todo  Probably a better way to do this?
  */
 if ( version_compare( $GLOBALS['wp_version'], '4.9.2', '<' ) ) {
+
+	// Load our backwards compatibility handlers.
 	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-compat.php';
+
+	// Hook any Admin notices.
 	add_action( 'admin_notices', 'wireframe_plugin_notice_compat' );
+
+	// Stop processing.
 	return;
+
 } else {
+
+	// Bootstrap your Wireframe plugin.
 	require_once plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe.php';
 }
 
