@@ -33,8 +33,9 @@
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.7.2', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '4.9.2', '<' ) ) {
 	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-compat.php';
+	add_action( 'admin_notices', 'wireframe_plugin_notice_compat' );
 	return;
 } else {
 	require_once plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe.php';
