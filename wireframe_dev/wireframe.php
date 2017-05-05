@@ -152,6 +152,16 @@ define( 'WIREFRAME_PLUGIN_URI', plugin_dir_url( __DIR__ ) );
 define( 'WIREFRAME_PLUGIN_API', WIREFRAME_PLUGIN_DEV . 'wireframe/' );
 
 /**
+ * § 03. Constant: Wireframe Objects.
+ *
+ * Absolute path to the Wireframe API for loading class files. This should
+ * only be used if you choose to NOT use Composer's autoloading feature.
+ *
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_OBJECTS', WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wireframe/' );
+
+/**
  * §.03. Constant: Plugin path to template files (optional).
  *
  * @since 1.0.0 Wireframe_Plugin
@@ -201,12 +211,23 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-settings.php';
 
 /**
- * §.05. Autoload: Load class files.
+ * § 05. Objects.
  * =============================================================================
  *
- * Autoload class dependencies via Composer's `composer.json` file. If you add
- * new class files, you must re-compile `composer.json`. Alternatively, you can
- * use `require_once()` to load your class dependencies 1-by-1.
+ * Option #1: Use `require_once()` to load your class dependencies 1-by-1.
+ *            This is the default option because some Developers don't use Composer.
+ *
+ * Option #2: Autoload class dependencies via Composer's `composer.json` file.
+ *            If you add new class files, you must re-compile `composer.json`.
+ *            This is the preferred option for loading your objects.
+ *
+ * Autoload Example:
+ *
+ *            require_once WIREFRAME_PLUGIN_DEV . 'vendor/autoload.php';
+ *
+ * PRO-TIP: To re-compile the autoloader in CLI, replace all the require_once()
+ * lines below with the `Autoload Example` above, `cd` to the directory where the
+ * `composer.json` file is located, then execute: composer dump-autoload -o
  *
  * @since 1.0.0 Wireframe_Plugin
  * @since 1.1.2 Composer
@@ -217,7 +238,33 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-settings.php';
  * @internal CLI: composer dump-autoload -o
  * @internal WPCS expects a lowercase filename (PSR-2, PSR-4 invalid).
  */
-require_once WIREFRAME_PLUGIN_DEV . 'vendor/autoload.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-module-abstract.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-container-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-container.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-controller-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-controller.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-enqueue-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-enqueue.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/admin/plugin-admin-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/admin/plugin-admin.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/cpt/plugin-cpt-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/cpt/plugin-cpt.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/dbtables/plugin-dbtables-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/dbtables/plugin-dbtables.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/options/plugin-options-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/options/plugin-options.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/settings/plugin-settings-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/settings/plugin-settings.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/shortcode/plugin-shortcode-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/shortcode/plugin-shortcode.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/taxonomy/plugin-taxonomy-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/taxonomy/plugin-taxonomy.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/ui/plugin-ui-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/ui/plugin-ui.php';
 
 /**
  * Check if the `Core_Plugin` class exists then configure Wireframe_Plugin defaults.
