@@ -35,113 +35,123 @@
  *	</script>
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
+ * @see   functions-helpers.php
+ * @see   config-admin.php
  */
 function wireframe_plugin_tpl_tabs() {
 	wireframe_plugin_admin_check();
 	wireframe_plugin_admin_check_screen();
 	?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Landing', 'wireframe-plugin' ); ?></a>
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-page2' ); ?>" class="nav-tab"><?php esc_html_e( 'Page 2', 'wireframe-plugin' ); ?></a>
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-page3' ); ?>" class="nav-tab"><?php esc_html_e( 'Page 3', 'wireframe-plugin' ); ?></a>
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-page4' ); ?>" class="nav-tab"><?php esc_html_e( 'Page 4', 'wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'About', 'wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-faq' ); ?>" class="nav-tab"><?php esc_html_e( 'FAQ', 'wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-support' ); ?>" class="nav-tab"><?php esc_html_e( 'Support', 'wireframe-plugin' ); ?></a>
 	</h2>
 	<?php
 }
 
 /**
- * Page 1: Landing.
+ * Badge.
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
+ * @see   functions-helpers.php
+ * @see   config-admin.php
  */
-function wireframe_plugin_view_quickstart() {
+function wireframe_plugin_tpl_badge() {
+	wireframe_plugin_admin_check();
+	wireframe_plugin_admin_check_screen();
+	?>
+	<div class="wp-badge">
+		<?php esc_html_e( 'Version', 'wireframe-plugin' ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?>
+	</div>
+	<?php
+}
+
+/**
+ * Header.
+ *
+ * @since 1.0.0 Wireframe_Plugin
+ * @see   functions-helpers.php
+ * @see   config-admin.php
+ */
+function wireframe_plugin_tpl_header() {
+	wireframe_plugin_admin_check();
+	wireframe_plugin_admin_check_screen();
+	?>
+	<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
+	<div class="about-text">
+		<?php esc_html_e( 'This is a brief plugin description.', 'wireframe-plugin' ); ?>
+	</div>
+	<?php wireframe_plugin_tpl_badge(); ?>
+	<?php wireframe_plugin_tpl_tabs(); ?>
+	<?php
+}
+
+/**
+ * Example callback: Landing page.
+ *
+ * @since 1.0.0 Wireframe_Plugin
+ * @see   functions-helpers.php
+ * @see   config-admin.php
+ */
+function wireframe_plugin_callback_landing() {
 	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
-		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
-		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wireframe-plugin' ); ?>
-		</div>
-		<div class="wp-badge">
-			<?php esc_html_e( 'Version', 'wireframe-plugin' ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?>
-		</div>
-		<?php wireframe_plugin_tpl_tabs(); ?>
-		<h3><?php esc_html_e( 'This is a landing page', 'wireframe-plugin' ); ?></h3>
-		<p><?php esc_html_e( 'You should arrive here after clicking the 1st tab or top-tier menu item.', 'wireframe-plugin' ); ?></p>
+		<?php wireframe_plugin_tpl_header(); ?>
 	</div>
 <?php
 }
 
 /**
- * Page 2: Example.
+ * Example callback: About page.
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
+ * @see   functions-helpers.php
+ * @see   config-admin.php
  */
-function wireframe_plugin_view_sub2() {
+function wireframe_plugin_callback_about() {
 	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
-		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?>&nbsp;<?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
-		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wireframe-plugin' ); ?>
-		</div>
-		<div class="wp-badge">
-			<?php esc_html_e( 'Version', 'wireframe-plugin' ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?>
-		</div>
-		<?php wireframe_plugin_tpl_tabs(); ?>
-		<h3><?php esc_html_e( 'The 2nd subpage', 'wireframe-plugin' ); ?></h3>
-		<p><?php esc_html_e( 'This is the 2nd tab (not the Landing page).', 'wireframe-plugin' ); ?></p>
+		<h3><?php esc_html_e( 'About Heading', 'wireframe-plugin' ); ?></h3>
+		<p><?php esc_html_e( 'About content can go here...', 'wireframe-plugin' ); ?></p>
 	</div>
 <?php
 }
 
 /**
- * Page 3: Example.
+ * Example callback: FAQ page.
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
+ * @see   functions-helpers.php
+ * @see   config-admin.php
  */
-function wireframe_plugin_view_sub3() {
+function wireframe_plugin_callback_faq() {
 	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
-		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?>&nbsp;<?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
-		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wireframe-plugin' ); ?>
-		</div>
-		<div class="wp-badge">
-			<?php esc_html_e( 'Version', 'wireframe-plugin' ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?>
-		</div>
-		<?php wireframe_plugin_tpl_tabs(); ?>
-		<h3><?php esc_html_e( 'This is Subpage 3', 'wireframe-plugin' ); ?></h3>
-		<p><?php esc_html_e( 'This should appear after clicking the 3rd tab, yo.', 'wireframe-plugin' ); ?></p>
+		<?php wireframe_plugin_tpl_header(); ?>
+		<h3><?php esc_html_e( 'FAQ Heading', 'wireframe-plugin' ); ?></h3>
+		<p><?php esc_html_e( 'Frequently Asked Questions content can go here...', 'wireframe-plugin' ); ?></p>
 	</div>
 <?php
 }
 
 /**
- * Page 4: Example.
+ * Example callback: Support page.
  *
  * @since 1.0.0 Wireframe_Plugin
- * @see   helpers-functions.php
+ * @see   functions-helpers.php
+ * @see   config-admin.php
  */
-function wireframe_plugin_view_sub4() {
+function wireframe_plugin_callback_support() {
 	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
-		<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?>&nbsp;<?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
-		<div class="about-text">
-			<?php esc_html_e( 'This is a brief plugin description.', 'wireframe-plugin' ); ?>
-		</div>
-		<div class="wp-badge">
-			<?php esc_html_e( 'Version', 'wireframe-plugin' ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?>
-		</div>
-		<?php wireframe_plugin_tpl_tabs(); ?>
-		<h3><?php esc_html_e( 'Here we have the delicious subpage #4', 'wireframe-plugin' ); ?></h3>
-		<p><?php esc_html_e( 'Clicking the 4th tab brings you here.', 'wireframe-plugin' ); ?></p>
+		<?php wireframe_plugin_tpl_header(); ?>
+		<h3><?php esc_html_e( 'Support Heading', 'wireframe-plugin' ); ?></h3>
+		<p><?php esc_html_e( 'Support content can go here...', 'wireframe-plugin' ); ?></p>
 	</div>
 <?php
 }

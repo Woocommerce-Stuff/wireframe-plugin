@@ -104,12 +104,12 @@ function wireframe_plugin_config_admin() {
 	 * @var   array $menu_pages
 	 */
 	$menu_pages = array(
-		'page1' => array(
+		'landing' => array(
 			'page_title' => 'Wireframe Plugin',
 			'menu_title' => 'Wireframe Plugin',
 			'capability' => 'manage_options',
 			'menu_slug'  => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'callback'   => 'wireframe_plugin_view_quickstart',
+			'callback'   => 'wireframe_plugin_callback_landing',
 			'icon_url'   => esc_url( '' ),
 			'position'   => 9999,
 		),
@@ -120,31 +120,32 @@ function wireframe_plugin_config_admin() {
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $submenu_pages
+	 * @see   https://wordpress.stackexchange.com/questions/66498
 	 */
 	$submenu_pages = array(
-		'page2' => array(
+		'about' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'Submenu Page 1',
-			'menu_title'  => 'Page 2',
+			'page_title'  => 'About',
+			'menu_title'  => 'About',
 			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-page2' ),
-			'callback'    => 'wireframe_plugin_view_sub2',
+			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
+			'callback'    => 'wireframe_plugin_callback_about',
 		),
-		'page3' => array(
+		'faq' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'Submenu Page 2',
-			'menu_title'  => 'Page 3',
+			'page_title'  => 'FAQ',
+			'menu_title'  => 'FAQ',
 			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-page3' ),
-			'callback'    => 'wireframe_plugin_view_sub3',
+			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-faq' ),
+			'callback'    => 'wireframe_plugin_callback_faq',
 		),
-		'page4' => array(
+		'support' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'Submenu Page 3',
-			'menu_title'  => 'Page 4',
+			'page_title'  => 'Support',
+			'menu_title'  => 'Support',
 			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-page4' ),
-			'callback'    => 'wireframe_plugin_view_sub4',
+			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-support' ),
+			'callback'    => 'wireframe_plugin_callback_support',
 		),
 	);
 
