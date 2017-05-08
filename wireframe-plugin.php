@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Wireframe Plugin
  * Plugin URI:  https://github.com/mixatheme/wireframe-plugin
- * Description: Wireframe Plugin is an OOP boilerplate starter plugin for WordPress. Wireframe Plugin enables WordPress Developers to rapidly wire GPL and WordPress Coding Standards compliant plugins for professional client projects or for selling premium plugins in any marketplace. Wireframe Plugin is part of the Wireframe Suite for WordPress by MixaTheme.
+ * Description: Wireframe Plugin is an OOP WordPress boilerplate plugin. Wireframe Plugin enables WordPress Developers to rapidly wire GPL and WordPress Coding Standards compliant plugins for professional client projects or for selling premium plugins in any marketplace. Wireframe Plugin is part of the Wireframe Suite for WordPress by MixaTheme.
  * Version:     1.0.0
  * Text Domain: wireframe-plugin
  * Domain Path: /languages
