@@ -303,7 +303,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * Data files are located in: `wireframe_dev/wireframe/config/`
 	 *
 	 * PRO-TIP: For completeness, the default Wireframe_Plugin is packaged with
- * multiple config files. You most likely do not need all these.
+	 * multiple config files. You most likely do not need all these.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
@@ -445,7 +445,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * Data files are located in: `wireframe_dev/wireframe/config/`
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @see   object $wireframe_plugin Instance of Plugin.
+	 * @see   object $wireframe_plugin Instance of Core_Plugin.
 	 */
 	register_activation_hook( __FILE__, array( $wireframe_plugin->controller(), 'activate' ) );
 	register_deactivation_hook( __FILE__, array( $wireframe_plugin->controller(), 'deactivate' ) );
