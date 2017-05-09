@@ -229,7 +229,7 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
  * `composer.json` file is located, then execute: composer dump-autoload -o
  *
  * PRO-TIP: For completeness, the default Wireframe_Plugin is packaged with
- * multiple objects files. You most likely do not need all these.
+ * multiple objects. You most likely do not need all these files.
  *
  * @since 1.0.0 Wireframe_Plugin
  * @since 1.1.2 Composer
