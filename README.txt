@@ -47,7 +47,7 @@ Wireframe Plugin takes a unique approach to WordPress theme development...
 * [DRY](http://stackoverflow.com/questions/6453235/what-does-damp-not-dry-mean-when-talking-about-unit-tests) principles.
 * [PHP Namespaces](http://stackoverflow.com/questions/3384204/what-are-namespaces).
 * [PSR-4](http://www.php-fig.org/psr/psr-4/) PHP Standards Recommendations.
-* [Bootstrapping](http://stackoverflow.com/questions/1254542/what-is-bootstrapping) functions.php.
+* [Bootstrapping](http://stackoverflow.com/questions/1254542/what-is-bootstrapping) wireframe.php.
 * [Composer](https://getcomposer.org) dependency management for autloading.
 * [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) compliance.
 
