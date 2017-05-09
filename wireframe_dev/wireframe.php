@@ -228,6 +228,9 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
  * lines below with the `Autoload Example` above, `cd` to the directory where the
  * `composer.json` file is located, then execute: composer dump-autoload -o
  *
+ * PRO-TIP: For completeness, the default Wireframe_Plugin is packaged with
+ * multiple objects files. You most likely do not need all these.
+ *
  * @since 1.0.0 Wireframe_Plugin
  * @since 1.1.2 Composer
  * @see   composer.json
@@ -298,6 +301,9 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *            data inside closures, then you don't need to require files.
 	 *
 	 * Data files are located in: `wireframe_dev/wireframe/config/`
+	 *
+	 * PRO-TIP: For completeness, the default Wireframe_Plugin is packaged with
+ * multiple config files. You most likely do not need all these.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
