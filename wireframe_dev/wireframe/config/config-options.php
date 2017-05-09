@@ -33,9 +33,9 @@ namespace MixaTheme\Wireframe\Plugin;
  * Stores array of default config data for passing into objects.
  *
  * Option #1: We use a function so the config data can be called and reused
- *            easily when you neeed it.
+ *            easily when you need it.
  *
- * Option #2: Put your array data inside a Service closure (see wireframe-plugin.php).
+ * Option #2: Put your array data inside a Service closure (see wireframe.php).
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
@@ -70,7 +70,7 @@ function wireframe_plugin_config_options() {
 	 * Actions to hook.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $actions Requires $enabled = true.
+	 * @var   array $actions Requires $enabled = true. Default: array()
 	 */
 	$actions = array();
 
@@ -78,7 +78,7 @@ function wireframe_plugin_config_options() {
 	 * Filters to hook.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $filters Requires $enabled = true.
+	 * @var   array $filters Requires $enabled = true. Default: array()
 	 * @todo  WIP.
 	 */
 	$filters = array();
@@ -87,7 +87,7 @@ function wireframe_plugin_config_options() {
 	 * Defaults. This is just a placeholder array for you to modify.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $options Your custom defaults for this config.
+	 * @var   array $options Your custom defaults for this config. Default: array()
 	 */
 	$defaults = array();
 

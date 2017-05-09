@@ -33,9 +33,9 @@ namespace MixaTheme\Wireframe\Plugin;
  * Stores array of default config data for passing into objects.
  *
  * Option #1: We use a function so the config data can be called and reused
- *            easily when you neeed it.
+ *            easily when you need it.
  *
- * Option #2: Put your array data inside a Service closure (see wireframe-plugin.php).
+ * Option #2: Put your array data inside a Service closure (see wireframe.php).
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *

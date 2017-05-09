@@ -40,7 +40,7 @@ defined( 'ABSPATH' ) or die();
  * Stores array of default config data for passing into objects.
  *
  * Option #1: We use a function so the config data can be called and reused
- *            easily when you neeed it.
+ *            easily when you need it.
  *
  * Option #2: Put your array data inside a Service closure (see wireframe.php).
  *            Another alternative is putting all your object configs into one
@@ -111,7 +111,7 @@ function wireframe_plugin_config_ui() {
 	 * to set the property $wired = true (above).
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $filters Filters to hook.
+	 * @var   array $filters Filters to hook. Default: array()
 	 * @todo  WIP.
 	 */
 	$filters = array();

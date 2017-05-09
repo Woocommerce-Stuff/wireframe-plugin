@@ -33,9 +33,9 @@ namespace MixaTheme\Wireframe\Plugin;
  * Stores array of default config data for passing into objects.
  *
  * Option #1: We use a function so the config data can be called and reused
- *            easily when you neeed it.
+ *            easily when you need it.
  *
- * Option #2: Put your array data inside a Service closure (see wireframe-plugin.php).
+ * Option #2: Put your array data inside a Service closure (see wireframe.php).
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
@@ -70,7 +70,7 @@ function wireframe_plugin_config_controller() {
 	 * Actions to hook.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $actions Requires $enabled = true.
+	 * @var   array $actions Requires $enabled = true. Default: array()
 	 */
 	$actions = array();
 
@@ -78,7 +78,7 @@ function wireframe_plugin_config_controller() {
 	 * Filters to hook.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $filters Requires $enabled = true.
+	 * @var   array $filters Requires $enabled = true. Default: array()
 	 * @todo  WIP.
 	 */
 	$filters = array();
@@ -86,55 +86,73 @@ function wireframe_plugin_config_controller() {
 	/**
 	 * DB tables.
 	 *
+	 * Example:
+	 *
+	 * 		$dbtables = new Plugin_DBTables( wireframe_plugin_config_dbtables() );
+	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   object Plugin_DBTables( @param callable )
+	 * @var   null|object Plugin_DBTables( @param callable ). Default: null
 	 */
-	// $dbtables = new Plugin_DBTables( wireframe_plugin_config_dbtables() );
 	$dbtables = null;
 
 	/**
 	 * CPT.
 	 *
+	 * Example:
+	 *
+	 * 		$cpt = new Plugin_CPT( wireframe_plugin_config_cpt() );
+	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   object Plugin_CPT( @param callable )
+	 * @var   null|object Plugin_CPT( @param callable ). Default: null
 	 */
-	// $cpt = new Plugin_CPT( wireframe_plugin_config_cpt() );
 	$cpt = null;
 
 	/**
 	 * CPT.
 	 *
+	 * Example:
+	 *
+	 * 		$taxonomy = new Plugin_Taxonomy( wireframe_plugin_config_taxonomy() );
+	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   object Plugin_Taxonomy( @param callable )
+	 * @var   null|object Plugin_Taxonomy( @param callable ). Default: null
 	 */
-	// $taxonomy = new Plugin_Taxonomy( wireframe_plugin_config_taxonomy() );
 	$taxonomy = null;
 
 	/**
 	 * CPT.
 	 *
+	 * Example:
+	 *
+	 * 		$shortcode = new Plugin_Shortcode( wireframe_plugin_config_shortcode() );
+	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   object Plugin_Shortcode( @param callable )
+	 * @var   null|object Plugin_Shortcode( @param callable ). Default: null
 	 */
-	// $shortcode = new Plugin_Shortcode( wireframe_plugin_config_shortcode() );
 	$shortcode = null;
 
 	/**
 	 * Options.
 	 *
+	 * Example:
+	 *
+	 * 		$options = new Plugin_Options( wireframe_plugin_config_options() );
+	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   object Plugin_Options( @param callable )
+	 * @var   null|object Plugin_Options( @param callable ). Default: null
 	 */
-	// $options = new Plugin_Options( wireframe_plugin_config_options() );
 	$options = null;
 
 	/**
 	 * Settings.
 	 *
+	 * Example:
+	 *
+	 * 		$settings = new Plugin_Settings( wireframe_plugin_config_settings() );
+	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   object Plugin_Settings( @param callable )
+	 * @var   null|object Plugin_Settings( @param callable ). Default: null
 	 */
-	// $settings = new Plugin_Settings( wireframe_plugin_config_settings() );
 	$settings = null;
 
 	/**
