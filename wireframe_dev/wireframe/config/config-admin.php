@@ -68,12 +68,28 @@ function wireframe_plugin_config_admin() {
 	$prefix = WIREFRAME_PLUGIN_PREFIX;
 
 	/**
-	 * Actions to hook.
+	 * Actions.
+	 *
+	 * Most objects will usually need actions to be hooked at some point.
+	 * You can set your actions in a multi-dimensional array and remember
+	 * to set the property $wired = true (above).
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $actions Requires $enabled = true.
+	 * @var   array $actions Actions to hook.
 	 */
 	$actions = array(
+		'styles' => array(
+			'tag'      => 'admin_enqueue_scripts',
+			'function' => 'styles',
+			'priority' => 10,
+			'args'     => null,
+		),
+		'scripts' => array(
+			'tag'      => 'admin_enqueue_scripts',
+			'function' => 'scripts',
+			'priority' => 10,
+			'args'     => null,
+		),
 		'menu_pages' => array(
 			'tag'      => 'admin_menu',
 			'function' => 'menu_pages',
@@ -96,6 +112,64 @@ function wireframe_plugin_config_admin() {
 	 * @todo  WIP.
 	 */
 	$filters = array();
+
+	/**
+	 * Stylesheet(s) to load.
+	 *
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array $styles Array of stylesheets to enqueue.
+	 */
+	$styles = array(
+		'admin_css' => array(
+			'path'    => WIREFRAME_PLUGIN_CSS,
+			'file'    => 'wireframe-plugin-admin-min',
+			'deps'    => array(),
+			'version' => '1.0.0',
+			'media'   => 'all',
+
+		),
+	);
+
+	/**
+	 * Script(s) to load.
+	 *
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array $scripts Array of scripts to enqueue.
+	 */
+	$scripts = array(
+		'admin_js' => array(
+			'path'     => WIREFRAME_PLUGIN_JS,
+			'file'     => 'wireframe-plugin-admin-min',
+			'deps'     => array( 'jquery' ),
+			'footer'   => true,
+			'localize' => array(),
+		),
+	);
+
+	/**
+	 * Load media modal.
+	 *
+	 * Some plugins may need to tap into the Media Modal.
+	 *
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   bool $media True loads wp_enqueue_media(). Default: false.
+	 * @todo  WIP. Should we contextually enqueue media modal?
+	 */
+	$mediamodal = false;
+
+	/**
+	 * This object depends on the Core_Enqueue object, so we need to intantiate
+	 * the Core_Enqueue object and pass-in parameters.
+	 *
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   object Core_Enqueue(
+	 *        @param string     $prefix     Required prefix for handles.
+	 *        @param array|null $styles     Optional styles.
+	 *        @param array|null $scripts    Optional scripts.
+	 *        @param bool|null  $mediamodal Optional media modal.
+	 * )
+	 */
+	$enqueue = new Core_Enqueue( $prefix, $styles, $scripts, $mediamodal );
 
 	/**
 	 * Top-level Admin pages.
@@ -169,6 +243,7 @@ function wireframe_plugin_config_admin() {
 		'prefix'        => $prefix,
 		'actions'       => $actions,
 		'filters'       => $filters,
+		'enqueue'       => $enqueue,
 		'menu_pages'    => $menu_pages,
 		'submenu_pages' => $submenu_pages,
 	);

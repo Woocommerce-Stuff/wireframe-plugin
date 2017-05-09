@@ -50,6 +50,14 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 	 */
 	final class Plugin_Admin extends Core_Module_Abstract implements Plugin_Admin_Interface {
 		/**
+		 * Enqueue.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @var   object $_enqueue
+		 */
+		private $_enqueue;
+
+		/**
 		 * Menu Pages.
 		 *
 		 * @since 1.0.0 Wireframe_Plugin
@@ -74,6 +82,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		public function __construct( $config ) {
 
 			// Custom properties required for this class.
+			$this->_enqueue      = $config['enqueue'];
 			$this->menu_pages    = $config['menu_pages'];
 			$this->submenu_pages = $config['submenu_pages'];
 
@@ -94,6 +103,39 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 			if ( isset( $this->wired ) && true === $this->wired ) {
 				$this->wire_actions( $this->_actions );
 				$this->wire_filters( $this->_filters );
+			}
+		}
+
+		/**
+		 * Enqueue Styles.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function styles() {
+			if ( null !== $this->_enqueue->styles() ) {
+				$this->_enqueue->styles();
+			}
+		}
+
+		/**
+		 * Enqueue Scripts.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function scripts() {
+			if ( null !== $this->_enqueue->scripts() ) {
+				$this->_enqueue->scripts();
+			}
+		}
+
+		/**
+		 * Enqueue Media Modal.
+		 *
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function mediamodal() {
+			if ( null !== $this->_enqueue->mediamodal() ) {
+				$this->_enqueue->mediamodal();
 			}
 		}
 
