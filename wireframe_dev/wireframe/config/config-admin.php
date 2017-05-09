@@ -45,6 +45,18 @@ namespace MixaTheme\Wireframe\Plugin;
  */
 function wireframe_plugin_config_admin() {
 	/**
+	 * Module.
+	 *
+	 * Is this module for a theme or a plugin?
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   string $module The module type. Default: plugin
+	 */
+	$module = 'plugin';
+
+	/**
 	 * Wired.
 	 *
 	 * Wires the Plugin_Admin actions & filters at runtime. Since all plugins

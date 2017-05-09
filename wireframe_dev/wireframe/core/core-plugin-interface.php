@@ -6,7 +6,7 @@
  *
  * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Plugin
+ * @version   1.0.0 Wireframe
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com

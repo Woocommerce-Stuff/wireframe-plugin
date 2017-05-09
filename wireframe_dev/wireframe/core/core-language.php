@@ -1,12 +1,12 @@
 <?php
 /**
- * Core_Language is a Wireframe class.
+ * Core_Language is a Wireframe core class.
  *
  * PHP version 5.6.0
  *
  * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Plugin
+ * @version   1.0.0 Wireframe
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -33,6 +34,7 @@ use WP_Error;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -40,84 +42,103 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language' ) ) :
 	/**
-	 * Core_Language is a core Wireframe class for i18n & l10n translation.
+	 * Core_Language is a Wireframe core class for wiring i18n & l10n translation.
 	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Theme
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
-	 * @todo  There's zero reason for this to be a class.
 	 */
 	final class Core_Language extends Core_Module_Abstract implements Core_Language_Interface {
 		/**
-		 * Relative path to ABSPATH of a folder, where the .mo file resides.
-		 * Deprecated, but still functional until 2.7.
+		 * Module.
 		 *
-		 * @access protected
+		 * Is this module for a theme or a plugin?
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $abs_rel_path
+		 * @var    string $_module The module type. Default: plugin
 		 */
-		protected $abs_rel_path;
+		private $_module = 'plugin';
 
 		/**
-		 * Relative path to WP_PLUGIN_DIR. This is the preferred argument to use.
-		 * It takes precedence over .
+		 * Path.
 		 *
-		 * @access protected
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $plugin_rel_path
+		 * @var    array $_path Path to language file.
 		 */
-		protected $plugin_rel_path;
+		private $_path;
+
+		/**
+		 * Use the $plugin_rel_path parameter instead.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    bool $_deprecated
+		 */
+		private $_deprecated = false;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Data via config file.
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->abs_rel_path    = $config['abs_rel_path'];
-			$this->plugin_rel_path = $config['plugin_rel_path'];
+			// Declare custom properties required for this class.
+			$this->_module     = $config['module'];
+			$this->_path       = $config['path'];
+			$this->_deprecated = $config['deprecated'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
-		 * Load plugin textdomain.
+		 * Load theme textdomain.
 		 *
-		 * @since  3.1.0 WordPress
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @see    load_plugin_textdomain( $domain, $abs_rel_path, $plugin_rel_path )
+		 * @since 3.1.0 WordPress
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function textdomain() {
-			if ( isset( $this->prefix ) && isset( $this->plugin_rel_path ) ) {
-				load_plugin_textdomain(
-					$this->prefix,
-					$this->abs_rel_path,
-					$this->plugin_rel_path
+
+			// Check for required properties.
+			if ( isset( $this->_prefix ) && isset( $this->_path ) ) :
+
+				// Allow properties to be filtered.
+				$filterable = apply_filters(
+					$this->_prefix . '_' . __FUNCTION__,
+					$this->_path
 				);
-			}
+
+				// Switch module type.
+				switch ( $this->_module ) {
+					case 'theme':
+						load_theme_textdomain( $this->_prefix, $filterable );
+						break;
+					case 'plugin':
+						load_plugin_textdomain( $this->_prefix, $this->_deprecated, $filterable );
+						break;
+				}
+
+			endif;
 		}
 
 	} // Core_Language.

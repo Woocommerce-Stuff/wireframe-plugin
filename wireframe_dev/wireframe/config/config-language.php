@@ -52,6 +52,18 @@ defined( 'ABSPATH' ) or die();
  */
 function wireframe_plugin_config_language() {
 	/**
+	 * Module.
+	 *
+	 * Is this module for a theme or a plugin?
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   string $module The module type. Default: plugin
+	 */
+	$module = 'plugin';
+
+	/**
 	 * Wired.
 	 *
 	 * Wires the Core_Language actions & filters at runtime. Since all plugins
@@ -74,9 +86,9 @@ function wireframe_plugin_config_language() {
 	 * you can change it here if needed. Default: WIREFRAME_PLUGIN_PREFIX
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   string $prefix Prefix for handles. Default: WIREFRAME_PLUGIN_PREFIX
+	 * @var   string $prefix Prefix for handles. Default: WIREFRAME_PLUGIN_TEXTDOMAIN
 	 */
-	$prefix = WIREFRAME_PLUGIN_PREFIX;
+	$prefix = WIREFRAME_PLUGIN_TEXTDOMAIN;
 
 	/**
 	 * Actions.
@@ -111,20 +123,21 @@ function wireframe_plugin_config_language() {
 	$filters = array();
 
 	/**
-	 * Language: Relative path to ABSPATH of a folder, where the .mo file resides.
+	 * Language: Use the $plugin_rel_path parameter instead?
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   bool $abs_rel_path Language path. Default: false
+	 * @var   bool $deprecated Language path. Default: false
+	 * @see   https://developer.wordpress.org/reference/functions/load_plugin_textdomain/
 	 */
-	$abs_rel_path = false;
+	$deprecated = false;
 
 	/**
-	 * Language: Relative path to WP_PLUGIN_DIR. This is the preferred argument to use.
+	 * Language: Relative path.
 	 *
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $path Language path. Default: WIREFRAME_PLUGIN_LANG
 	 */
-	$plugin_rel_path = WIREFRAME_PLUGIN_LANG;
+	$path = WIREFRAME_PLUGIN_LANG;
 
 	/**
 	 * Option #1: Return (array) of config data for passing into objects.
@@ -142,12 +155,13 @@ function wireframe_plugin_config_language() {
 	 * @return array|object
 	 */
 	return array(
-		'wired'           => $wired,
-		'prefix'          => $prefix,
-		'actions'         => $actions,
-		'filters'         => $filters,
-		'abs_rel_path'    => $abs_rel_path,
-		'plugin_rel_path' => $plugin_rel_path,
+		'module'     => $module,
+		'wired'      => $wired,
+		'prefix'     => $prefix,
+		'actions'    => $actions,
+		'filters'    => $filters,
+		'deprecated' => $deprecated,
+		'path'       => $path,
 	);
 
 } // Thanks for using MixaTheme products!

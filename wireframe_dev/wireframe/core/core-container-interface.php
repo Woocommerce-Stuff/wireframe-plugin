@@ -6,7 +6,7 @@
  *
  * @package   Wireframe_Plugin
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe_Plugin
+ * @version   1.0.0 Wireframe
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,15 +41,17 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container_Interface' ) ) :
 	/**
-	 * Core_Container_Interface is a core Wireframe contract for storing objects.
+	 * Core_Container_Interface is a core contract for storing objects.
 	 *
 	 * Instantiates a new service closure. A getter or setter will run
 	 * determined by the requested service key.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @see   http://fabien.potencier.org/do-you-need-a-dependency-injection-container.html
@@ -58,6 +62,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container_Interface' ) ) :
 		/**
 		 * Register service with the Storage array.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param string   $service  Service key.
 		 * @param callable $resolver Service instance value.
@@ -67,6 +72,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container_Interface' ) ) :
 		/**
 		 * Get service from the Storage array.
 		 *
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  string $service Service key.
 		 * @return callable Closure as an object instance.
