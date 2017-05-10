@@ -20,9 +20,15 @@
  * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* WordPress Version Badge Override */
+/**
+ * WordPress Version Badge replacement.
+ *
+ * @since  1.0.0 Wireframe_Plugin
+ * @author Automattic, MixaTheme
+*/
 
-.wp-badge {
+// The PNG badge.
+.wireframe-plugin-badge {
 	background: #33CCCC url(../img/wireframe-plugin-badge-white.png?ver=20170510) no-repeat;
 	background-position: center 25px;
 	-webkit-background-size: 80px 80px;
@@ -41,12 +47,23 @@
 	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-.svg .wp-badge {
+// The SVG badge.
+.svg .wireframe-plugin-badge {
 	background-image: url(../img/wireframe-plugin-badge-white.svg?ver=20170510);
 }
 
-.about-wrap .wp-badge {
+// Badge positioning.
+.about-wrap .wireframe-plugin-badge {
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+// Badge positioning on mobile and small screens.
+@media only screen and (max-width: 500px) {
+	.about-wrap .wireframe-plugin-badge {
+		position: relative;
+		margin-bottom: 1.5em;
+		width: 100%;
+	}
 }
