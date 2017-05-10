@@ -22,36 +22,6 @@
  */
 
 /**
- * Wireframe Plugin Admin Check Screen.
- *
- * @since 1.0.0 Wireframe_Plugin
- */
-function wireframe_plugin_admin_check_screen() {
-
-	$toplevel = 'toplevel_page_wireframe';
-	$screen   = get_current_screen();
-
-	if ( $screen->id = $toplevel ) {
-		$css = 'toplevel';
-	} else {
-		switch ( $screen->id ) {
-			case 'wireframe-plugin_page_wireframe-plugin-page2':
-				$css = 'page2';
-				break;
-			case 'wireframe-plugin_page_wireframe-plugin-page3':
-				$css = 'page3';
-				break;
-			case 'wireframe-plugin_page_wireframe-plugin-page4':
-				$css = 'page4';
-				break;
-			default:
-				$css = 'toplevel_page_wireframe-plugin';
-				break;
-		}
-	}
-}
-
-/**
  * Wireframe Plugin Admin Check.
  *
  * Check if the current user has Admin permmissions.
