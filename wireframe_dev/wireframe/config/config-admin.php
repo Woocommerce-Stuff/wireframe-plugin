@@ -136,8 +136,8 @@ function wireframe_plugin_config_admin() {
 			'path'    => WIREFRAME_PLUGIN_CSS,
 			'file'    => 'wireframe-plugin-admin-min',
 			'deps'    => array(),
-			'version' => '1.0.0',
-			'media'   => 'all',
+			'version' => WIREFRAME_PLUGIN_VERSION,
+			'media'   => 'screen',
 
 		),
 	);

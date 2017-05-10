@@ -121,8 +121,21 @@ function wireframe_plugin_admin_page_tabs_support() {
  * This is the badge graphic which appears on the Admin page. You should add a
  * graphic to your CSS file, then call that CSS selector. Default: wp-badge
  *
+ * PRO-TIP: Locate the SVG badge in your default WordPress installation folder
+ * located at: .../wp-admin/images/wordpress-logo-white.svg, copy that file
+ * to: wireframe-plugin/wireframe_client/img, edit that file in an SVG editor,
+ * replace with your own logo, then re-save the file as an SVG. Lastly, re-save
+ * that file again as a PNG. You should have 1 SVG file and 1 PNG file.
+ * If you change the filename, you will need to update your SCSS and CSS files
+ * to reflect the new filename.
+ *
  * @since 1.0.0 Wireframe_Plugin
  * @see   functions-helpers.php Admin check function.
+ * @see   wp-admin/images/wordpress-logo-white.svg
+ * @see   wireframe-plugin/wireframe_client/img/mixatheme-wireframe-badge-white.svg
+ * @see   wireframe-plugin/wireframe_client/img/mixatheme-wireframe-badge-white.png
+ * @see   wireframe-plugin/wireframe_client/css/wireframe-plugin-admin.scss
+ * @see   wireframe-plugin/wireframe_client/css/wireframe-plugin-admin-min.css
  */
 function wireframe_plugin_admin_page_badge() {
 	wireframe_plugin_admin_check();
