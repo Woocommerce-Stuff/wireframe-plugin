@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since  1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -45,6 +47,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 	/**
 	 * Core_Plugin_Interface is acore Wireframe contract for DI plugin objects.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   object Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
@@ -53,6 +56,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 		/**
 		 * Get Controller.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function controller();
@@ -60,6 +64,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 		/**
 		 * Get Admin.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function admin();
@@ -67,6 +72,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 		/**
 		 * Get UI.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function ui();

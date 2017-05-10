@@ -34,6 +34,7 @@ namespace MixaTheme\Wireframe\Plugin;
  * No direct access to this file.
  *
  * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Theme
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -52,6 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container_Interface' ) ) :
 	 * determined by the requested service key.
 	 *
 	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Theme
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @see   http://fabien.potencier.org/do-you-need-a-dependency-injection-container.html
@@ -63,6 +65,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container_Interface' ) ) :
 		 * Register service with the Storage array.
 		 *
 		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param string   $service  Service key.
 		 * @param callable $resolver Service instance value.
@@ -73,6 +76,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container_Interface' ) ) :
 		 * Get service from the Storage array.
 		 *
 		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  string $service Service key.
 		 * @return callable Closure as an object instance.

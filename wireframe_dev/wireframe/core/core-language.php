@@ -35,6 +35,7 @@ use WP_Error;
  * No direct access to this file.
  *
  * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Theme
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();

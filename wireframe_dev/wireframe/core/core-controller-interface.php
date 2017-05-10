@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller_Interface' ) ) :
 	/**
 	 * Core_Controller_Interface is a core Wireframe contract for plugin activation.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -52,6 +56,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller_Interface' ) ) 
 		/**
 		 * Activate.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function activate();
@@ -59,6 +64,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller_Interface' ) ) 
 		/**
 		 * Deactivate.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function deactivate();
@@ -66,6 +72,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller_Interface' ) ) 
 		/**
 		 * Uninstall.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public static function uninstall();

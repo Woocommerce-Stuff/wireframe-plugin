@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Theme
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,20 +33,26 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
 
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 	/**
 	 * Core_Module_Abstract is is a core theme contract for wiring actions & hooks.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
+	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	abstract class Core_Module_Abstract {
@@ -53,7 +60,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Prefix.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_prefix
 		 */
 		protected $_prefix = '';
@@ -62,7 +71,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Wired.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_wired
 		 */
 		protected $_wired = false;
@@ -71,7 +82,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Actions.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_actions
 		 */
 		protected $_actions = array();
@@ -80,7 +93,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Filters.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_filters
 		 */
 		protected $_filters = array();
@@ -88,7 +103,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		/**
 		 * Constructor runs when this class instantiates.
 		 *
-		 * @since 1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @param array $config Data via config file.
 		 */
 		public function __construct( $config ) {
@@ -116,7 +133,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		/**
 		 * Get property.
 		 *
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  string $var Property to get.
 		 */
 		public function get( $var ) {
@@ -129,7 +148,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Wire Actions.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  array $actions Actions to hook.
 		 */
 		protected function wire_actions( $actions ) {
@@ -144,7 +165,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * Wire Filters.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Theme
+		 * @since  1.0.0 Wireframe_Plugin
 		 * @param  array $filters Filters to hook.
 		 */
 		protected function wire_filters( $filters ) {
@@ -155,6 +178,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 			}
 		}
 
-	} // Wireframe.
+	} // Core_Module_Abstract.
 
 endif; // Thanks for using MixaTheme products!

@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 	/**
 	 * Core_Controller is a core Wireframe class for plugin activation.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -53,6 +57,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * DB Tables.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    object $_dbtables
 		 */
@@ -62,6 +67,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * CPT.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    object $_cpt
 		 */
@@ -71,6 +77,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * Taxonomy.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    object $_taxonomy
 		 */
@@ -80,6 +87,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * Shortcode.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    object $_shortcode
 		 */
@@ -89,6 +97,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * Options.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    object $_options
 		 */
@@ -98,6 +107,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * Settings.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    object $_settings
 		 */
@@ -106,6 +116,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Required array of config variables.
 		 */
@@ -137,6 +148,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		/**
 		 * Activate.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function activate() {
@@ -146,6 +158,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		/**
 		 * Deactivate.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function deactivate() {}
@@ -153,6 +166,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		/**
 		 * Uninstall.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public static function uninstall() {}
@@ -166,6 +180,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * instantiated or missing a valid SQL statement, no tables are created.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @see    object DBTables
 		 * @see    wireframe_plugin_config_controller()
@@ -182,6 +197,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * Drop DB Tables.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @see    object DBTables
 		 * @see    wireframe_plugin_config_controller()

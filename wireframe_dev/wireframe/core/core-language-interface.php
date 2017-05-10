@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -33,6 +34,8 @@ use WP_Error;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Theme
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -40,12 +43,15 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language_Interface' ) ) :
 	/**
 	 * Core_Language_Interface is a core Wireframe class for i18n & l10n translation.
 	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Theme
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 * @todo  There's zero reason for this to be a class.
@@ -55,6 +61,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language_Interface' ) ) :
 		 * Load plugin textdomain.
 		 *
 		 * @since  1.5.0 WordPress
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Theme
 		 * @since  1.0.0 Wireframe_Plugin
 		 */
 		public function textdomain();
