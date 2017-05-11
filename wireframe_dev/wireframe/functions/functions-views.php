@@ -163,7 +163,7 @@ function wireframe_plugin_admin_page_header() {
 	?>
 	<h1><?php echo esc_html( WIREFRAME_PLUGIN_PRODUCT ); ?> <?php echo esc_html( WIREFRAME_PLUGIN_VERSION ); ?></h1>
 	<div class="about-text">
-		<?php esc_html_e( 'This is a brief plugin description.', 'wireframe-plugin' ); ?>
+		<?php esc_html_e( 'Wireframe Plugin is an OOP WordPress plugin boilerplate. Wireframe Plugin enables WordPress Developers to rapidly wire GPL and WordPress Coding Standards compliant plugins for professional client projects or for selling premium plugins in any marketplace. Wireframe Plugin is part of the Wireframe Suite for WordPress by MixaTheme.', 'wireframe-plugin' ); ?>
 	</div>
 	<?php wireframe_plugin_admin_page_badge(); ?>
 	<?php
