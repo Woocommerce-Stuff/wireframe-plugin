@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,6 +41,7 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
@@ -49,6 +52,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 	 * your plugin is uninstalled. Due to the delicate nature of altering the
 	 * database, careful consideration and security should be prioritized.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -57,14 +61,16 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * Defaults.
 		 *
 		 * @access private
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @var   array $defaults
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $defaults
 		 */
 		private $defaults;
 
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Required SQL statement.
 		 */
@@ -75,7 +81,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		/**
 		 * Get Defaults.
 		 *
-		 * @since  1.0.0 Wireframe_Plugin
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults() {
 			if ( isset( $this->defaults ) ) {
@@ -88,9 +95,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		/**
 		 * Create.
 		 *
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @param  string $id  The key defined via your object config.
-		 * @param  string $sql The query for new table creation.
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param string $id  The key defined via your object config.
+		 * @param string $sql The query for new table creation.
 		 */
 		public function create( $id, $sql ) {
 			if ( null !== $this->get_defaults() ) {
@@ -103,8 +111,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		/**
 		 * Drop.
 		 *
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @param  string $id  The key defined via your object config.
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param string $id  The key defined via your object config.
 		 */
 		public function drop( $id ) {
 			if ( null !== $this->get_defaults() ) {
@@ -116,6 +125,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * Get database prefix.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @global object $wpdb
 		 */
@@ -136,6 +146,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * Add database table.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @global object $wpdb
 		 * @param  string $id  The key defined via your object config.
@@ -182,6 +193,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * Remove database table.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @global object $wpdb
 		 * @param  string $id The key defined via your object config.
@@ -208,6 +220,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 			$wpdb->query( $sql );
 		}
 
-	} // DBTables.
+	} // Plugin_DBTables.
 
 endif; // Thanks for using MixaTheme products!

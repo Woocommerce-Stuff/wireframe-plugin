@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 	/**
 	 * Plugin_UI is a theme class for wiring front-end presentation methods.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -52,6 +56,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 		/**
 		 * Enqueue.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @var   object $_enqueue
 		 */
@@ -60,6 +65,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 		/**
 		 * Constructor runs when this class instantiates.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Config data.
 		 */
@@ -75,6 +81,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 		/**
 		 * Enqueue Styles.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function styles() {
@@ -86,6 +93,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 		/**
 		 * Enqueue Scripts.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function scripts() {
@@ -97,6 +105,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 		/**
 		 * Enqueue Media Modal.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function mediamodal() {

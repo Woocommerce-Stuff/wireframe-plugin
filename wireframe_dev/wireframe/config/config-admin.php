@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -39,6 +40,7 @@ namespace MixaTheme\Wireframe\Plugin;
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
+ * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
  * @see    object Plugin_Admin
  * @return array  Default configuration values.
@@ -66,6 +68,7 @@ function wireframe_plugin_config_admin() {
 	 * is instantiated. This is optional, because some objects do not need any
 	 * actions or filters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: true
 	 */
@@ -74,6 +77,7 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Prefix for handles.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $prefix Default: WIREFRAME_PLUGIN_PREFIX
 	 */
@@ -86,6 +90,7 @@ function wireframe_plugin_config_admin() {
 	 * You can set your actions in a multi-dimensional array and remember
 	 * to set the property $wired = true (above).
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Actions to hook.
 	 */
@@ -119,6 +124,7 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Filters to hook.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Requires $enabled = true.
 	 * @todo  WIP.
@@ -128,6 +134,7 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Stylesheet(s) to load.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $styles Array of stylesheets to enqueue.
 	 */
@@ -145,6 +152,7 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Script(s) to load.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $scripts Array of scripts to enqueue.
 	 */
@@ -163,6 +171,7 @@ function wireframe_plugin_config_admin() {
 	 *
 	 * Some plugins may need to tap into the Media Modal.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $media True loads wp_enqueue_media(). Default: false.
 	 * @todo  WIP. Should we contextually enqueue media modal?
@@ -173,6 +182,7 @@ function wireframe_plugin_config_admin() {
 	 * This object depends on the Core_Enqueue object, so we need to intantiate
 	 * the Core_Enqueue object and pass-in parameters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   object Core_Enqueue(
 	 *        @param string     $prefix     Required prefix for handles.
@@ -186,6 +196,7 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Top-level Admin pages.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $menu_pages
 	 */
@@ -204,6 +215,7 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Submenu Admin pages.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $submenu_pages
 	 * @see   https://wordpress.stackexchange.com/questions/66498
@@ -247,6 +259,7 @@ function wireframe_plugin_config_admin() {
 	 * to use `apply_filters` or `wp_json_encode` or `add_setting` or `add_option`
 	 * whenever appropriate. Consider Admin pages for modifying settings & options.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @return array|object
 	 */

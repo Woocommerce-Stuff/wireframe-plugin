@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 	/**
 	 * Plugin_Admin class for loading back-end menu pages to plugins.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -52,6 +56,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Enqueue.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @var   object $_enqueue
 		 */
@@ -60,6 +65,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Menu Pages.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @var   array $menu_pages
 		 */
@@ -68,6 +74,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Submenu Pages.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @var   array $submenu_pages
 		 */
@@ -76,6 +83,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Required array of config variables.
 		 */
@@ -109,6 +117,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Enqueue Styles.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function styles() {
@@ -120,6 +129,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Enqueue Scripts.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function scripts() {
@@ -131,6 +141,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Enqueue Media Modal.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function mediamodal() {
@@ -142,6 +153,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Add a top-level menu page.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function menu_pages() {
@@ -163,6 +175,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Add a submenu page.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function submenu_pages() {
@@ -180,6 +193,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 			}
 		}
 
-	} // Admin.
+	} // Plugin_Admin.
 
 endif; // Thanks for using MixaTheme products!

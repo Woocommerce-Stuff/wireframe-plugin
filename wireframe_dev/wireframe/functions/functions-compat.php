@@ -28,6 +28,7 @@
  * WordPress is not compatible with this plugin. Note: this Admin notice does
  * not use `is-dismissible` because the User should deactivate the plugin.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   wireframe-plugin.php
  */

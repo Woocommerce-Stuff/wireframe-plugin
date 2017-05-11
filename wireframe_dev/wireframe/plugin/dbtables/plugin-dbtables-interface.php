@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables_Interface' ) ) :
 	/**
 	 * Plugin_DBTables_Interface contract for plugin tables.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -52,7 +56,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables_Interface' ) ) 
 		/**
 		 * Get Defaults.
 		 *
-		 * @since  1.0.0 Wireframe_Plugin
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults();
 

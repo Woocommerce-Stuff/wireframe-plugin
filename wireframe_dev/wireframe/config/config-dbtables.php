@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -39,6 +40,7 @@ namespace MixaTheme\Wireframe\Plugin;
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
+ * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
  * @see    object Plugin_DBTables
  * @return array  Default configuration values.
@@ -69,6 +71,7 @@ function wireframe_plugin_config_dbtables() {
 	 *  + You must specify the length of all fields that accept a length
 	 *    parameter, for example: int(11).
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array
 	 * @see   https://codex.wordpress.org/Creating_Tables_with_Plugins
@@ -98,6 +101,7 @@ function wireframe_plugin_config_dbtables() {
 	 * to use `apply_filters` or `wp_json_encode` or `add_setting` or `add_option`
 	 * whenever appropriate. Consider Admin pages for modifying settings & options.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @return array|object
 	 */

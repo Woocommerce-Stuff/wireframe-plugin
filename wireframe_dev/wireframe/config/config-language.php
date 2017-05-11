@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -46,6 +48,7 @@ defined( 'ABSPATH' ) or die();
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
+ * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
  * @see    object Core_Language
  * @return array  Default configuration values.
@@ -73,6 +76,7 @@ function wireframe_plugin_config_language() {
 	 * is instantiated. This is optional, because some objects do not need any
 	 * actions or filters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: true
 	 */
@@ -85,6 +89,7 @@ function wireframe_plugin_config_language() {
 	 * Generally, you should use a constant defined in wireframe.php. However,
 	 * you can change it here if needed. Default: WIREFRAME_PLUGIN_PREFIX
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $prefix Prefix for handles. Default: WIREFRAME_PLUGIN_TEXTDOMAIN
 	 */
@@ -97,6 +102,7 @@ function wireframe_plugin_config_language() {
 	 * You can set your actions in a multi-dimensional array and remember
 	 * to set the property $wired = true (above).
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Actions to hook.
 	 */
@@ -116,6 +122,7 @@ function wireframe_plugin_config_language() {
 	 * You can set your filters in a multi-dimensional array and remember
 	 * to set the property $wired = true (above).
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Filters to hook. Default: array()
 	 * @todo  WIP.
@@ -125,6 +132,7 @@ function wireframe_plugin_config_language() {
 	/**
 	 * Language: Use the $plugin_rel_path parameter instead?
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $deprecated Language path. Default: false
 	 * @see   https://developer.wordpress.org/reference/functions/load_plugin_textdomain/
@@ -134,6 +142,7 @@ function wireframe_plugin_config_language() {
 	/**
 	 * Language: Relative path.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $path Language path. Default: WIREFRAME_PLUGIN_LANG
 	 */
@@ -151,6 +160,7 @@ function wireframe_plugin_config_language() {
 	 * to use `apply_filters` or `wp_json_encode` or `add_setting` or `add_option`
 	 * whenever appropriate. Consider Admin pages for modifying settings & options.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @return array|object
 	 */

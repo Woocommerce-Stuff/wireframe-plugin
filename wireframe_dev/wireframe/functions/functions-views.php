@@ -39,6 +39,7 @@
  *	} );
  *	</script>
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   wireframe.php The text-domain to use.
  */
@@ -70,6 +71,7 @@ function wireframe_plugin_admin_page_tabs_about() {
  *	});
  *	</script>
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   wireframe.php The text-domain to use.
  */
@@ -101,6 +103,7 @@ function wireframe_plugin_admin_page_tabs_faq() {
  *	});
  *	</script>
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   functions-helpers.php
  * @see   wireframe.php The text-domain to use.
@@ -128,6 +131,7 @@ function wireframe_plugin_admin_page_tabs_support() {
  * 		4. Export the graphic as a SVG file with the same filename.
  * 		5. Export the graphic as a PNG file with the same filename.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   functions-helpers.php Admin check function.
  * @see   wp-admin/images/wordpress-logo-white.svg
@@ -150,6 +154,7 @@ function wireframe_plugin_admin_page_badge() {
  *
  * This is the persistent header on all Admin pages for your plugin.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   functions-helpers.php Admin check function.
  */
@@ -175,6 +180,7 @@ function wireframe_plugin_admin_page_header() {
  * 		3. Loads the Admin page tabs.
  * 		4. Loads any specific content for this Admin page.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   config-admin.php 		Hooks into this callback function.
  * @see   functions-helpers.php Admin check function.
@@ -202,6 +208,7 @@ function wireframe_plugin_admin_page_callback_about() {
  * 		3. Loads the Admin page tabs.
  * 		4. Loads any specific content for this Admin page.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   config-admin.php 		Hooks into this callback function.
  * @see   functions-helpers.php Admin check function.
@@ -229,6 +236,7 @@ function wireframe_plugin_admin_page_callback_faq() {
  * 		3. Loads the Admin page tabs.
  * 		4. Loads any specific content for this Admin page.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @see   config-admin.php 		Hooks into this callback function.
  * @see   functions-helpers.php Admin check function.

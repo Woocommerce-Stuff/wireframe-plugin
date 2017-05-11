@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -46,6 +48,7 @@ defined( 'ABSPATH' ) or die();
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
+ * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
  * @see    object Plugin_UI
  * @return array  Default configuration values.
@@ -61,6 +64,7 @@ function wireframe_plugin_config_ui() {
 	 * is instantiated. This is optional, because some objects do not need any
 	 * actions or filters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: true
 	 */
@@ -73,6 +77,7 @@ function wireframe_plugin_config_ui() {
 	 * Generally, you should use a constant defined in wireframe.php. However,
 	 * you can change it here if needed. Default: WIREFRAME_PLUGIN_PREFIX
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $prefix Prefix for handles.
 	 */
@@ -85,6 +90,7 @@ function wireframe_plugin_config_ui() {
 	 * You can set your actions in a multi-dimensional array and remember
 	 * to set the property $wired = true (above).
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Actions to hook.
 	 */
@@ -110,6 +116,7 @@ function wireframe_plugin_config_ui() {
 	 * You can set your filters in a multi-dimensional array and remember
 	 * to set the property $wired = true (above).
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Filters to hook. Default: array()
 	 * @todo  WIP.
@@ -135,6 +142,7 @@ function wireframe_plugin_config_ui() {
 	 * 			'media'   => 'all',
 	 * 		),
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $styles Array of stylesheets to enqueue.
 	 */
@@ -176,6 +184,7 @@ function wireframe_plugin_config_ui() {
 	 * 			'localize' => array(),
 	 * 		),
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $scripts Array of scripts to enqueue.
 	 */
@@ -201,6 +210,7 @@ function wireframe_plugin_config_ui() {
 	 *
 	 * Some plugins may need to tap into the Media Modal.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $media True loads wp_enqueue_media(). Default: false.
 	 * @todo  WIP. Should we contextually enqueue media modal?
@@ -211,6 +221,7 @@ function wireframe_plugin_config_ui() {
 	 * This object depends on the Core_Enqueue object, so we need to intantiate
 	 * the Core_Enqueue object and pass-in parameters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   object Core_Enqueue(
 	 *        @param string     $prefix     Required prefix for handles.
@@ -233,6 +244,7 @@ function wireframe_plugin_config_ui() {
 	 * to use `apply_filters` or `wp_json_encode` or `add_setting` or `add_option`
 	 * whenever appropriate. Consider Admin pages for modifying settings & options.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @return array|object
 	 */

@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -39,6 +40,7 @@ namespace MixaTheme\Wireframe\Plugin;
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
+ * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
  * @see    object Plugin_Settings
  * @return array  Default configuration values.
@@ -53,6 +55,7 @@ function wireframe_plugin_config_settings() {
 	 * is instantiated. This is optional, because some objects do not need any
 	 * actions or filters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: false
 	 */
@@ -61,6 +64,7 @@ function wireframe_plugin_config_settings() {
 	/**
 	 * Prefix for handles.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $prefix Default: WIREFRAME_PLUGIN_PREFIX
 	 */
@@ -69,6 +73,7 @@ function wireframe_plugin_config_settings() {
 	/**
 	 * Actions to hook.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Requires $enabled = true.
 	 */
@@ -84,6 +89,7 @@ function wireframe_plugin_config_settings() {
 	/**
 	 * Filters to hook.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Requires $enabled = true. Default: array()
 	 * @todo  WIP.
@@ -95,6 +101,7 @@ function wireframe_plugin_config_settings() {
 	 *
 	 * Add the section to reading settings so we can add our fields to it.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array
 	 */
@@ -113,6 +120,7 @@ function wireframe_plugin_config_settings() {
 	 * Add the field with the names and function to use for our new
 	 * settings, put it in our new section.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array
 	 */
@@ -133,6 +141,7 @@ function wireframe_plugin_config_settings() {
 	 * Register our setting so that $_POST handling is done for us and
 	 * our callback function just has to echo the <input>
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array
 	 */
@@ -156,6 +165,7 @@ function wireframe_plugin_config_settings() {
 	 * to use `apply_filters` or `wp_json_encode` or `add_setting` or `add_option`
 	 * whenever appropriate. Consider Admin pages for modifying settings & options.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @return array|object
 	 */

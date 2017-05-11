@@ -11,7 +11,7 @@
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
  * @see       https://github.com/mixatheme/Wireframe
- * @see       https://codex.wordpress.org/Functions_File_Explained
+ * @see       https://developer.wordpress.org/plugins/intro/
  *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -43,6 +43,7 @@
  * =============================================================================
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -53,6 +54,7 @@ namespace MixaTheme\Wireframe\Plugin;
  *
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -63,6 +65,7 @@ defined( 'ABSPATH' ) or die();
  *
  * Plugin text-domain (must match slug).
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_TEXTDOMAIN', 'wireframe-plugin' );
@@ -73,6 +76,7 @@ define( 'WIREFRAME_PLUGIN_TEXTDOMAIN', 'wireframe-plugin' );
  * Official product name for your plugin. This is used in various headings,
  * titles and menus. Your official product name should be consistent.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_PRODUCT', 'Wireframe Plugin' );
@@ -83,6 +87,7 @@ define( 'WIREFRAME_PLUGIN_PRODUCT', 'Wireframe Plugin' );
  * A prefix for various strings, handles and helpers. This is primarily used
  * for keeping names short and helps avoid clashes. 3-5 characters preferred.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_PREFIX', 'wireframe_plugin' );
@@ -94,6 +99,7 @@ define( 'WIREFRAME_PLUGIN_PREFIX', 'wireframe_plugin' );
  * dependencies, especially when you enqueue your styles & scripts.
  * This can also be used for version checking backwards compatibility.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_VERSION', '1.0.0' );
@@ -105,6 +111,7 @@ define( 'WIREFRAME_PLUGIN_VERSION', '1.0.0' );
  * of the current plugin. Returns an absolute server path, for example:
  * `/srv/www/wp/htdocs/wp-content/plugins/wireframe-plugin/` - not a URI.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_DIR', plugin_dir_path( __DIR__ ) );
@@ -115,6 +122,7 @@ define( 'WIREFRAME_PLUGIN_DIR', plugin_dir_path( __DIR__ ) );
  * Absolute path to the `wireframe_dev` directory. This directory is specifically
  * for Developers and contains functions, classes, JS, SCSS, etc.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_DEV', WIREFRAME_PLUGIN_DIR . 'wireframe_dev/' );
@@ -125,6 +133,7 @@ define( 'WIREFRAME_PLUGIN_DEV', WIREFRAME_PLUGIN_DIR . 'wireframe_dev/' );
  * Absolute path to the `wireframe_client` directory. This directory primarily
  * holds front-end assets, such as: images, fonts, scripts, stylesheets, etc.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_CLIENT', 'wireframe_client/' );
@@ -136,6 +145,7 @@ define( 'WIREFRAME_PLUGIN_CLIENT', 'wireframe_client/' );
  * a trailing slash following the directory address. This is primarily used for
  * loading your plugin assets.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_URI', plugin_dir_url( __DIR__ ) );
@@ -147,6 +157,7 @@ define( 'WIREFRAME_PLUGIN_URI', plugin_dir_url( __DIR__ ) );
  * module classes, helper functions, utilities, config data, etc.
  * NO leading slash. HAS trailing slash.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_API', WIREFRAME_PLUGIN_DEV . 'wireframe/' );
@@ -157,6 +168,7 @@ define( 'WIREFRAME_PLUGIN_API', WIREFRAME_PLUGIN_DEV . 'wireframe/' );
  * Absolute path to the Wireframe API for loading class files. This should
  * only be used if you choose to NOT use Composer's autoloading feature.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_OBJECTS', WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wireframe/' );
@@ -164,6 +176,7 @@ define( 'WIREFRAME_PLUGIN_OBJECTS', WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wiref
 /**
  * §.03. Constant: Plugin path to template files (optional).
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_TPL', WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT . 'tpl/' );
@@ -171,6 +184,7 @@ define( 'WIREFRAME_PLUGIN_TPL', WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT .
 /**
  * §.03. Constant: Plugin URI for CSS files (optional).
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_CSS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'css/' );
@@ -178,6 +192,7 @@ define( 'WIREFRAME_PLUGIN_CSS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT .
 /**
  * §.03. Constant: Plugin URI for images (optional).
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_IMG', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'img/' );
@@ -185,6 +200,7 @@ define( 'WIREFRAME_PLUGIN_IMG', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT .
 /**
  * §.03. Constant: Plugin URI for JavaScript files (optional).
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_JS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'js/' );
@@ -192,6 +208,7 @@ define( 'WIREFRAME_PLUGIN_JS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 
 /**
  * §.03. Constant: Plugin URI for language files.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_PLUGIN_CLIENT . 'lang/' );
@@ -204,6 +221,7 @@ define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_P
  * classes, so they become available to your objects. Once you get the hang of
  * Wireframe_Plugin, these files can probably be merged to save on file count.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-helpers.php';
@@ -231,6 +249,7 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
  * PRO-TIP: For completeness, the default Wireframe_Plugin is packaged with
  * multiple objects. You most likely do not need all these files.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  * @since 1.1.2 Composer
  * @see   composer.json
@@ -275,6 +294,7 @@ require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/ui/plugin-ui.php';
  * validate and/or sanitize untrusted data before entering into the database.
  * All untrusted data should be escaped before output.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
@@ -284,6 +304,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * Wireframe Plugin needs to wire objects to the Core_Container::$storage array.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   object   Core_Container
 	 * @var   callable $wireframe_plugin_container
@@ -305,6 +326,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * PRO-TIP: For completeness, the default Wireframe_Plugin is packaged with
 	 * multiple config files. You most likely do not need all these.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
 	require_once WIREFRAME_PLUGIN_API . 'config/config-language.php';
@@ -326,6 +348,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * Config files are located in: `wireframe_dev/wireframe/config/`
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
 	require_once WIREFRAME_PLUGIN_API . 'config/config-controller.php';
@@ -337,6 +360,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Core_Language object with config data passed-in.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_language()
 	 * @return object Core_Language( @param array Object args. )
@@ -351,6 +375,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Core_Controller object with config data passed-in.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @see    wireframe_plugin_config_language()
 	 * @return object Core_Controller( @param array )
@@ -366,6 +391,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Plugin_Admin object with config data passed-in.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @see    wireframe_plugin_config_language()
 	 * @return object Plugin_Admin( @param array )
@@ -380,6 +406,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Plugin_UI object with config data passed-in.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @see    wireframe_plugin_config_ui()
 	 * @return object Plugin_UI( @param array Object args. )
@@ -403,6 +430,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *            own custom class, or make the `Core_Plugin` class abstract,
 	 *            then extend it.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @var    object $wireframe_plugin
 	 * @return object Core_Plugin(
@@ -427,6 +455,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * tasks here, or simply output a warning if `$wireframe_plugin` fails. Also note:
 	 * your plugin files now have access to objects beyond this point.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
 	if ( ! isset( $wireframe_plugin ) ) {
@@ -444,6 +473,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * Data files are located in: `wireframe_dev/wireframe/config/`
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   object $wireframe_plugin Instance of Core_Plugin.
 	 */

@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 	/**
 	 * Plugin_Settings is a Wireframe_Plugin class.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -53,6 +57,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 * Sections.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $sections
 		 */
@@ -62,6 +67,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 * Fields.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $fields
 		 */
@@ -71,6 +77,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 * Register.
 		 *
 		 * @access protected
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $register
 		 */
@@ -79,6 +86,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Required array of config variables.
 		 */
@@ -112,6 +120,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		/**
 		 * Get Defaults.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults() {
@@ -123,6 +132,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		/**
 		 * Add Settings.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function add_settings() {
@@ -136,6 +146,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 *
 		 * Add the section to reading settings so we can add our fields to it.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		private function _register_sections() {
@@ -157,6 +168,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 * Add the field with the names and function to use for our new
 		 * settings, put it in our new section.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		private function _register_fields() {
@@ -180,6 +192,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 * Register our setting so that $_POST handling is done for us and
 		 * our callback function just has to echo the <input>.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		private function _register_settings() {
@@ -197,6 +210,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		/**
 		 * Unregister Settings.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function unregister() {
@@ -211,6 +225,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 			}
 		}
 
-	} // Settings.
+	} // Plugin_Settings.
 
 endif; // Thanks for using MixaTheme products!

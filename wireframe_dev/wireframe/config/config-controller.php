@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -39,6 +40,7 @@ namespace MixaTheme\Wireframe\Plugin;
  *            Another alternative is putting all your object configs into one
  *            single config file to minimize your file count.
  *
+ * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
  * @see    object Core_Controller
  * @return array  Default configuration values.
@@ -53,6 +55,7 @@ function wireframe_plugin_config_controller() {
 	 * is instantiated. This is optional, because some objects do not need any
 	 * actions or filters.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: false
 	 */
@@ -61,6 +64,7 @@ function wireframe_plugin_config_controller() {
 	/**
 	 * Prefix for handles.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   string $prefix Default: WIREFRAME_PLUGIN_PREFIX
 	 */
@@ -69,6 +73,7 @@ function wireframe_plugin_config_controller() {
 	/**
 	 * Actions to hook.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Requires $enabled = true. Default: array()
 	 */
@@ -77,6 +82,7 @@ function wireframe_plugin_config_controller() {
 	/**
 	 * Filters to hook.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Requires $enabled = true. Default: array()
 	 * @todo  WIP.
@@ -90,6 +96,7 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * 		$dbtables = new Plugin_DBTables( wireframe_plugin_config_dbtables() );
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   null|object Plugin_DBTables( @param callable ). Default: null
 	 */
@@ -102,6 +109,7 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * 		$cpt = new Plugin_CPT( wireframe_plugin_config_cpt() );
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   null|object Plugin_CPT( @param callable ). Default: null
 	 */
@@ -114,6 +122,7 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * 		$taxonomy = new Plugin_Taxonomy( wireframe_plugin_config_taxonomy() );
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   null|object Plugin_Taxonomy( @param callable ). Default: null
 	 */
@@ -126,6 +135,7 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * 		$shortcode = new Plugin_Shortcode( wireframe_plugin_config_shortcode() );
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   null|object Plugin_Shortcode( @param callable ). Default: null
 	 */
@@ -138,6 +148,7 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * 		$options = new Plugin_Options( wireframe_plugin_config_options() );
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   null|object Plugin_Options( @param callable ). Default: null
 	 */
@@ -150,6 +161,7 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * 		$settings = new Plugin_Settings( wireframe_plugin_config_settings() );
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   null|object Plugin_Settings( @param callable ). Default: null
 	 */
@@ -167,6 +179,7 @@ function wireframe_plugin_config_controller() {
 	 * to use `apply_filters` or `wp_json_encode` or `add_setting` or `add_option`
 	 * whenever appropriate. Consider Admin pages for modifying settings & options.
 	 *
+	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @return array|object
 	 */

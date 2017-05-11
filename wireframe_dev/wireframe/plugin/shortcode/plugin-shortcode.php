@@ -25,6 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -32,6 +33,7 @@ namespace MixaTheme\Wireframe\Plugin;
 /**
  * No direct access to this file.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 defined( 'ABSPATH' ) or die();
@@ -39,12 +41,14 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
 	/**
 	 * Plugin_Shortcode is a Wireframe_Plugin class.
 	 *
+	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
@@ -53,6 +57,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
 		 * Config.
 		 *
 		 * @access private
+		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_config
 		 */
@@ -61,6 +66,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
 		/**
 		 * Constructor runs when this class is instantiated.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Required array of config variables.
 		 */
@@ -92,6 +98,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
 		/**
 		 * Get Defaults.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults() {
@@ -103,10 +110,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
 		/**
 		 * Register.
 		 *
+		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function register() {}
 
-	} // Shortcode.
+	} // Plugin_Shortcode.
 
 endif; // Thanks for using MixaTheme products!

@@ -26,6 +26,7 @@
  *
  * Check if the current user has Admin permmissions.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 function wireframe_plugin_admin_check() {
