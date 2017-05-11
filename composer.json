@@ -1,6 +1,6 @@
 {
     "name": "Wireframe_Plugin",
-    "description": "Wireframe Plugin is an OOP WordPress boilerplate plugin. Wireframe Plugin enables WordPress Developers to rapidly wire GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. Wireframe Plugin is also packaged with the Wireframe Suite for WordPress by MixaTheme.",
+    "description": "Wireframe Plugin is an OOP WordPress plugin boilerplate. Wireframe Plugin enables WordPress Developers to rapidly wire GPL and WPCS compliant plugins for professional client projects or for selling premium plugins in any marketplace. Wireframe Plugin is also packaged with the Wireframe Suite for WordPress by MixaTheme.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0+",
     "keywords": [
