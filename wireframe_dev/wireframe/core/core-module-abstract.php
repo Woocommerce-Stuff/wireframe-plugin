@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 	/**
-	 * Core_Module_Abstract is is a core theme contract for wiring actions & hooks.
+	 * Core_Module_Abstract core Wireframe contract for wiring actions & hooks.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme

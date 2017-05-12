@@ -46,10 +46,11 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Shortcode' ) ) :
 	/**
-	 * Module_Shortcode is a Wireframe_Plugin class.
+	 * Module_Shortcode class for adding custom Shortcodes.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://codex.wordpress.org/Shortcode_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_Shortcode extends Core_Module_Abstract implements Module_Shortcode_Interface {

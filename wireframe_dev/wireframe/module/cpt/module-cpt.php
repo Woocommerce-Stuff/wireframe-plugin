@@ -46,10 +46,11 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_CPT' ) ) :
 	/**
-	 * Module_CPT class for Custom Post Types.
+	 * Module_CPT class for registering Custom Post Types.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://codex.wordpress.org/Post_Types
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_CPT extends Core_Module_Abstract implements Module_CPT_Interface {

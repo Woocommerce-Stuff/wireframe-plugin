@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Admin config file for Wireframe plugins.
+ * Module_Admin config file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -42,19 +42,22 @@ namespace MixaTheme\Wireframe\Plugin;
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Plugin_Admin
+ * @see    object Module_Admin
  * @return array  Default configuration values.
  */
 function wireframe_plugin_config_admin() {
 	/**
 	 * Wired.
 	 *
-	 * Wires the Plugin_Admin actions & filters at runtime. Since all plugins
-	 * should have an admin/about page, this should always be set to true.
+	 * Wires the Module_Admin actions & filters at runtime. Since all plugins
+	 * & themes should have an admin/about page, this should always be set to true.
 	 *
-	 * Note: Most objects can be wired to hook actions & filters when an object
-	 * is instantiated. This is optional, because some objects do not need any
-	 * actions or filters.
+	 * Enable this configuration file:
+	 *
+	 * 		1. In this config file, set: $wired = true.
+	 * 		2. In this config file, modify any default data you need.
+	 * 		3. In `config-controller.php` instantiate Module_Admin.
+	 * 		4. In `config-controller.php` pass this config into Module_Admin.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin

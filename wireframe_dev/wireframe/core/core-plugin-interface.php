@@ -45,7 +45,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 	/**
-	 * Core_Plugin_Interface is acore Wireframe contract for DI plugin objects.
+	 * Core_Plugin_Interface core Wireframe contract for DI plugin objects.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin

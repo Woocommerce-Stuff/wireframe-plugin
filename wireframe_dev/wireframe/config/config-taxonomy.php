@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Taxonomy config file for Wireframe plugins.
+ * Module_Taxonomy config file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -42,24 +42,27 @@ namespace MixaTheme\Wireframe\Plugin;
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Plugin_Taxonomy
+ * @see    object Module_Taxonomy
  * @return array  Default configuration values.
  */
 function wireframe_plugin_config_taxonomy() {
 	/**
 	 * Wired.
 	 *
-	 * Wires the Plugin_Taxonomy actions & filters at runtime.
+	 * Wires the Module_Taxonomy actions & filters at runtime.
 	 *
-	 * Note: Most objects can be wired to hook actions & filters when an object
-	 * is instantiated. This is optional, because some objects do not need any
-	 * actions or filters.
+	 * Enable this configuration file:
+	 *
+	 * 		1. In this config file, set: $wired = true.
+	 * 		2. In this config file, modify any default data you need.
+	 * 		3. In `config-controller.php` instantiate Module_Taxonomy.
+	 * 		4. In `config-controller.php` pass this config into Module_Taxonomy.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: false
 	 */
-	$wired = true;
+	$wired = false;
 
 	/**
 	 * Prefix for handles.

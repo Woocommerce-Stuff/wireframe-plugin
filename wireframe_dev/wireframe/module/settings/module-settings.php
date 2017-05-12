@@ -46,10 +46,11 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Settings' ) ) :
 	/**
-	 * Module_Settings is a Wireframe_Plugin class.
+	 * Module_Settings class for building custom Settings.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://codex.wordpress.org/Settings_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_Settings extends Core_Module_Abstract implements Module_Settings_Interface {

@@ -47,7 +47,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Container' ) ) :
 	/**
-	 * Core_Container is a core Wireframe class for storing objects.
+	 * Core_Container core Wireframe class for wiring objects.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme

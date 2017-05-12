@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_Taxonomy_Interface is a Wireframe interface.
+ * Module_Taxonomy_Interface is a Wireframe module interface.
  *
  * PHP version 5.6.0
  *

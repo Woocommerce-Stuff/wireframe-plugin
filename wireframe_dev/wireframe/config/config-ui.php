@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_UI config data file for Wireframe themes.
+ * Module_UI config data file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -50,19 +50,22 @@ defined( 'ABSPATH' ) or die();
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Plugin_UI
+ * @see    object Module_UI
  * @return array  Default configuration values.
  */
 function wireframe_plugin_config_ui() {
 	/**
 	 * Wired.
 	 *
-	 * Wires the Plugin_UI actions & filters at runtime. Since most plugins
-	 * should have UI styles & scripts, this should usually be set to true.
+	 * Wires the Module_UI actions & filters at runtime. Since most plugins
+	 * will need UI styles & scripts, this should usually be set to true.
 	 *
-	 * Note: Most objects can be wired to hook actions & filters when an object
-	 * is instantiated. This is optional, because some objects do not need any
-	 * actions or filters.
+	 * Enable this configuration file:
+	 *
+	 * 		1. In this config file, set: $wired = true.
+	 * 		2. In this config file, modify any default data you need.
+	 * 		3. In `config-controller.php` instantiate Module_UI.
+	 * 		4. In `config-controller.php` pass this config into Module_UI.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin

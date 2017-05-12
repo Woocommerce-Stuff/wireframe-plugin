@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_DBTables config file for Wireframe plugins.
+ * Module_DBTables config file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -42,7 +42,7 @@ namespace MixaTheme\Wireframe\Plugin;
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Plugin_DBTables
+ * @see    object Module_DBTables
  * @return array  Default configuration values.
  */
 function wireframe_plugin_config_dbtables() {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_DBTables is a Wireframe class.
+ * Module_DBTables is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -46,7 +46,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 	/**
-	 * Module_DBTables class for plugin database tables.
+	 * Module_DBTables class for building custom Database tables.
 	 *
 	 * This should usually only be called when your plugin is activated or when
 	 * your plugin is uninstalled. Due to the delicate nature of altering the
@@ -54,6 +54,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://codex.wordpress.org/Creating_Tables_with_Plugins
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_DBTables implements Module_DBTables_Interface {

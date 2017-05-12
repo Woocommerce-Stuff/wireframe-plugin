@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_UI is a Wireframe power theme class..
+ * Module_UI is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -46,10 +46,12 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin Module_UI' ) ) :
 	/**
-	 * Module_UI is a theme class for wiring front-end presentation methods.
+	 * Module_UI class for wiring front-end presentation styles, scripts and views.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://developer.wordpress.org/reference/functions/wp_enqueue_script
+	 * @see   https://codex.wordpress.org/Javascript_Reference/wp.media
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_UI extends Core_Module_Abstract implements Module_UI_Interface {

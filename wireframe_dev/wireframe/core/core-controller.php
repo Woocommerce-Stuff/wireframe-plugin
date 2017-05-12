@@ -46,7 +46,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 	/**
-	 * Core_Controller is a core Wireframe class for plugin activation.
+	 * Core_Controller core Wireframe class for plugin activation.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin

@@ -46,10 +46,11 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Taxonomy' ) ) :
 	/**
-	 * Module_Taxonomy is a Wireframe_Plugin class.
+	 * Module_Taxonomy class for registering custom Taxonomy.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://codex.wordpress.org/Taxonomies
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_Taxonomy extends Core_Module_Abstract implements Module_Taxonomy_Interface {

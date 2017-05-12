@@ -46,10 +46,11 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Admin' ) ) :
 	/**
-	 * Module_Admin class for loading back-end menu pages to plugins.
+	 * Module_Admin class for adding new Admin menu pages & sub pages.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   https://codex.wordpress.org/Administration_Menus
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
 	final class Module_Admin extends Core_Module_Abstract implements Module_Admin_Interface {

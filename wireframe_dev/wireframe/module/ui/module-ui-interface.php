@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_UI_Interface is a Wireframe plugin interface.
+ * Module_UI_Interface is a Wireframe module interface.
  *
  * PHP version 5.6.0
  *

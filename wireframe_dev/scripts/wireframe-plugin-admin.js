@@ -24,9 +24,9 @@
  */
 
 jQuery( function( $ ) {
-    'use strict';
+	'use strict';
 
-    // Your code here...
-    console.log( 'wireframe-plugin-admin-min.js: Loaded successfully!' );
+	// Your code here...
+	console.log( 'wireframe-plugin-admin-min.js: Loaded successfully!' );
 
 } ); // Thanks for using MixaTheme products!

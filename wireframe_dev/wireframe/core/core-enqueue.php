@@ -46,7 +46,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Enqueue' ) ) :
 	/**
-	 * Core_Enqueue is a core theme class for wiring styles & scripts.
+	 * Core_Enqueue core Wireframe class for wiring styles & scripts.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme

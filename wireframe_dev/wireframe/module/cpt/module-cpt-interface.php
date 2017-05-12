@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_CPT_Interface is a Wireframe interface.
+ * Module_CPT_Interface is a Wireframe module interface.
  *
  * PHP version 5.6.0
  *

@@ -404,6 +404,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
+	 * @todo  WIP. Use admin notice hook?
 	 */
 	if ( ! isset( $wireframe_plugin ) ) {
 		esc_html_e( 'Wireframe Plugin failed to initialize. Please verify your setup.', 'wireframe-plugin' );

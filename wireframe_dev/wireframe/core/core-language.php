@@ -48,7 +48,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Language' ) ) :
 	/**
-	 * Core_Language is a Wireframe core class for wiring i18n & l10n translation.
+	 * Core_Language icore Wireframe class for wiring i18n & l10n translation.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme

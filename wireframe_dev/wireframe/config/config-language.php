@@ -1,6 +1,6 @@
 <?php
 /**
- * Core_Language config data file for Wireframe plugins.
+ * Core_Language config data file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -72,9 +72,12 @@ function wireframe_plugin_config_language() {
 	 * Wires the Core_Language actions & filters at runtime. Since all plugins
 	 * should have use translation, this should always be set to true.
 	 *
-	 * Note: Most objects can be wired to hook actions & filters when an object
-	 * is instantiated. This is optional, because some objects do not need any
-	 * actions or filters.
+	 * Enable this configuration file:
+	 *
+	 * 		1. In this config file, set: $wired = true.
+	 * 		2. In this config file, modify any default data you need.
+	 * 		3. In `config-controller.php` instantiate Core_Language.
+	 * 		4. In `config-controller.php` pass this config into Core_Language.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin

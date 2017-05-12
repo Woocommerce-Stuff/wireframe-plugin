@@ -46,7 +46,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Enqueue_Interface' ) ) :
 	/**
-	 * Core_Enqueue_Interface is a core theme contract for loading styles & scripts
+	 * Core_Enqueue_Interface core Wireframe contract for loading styles & scripts
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme

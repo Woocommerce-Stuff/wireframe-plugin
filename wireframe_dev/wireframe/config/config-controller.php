@@ -1,6 +1,6 @@
 <?php
 /**
- * Core_Controller config file for Wireframe plugins.
+ * Core_Controller config file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -55,10 +55,6 @@ function wireframe_plugin_config_controller() {
 	 *
 	 * PRO-TIP: Even if this config sets $wired = true, you can still disable
 	 * any plugin module by setting $wired = false in your desired config file(s).
-	 *
-	 * Note: Most objects can be wired to hook actions & filters when an object
-	 * is instantiated. This is optional, because some objects do not need any
-	 * actions or filters.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
