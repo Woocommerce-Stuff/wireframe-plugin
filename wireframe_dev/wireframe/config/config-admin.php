@@ -192,12 +192,12 @@ function wireframe_plugin_config_admin() {
 	 * @var   array $menu_pages
 	 */
 	$menu_pages = array(
-		'landing' => array(
+		'quickstart' => array(
 			'page_title' => 'Wireframe Plugin',
 			'menu_title' => 'Wireframe Plugin',
 			'capability' => 'manage_options',
 			'menu_slug'  => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'callback'   => 'wireframe_plugin_admin_page_callback_about',
+			'callback'   => 'wireframe_plugin_admin_page_callback_quickstart',
 			'icon_url'   => esc_url( '' ),
 			'position'   => 9999,
 		),
@@ -212,13 +212,13 @@ function wireframe_plugin_config_admin() {
 	 * @see   https://wordpress.stackexchange.com/questions/66498
 	 */
 	$submenu_pages = array(
-		'about' => array(
+		'quickstart' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'About',
-			'menu_title'  => 'About',
+			'page_title'  => 'Quickstart',
+			'menu_title'  => 'Quickstart',
 			'capability'  => 'manage_options',
 			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'callback'    => 'wireframe_plugin_admin_page_callback_about',
+			'callback'    => 'wireframe_plugin_admin_page_callback_quickstart',
 		),
 		'faq' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),

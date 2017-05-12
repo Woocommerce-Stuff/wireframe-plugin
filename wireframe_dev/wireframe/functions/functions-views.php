@@ -22,7 +22,7 @@
  */
 
 /**
- * Wireframe Plugin Admin Page: About tabs.
+ * Wireframe Plugin Admin Page: Quickstart tabs.
  *
  * These tabs are called by each Admin page. The tabs were modeled after the
  * core WordPress `about.php` page, therefore we maintain a level of WordPress
@@ -43,10 +43,10 @@
  * @since 1.0.0 Wireframe_Plugin
  * @see   wireframe.php The text-domain to use.
  */
-function wireframe_plugin_admin_page_tabs_about() {
+function wireframe_plugin_admin_page_tabs_quickstart() {
 	?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'About', 'wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Quickstart', 'wireframe-plugin' ); ?></a>
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-faq' ); ?>" class="nav-tab"><?php esc_html_e( 'FAQ', 'wireframe-plugin' ); ?></a>
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-support' ); ?>" class="nav-tab"><?php esc_html_e( 'Support', 'wireframe-plugin' ); ?></a>
 	</h2>
@@ -78,7 +78,7 @@ function wireframe_plugin_admin_page_tabs_about() {
 function wireframe_plugin_admin_page_tabs_faq() {
 	?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab"><?php esc_html_e( 'About', 'wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab"><?php esc_html_e( 'Quickstart', 'wireframe-plugin' ); ?></a>
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-faq' ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'FAQ', 'wireframe-plugin' ); ?></a>
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-support' ); ?>" class="nav-tab"><?php esc_html_e( 'Support', 'wireframe-plugin' ); ?></a>
 	</h2>
@@ -111,7 +111,7 @@ function wireframe_plugin_admin_page_tabs_faq() {
 function wireframe_plugin_admin_page_tabs_support() {
 	?>
 	<h2 class="nav-tab-wrapper wp-clearfix">
-		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab"><?php esc_html_e( 'About', 'wireframe-plugin' ); ?></a>
+		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) ); ?>" class="nav-tab"><?php esc_html_e( 'Quickstart', 'wireframe-plugin' ); ?></a>
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-faq' ); ?>" class="nav-tab"><?php esc_html_e( 'FAQ', 'wireframe-plugin' ); ?></a>
 		<a href="<?php echo esc_url( 'admin.php?page=' . esc_html( WIREFRAME_PLUGIN_TEXTDOMAIN ) . '-support' ); ?>" class="nav-tab nav-tab-active"><?php esc_html_e( 'Support', 'wireframe-plugin' ); ?></a>
 	</h2>
@@ -170,7 +170,7 @@ function wireframe_plugin_admin_page_header() {
 }
 
 /**
- * Wireframe Plugin Admin Page: About page callback.
+ * Wireframe Plugin Admin Page: Quickstart page callback.
  *
  * This is a callback when your plugin hooks a new menu page. This is just an
  * example. Often, these pages can get complex with jQuery, AJAX, APIs, etc.
@@ -185,14 +185,14 @@ function wireframe_plugin_admin_page_header() {
  * @see   config-admin.php 		Hooks into this callback function.
  * @see   functions-helpers.php Admin check function.
  */
-function wireframe_plugin_admin_page_callback_about() {
+function wireframe_plugin_admin_page_callback_quickstart() {
 	wireframe_plugin_admin_check();
 	?>
 	<div class="wrap about-wrap">
 		<?php wireframe_plugin_admin_page_header(); ?>
-		<?php wireframe_plugin_admin_page_tabs_about(); ?>
-		<h3><?php esc_html_e( 'About Heading', 'wireframe-plugin' ); ?></h3>
-		<p><?php esc_html_e( 'About content can go here...', 'wireframe-plugin' ); ?></p>
+		<?php wireframe_plugin_admin_page_tabs_quickstart(); ?>
+		<h3><?php esc_html_e( 'Quickstart Heading', 'wireframe-plugin' ); ?></h3>
+		<p><?php esc_html_e( 'Quickstart content can go here...', 'wireframe-plugin' ); ?></p>
 	</div>
 <?php
 }
