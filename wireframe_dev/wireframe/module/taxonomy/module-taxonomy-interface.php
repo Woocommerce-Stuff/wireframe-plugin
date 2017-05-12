@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Taxonomy_Interface is a Wireframe interface.
+ * Module_Taxonomy_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Taxonomy_Interface' ) ) :
 	/**
-	 * Plugin_Taxonomy_Interface contract for taxonomy terms.
+	 * Module_Taxonomy_Interface contract for taxonomy terms.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_Taxonomy_Interface {
+	interface Module_Taxonomy_Interface {
 		/**
 		 * Register.
 		 *
@@ -61,6 +61,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy_Interface' ) ) 
 		 */
 		public function register();
 
-	} // Plugin_Taxonomy_Interface.
+	} // Module_Taxonomy_Interface.
 
 endif; // Thanks for using MixaTheme products!

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Shortcode_Interface is a Wireframe interface.
+ * Module_Options_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Options_Interface' ) ) :
 	/**
-	 * Plugin_Shortcode_Interface contract for Custom Post Types.
+	 * Module_Options_Interface contract for Custom Post Types.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_Shortcode_Interface {
+	interface Module_Options_Interface {
 		/**
 		 * Register.
 		 *
@@ -61,6 +61,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode_Interface' ) )
 		 */
 		public function register();
 
-	} // Plugin_Shortcode_Interface.
+	} // Module_Options_Interface.
 
 endif; // Thanks for using MixaTheme products!

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_DBTables_Interface is a Wireframe interface.
+ * Module_DBTables_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables_Interface' ) ) :
 	/**
-	 * Plugin_DBTables_Interface contract for plugin tables.
+	 * Module_DBTables_Interface contract for plugin tables.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_DBTables_Interface {
+	interface Module_DBTables_Interface {
 		/**
 		 * Get Defaults.
 		 *
@@ -61,6 +61,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables_Interface' ) ) 
 		 */
 		public function get_defaults();
 
-	} // Plugin_DBTables_Interface.
+	} // Module_DBTables_Interface.
 
 endif; // Thanks for using MixaTheme products!

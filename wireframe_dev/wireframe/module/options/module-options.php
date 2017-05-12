@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Options_Interface is a Wireframe interface.
+ * Module_Options is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,23 +44,62 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Options_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Options' ) ) :
 	/**
-	 * Plugin_Options_Interface contract for Custom Post Types.
+	 * Module_Options is a Wireframe_Plugin class.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_Options_Interface {
+	final class Module_Options extends Core_Module_Abstract implements Module_Options_Interface {
+		/**
+		 * Defaults.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $_defaults
+		 */
+		private $_defaults;
+
+		/**
+		 * Constructor runs when this class is instantiated.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $config Required array of config variables.
+		 */
+		public function __construct( $config ) {
+
+			// Declare custom properties required for this class.
+			$this->_defaults = $config['defaults'];
+
+			// Get parent Constructor.
+			parent::__construct( $config );
+		}
+
+		/**
+		 * Get Defaults.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function get_defaults() {
+			if ( isset( $this->_defaults ) ) {
+				return $this->_defaults;
+			}
+		}
+
 		/**
 		 * Register.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
-		public function register();
+		public function register() {}
 
-	} // Plugin_Options_Interface.
+	} // Module_Options.
 
 endif; // Thanks for using MixaTheme products!

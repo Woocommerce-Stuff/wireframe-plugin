@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_CPT_Interface is a Wireframe interface.
+ * Module_CPT_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_CPT_Interface' ) ) :
 	/**
-	 * Plugin_CPT_Interface contract for Custom Post Types.
+	 * Module_CPT_Interface contract for Custom Post Types.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_CPT_Interface {
+	interface Module_CPT_Interface {
 		/**
 		 * Register custom post type.
 		 *
@@ -61,6 +61,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT_Interface' ) ) :
 		 */
 		public function register();
 
-	} // Plugin_CPT_Interface.
+	} // Module_CPT_Interface.
 
 endif; // Thanks for using MixaTheme products!

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_CPT is a Wireframe module.
+ * Module_CPT is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_CPT' ) ) :
 	/**
-	 * Plugin_CPT class for Custom Post Types.
+	 * Module_CPT class for Custom Post Types.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_CPT extends Core_Module_Abstract implements Plugin_CPT_Interface {
+	final class Module_CPT extends Core_Module_Abstract implements Module_CPT_Interface {
 		/**
 		 * Defaults.
 		 *
@@ -107,6 +107,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
 			}
 		}
 
-	} // Plugin_CPT.
+	} // Module_CPT.
 
 endif; // Thanks for using MixaTheme products!

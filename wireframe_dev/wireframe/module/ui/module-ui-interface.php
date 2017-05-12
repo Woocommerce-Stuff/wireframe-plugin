@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Shortcode is a Wireframe module.
+ * Module_UI_Interface is a Wireframe plugin interface.
  *
  * PHP version 5.6.0
  *
@@ -22,7 +22,7 @@
  */
 
 /**
- * Namespaces.
+ * Namespace.
  *
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe
@@ -44,81 +44,44 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_UI_Interface' ) ) :
 	/**
-	 * Plugin_Shortcode is a Wireframe_Plugin class.
+	 * Module_UI_Interface contract for front-end presentation.
 	 *
+	 * Security Reminder: If you are saving any data to the Database, you should
+	 * validate and/or sanitize untrusted data before entering into the database.
+	 * All untrusted data should be escaped before output.
+	 *
+	 * @since 2.9.0 WordPress
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_Shortcode extends Core_Module_Abstract implements Plugin_Shortcode_Interface {
+	interface Module_UI_Interface {
 		/**
-		 * Defaults.
-		 *
-		 * @access private
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $_defaults
-		 */
-		private $_defaults;
-
-		/**
-		 * Constructor runs when this class is instantiated.
-		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @param array $config Required array of config variables.
-		 */
-		public function __construct( $config ) {
-
-			// Declare custom properties required for this class.
-			$this->_defaults = $config['defaults'];
-
-			// Get parent Constructor.
-			parent::__construct( $config );
-		}
-
-		/**
-		 * Get Defaults.
+		 * Enqueue Styles.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function get_defaults() {
-			if ( isset( $this->_defaults ) ) {
-				return $this->_defaults;
-			}
-		}
+		public function styles();
 
 		/**
-		 * Register.
+		 * Enqueue Scripts.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @todo  WIP. Needs work.
 		 */
-		public function register() {
-			if ( isset( $this->_defaults ) ) {
-				foreach ( $this->_defaults as $key => $value ) {
-					add_shortcode( $key, array( $this, 'callback' ) );
-				}
-			}
-		}
+		public function scripts();
 
 		/**
-		 * Callback.
+		 * Enqueue Media Modal.
 		 *
-		 * @access protected
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @param array $atts Attributes.
-		 * @todo  WIP. Needs work.
 		 */
-		public  function callback( $atts ) {
-			// TODO.
-		}
+		public function mediamodal();
 
-	} // Plugin_Shortcode.
+	} // Module_UI_Interface.
 
 endif; // Thanks for using MixaTheme products!

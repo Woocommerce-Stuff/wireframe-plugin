@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Taxonomy is a Wireframe module.
+ * Module_Admin_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
@@ -44,69 +44,31 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Admin_Interface' ) ) :
 	/**
-	 * Plugin_Taxonomy is a Wireframe_Plugin class.
+	 * Module_Admin_Interface contract for loading back-end menu pages.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_Taxonomy extends Core_Module_Abstract implements Plugin_Taxonomy_Interface {
+	interface Module_Admin_Interface {
 		/**
-		 * Defaults.
-		 *
-		 * @access private
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $_defaults
-		 */
-		private $_defaults;
-
-		/**
-		 * Constructor runs when this class is instantiated.
-		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @param array $config Required array of config variables.
-		 */
-		public function __construct( $config ) {
-
-			// Declare custom properties required for this class.
-			$this->_defaults = $config['defaults'];
-
-			// Get parent Constructor.
-			parent::__construct( $config );
-		}
-
-		/**
-		 * Get Defaults.
+		 * Add a top-level menu page.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function get_defaults() {
-			if ( isset( $this->_defaults ) ) {
-				return $this->_defaults;
-			}
-		}
+		public function menu_pages();
 
 		/**
-		 * Register taxonomy.
+		 * Add a submenu page.
 		 *
-		 * @since 2.3.0 WordPress
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @see   https://codex.wordpress.org/Function_Reference/register_taxonomy
 		 */
-		public function register() {
-			if ( isset( $this->_defaults ) ) {
-				foreach ( $this->_defaults as $taxonomy => $args ) {
-					register_taxonomy( $taxonomy, $args['object_type'], $args );
-				}
-			}
-		}
+		public function submenu_pages();
 
-	} // Plugin_Taxonomy.
+	} // Module_Admin_Interface.
 
 endif; // Thanks for using MixaTheme products!

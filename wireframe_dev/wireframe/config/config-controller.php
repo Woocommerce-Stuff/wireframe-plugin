@@ -116,7 +116,7 @@ function wireframe_plugin_config_controller() {
 	/**
 	 * Taxonomy module.
 	 *
-	 * Enables the Plugin_Taxonomy module for registering custom taxonomies.
+	 * Enables the Module_Taxonomy module for registering custom taxonomies.
 	 * If enabled, this creates a custom taxonomy called `Wireframe Tax` in
 	 * your `Admin/Posts` menu. In your `config-taxonomy.php` config file you
 	 * MUST also set $wired = true.
@@ -124,133 +124,133 @@ function wireframe_plugin_config_controller() {
 	 * Example:
 	 *
 	 * 		1. $taxonomy = null;
-	 * 		2. $taxonomy = new Plugin_Taxonomy( wireframe_plugin_config_taxonomy() );
+	 * 		2. $taxonomy = new Module_Taxonomy( wireframe_plugin_config_taxonomy() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_Taxonomy( @param callable ). Default: null
+	 * @var   null|object Module_Taxonomy( @param callable ). Default: null
 	 */
-	$taxonomy = new Plugin_Taxonomy( wireframe_plugin_config_taxonomy() );
+	$taxonomy = new Module_Taxonomy( wireframe_plugin_config_taxonomy() );
 
 	/**
 	 * Custom Post Type module.
 	 *
-	 * Enables the Plugin_CPT module for registering custom post types. If enabled,
+	 * Enables the Module_CPT module for registering custom post types. If enabled,
 	 * this creates a custom post type called `Wireframe CPT` in your Admin menu.
 	 * In your `config-cpt.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $cpt = null;
-	 * 		2. $cpt = new Plugin_CPT( wireframe_plugin_config_cpt() );
+	 * 		2. $cpt = new Module_CPT( wireframe_plugin_config_cpt() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_CPT( @param callable ). Default: null
+	 * @var   null|object Module_CPT( @param callable ). Default: null
 	 */
-	$cpt = new Plugin_CPT( wireframe_plugin_config_cpt() );
+	$cpt = new Module_CPT( wireframe_plugin_config_cpt() );
 
 	/**
 	 * Database tables.
 	 *
-	 * Enables the Plugin_DBTables module for adding custom Database tables.
+	 * Enables the Module_DBTables module for adding custom Database tables.
 	 * In your `config-dbtablespt.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $dbtables = null;
-	 * 		2. $dbtables = new Plugin_DBTables( wireframe_plugin_config_dbtables() );
+	 * 		2. $dbtables = new Module_DBTables( wireframe_plugin_config_dbtables() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_DBTables( @param callable ). Default: null
+	 * @var   null|object Module_DBTables( @param callable ). Default: null
 	 */
 	$dbtables = null;
 
 	/**
 	 * Options module.
 	 *
-	 * Enables the Plugin_Options module for adding custom plugin options.
+	 * Enables the Module_Options module for adding custom plugin options.
 	 * In your `config-options.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $options = null;
-	 * 		2. $options = new Plugin_Options( wireframe_plugin_config_options() );
+	 * 		2. $options = new Module_Options( wireframe_plugin_config_options() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_Options( @param callable ). Default: null
+	 * @var   null|object Module_Options( @param callable ). Default: null
 	 */
 	$options = null;
 
 	/**
 	 * Settings module.
 	 *
-	 * Enables the Plugin_Settings module for adding custom plugin settings.
+	 * Enables the Module_Settings module for adding custom plugin settings.
 	 * In your `config-settings.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $settings = null;
-	 * 		2. $settings = new Plugin_Settings( wireframe_plugin_config_settings() );
+	 * 		2. $settings = new Module_Settings( wireframe_plugin_config_settings() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_Settings( @param callable ). Default: null
+	 * @var   null|object Module_Settings( @param callable ). Default: null
 	 */
 	$settings = null;
 
 	/**
 	 * Shortcode module.
 	 *
-	 * Enables the Plugin_Shortcode module for loading custom plugin shortcodes.
+	 * Enables the Module_Shortcode module for loading custom plugin shortcodes.
 	 * In your `config-shortcode.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $shortcode = null;
-	 * 		2. $shortcode = new Plugin_Shortcode( wireframe_plugin_config_shortcode() );
+	 * 		2. $shortcode = new Module_Shortcode( wireframe_plugin_config_shortcode() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_Shortcode( @param callable ). Default: null
+	 * @var   null|object Module_Shortcode( @param callable ). Default: null
 	 */
-	$shortcode = new Plugin_Shortcode( wireframe_plugin_config_shortcode() );
+	$shortcode = new Module_Shortcode( wireframe_plugin_config_shortcode() );
 
 	/**
 	 * Admin module.
 	 *
-	 * Enables the Plugin_Admin module for loading custom Admin menus and pages.
+	 * Enables the Module_Admin module for loading custom Admin menus and pages.
 	 * In your `config-admin.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $settings = null;
-	 * 		2. $settings = new Plugin_Admin( wireframe_plugin_config_admin() );
+	 * 		2. $settings = new Module_Admin( wireframe_plugin_config_admin() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_Settings( @param callable ). Default: null
+	 * @var   null|object Module_Settings( @param callable ). Default: null
 	 */
-	$admin = new Plugin_Admin( wireframe_plugin_config_admin() );
+	$admin = new Module_Admin( wireframe_plugin_config_admin() );
 
 	/**
 	 * UI module.
 	 *
-	 * Enables the Plugin_UI module for loading custom front-end styles & scripts.
+	 * Enables the Module_UI module for loading custom front-end styles & scripts.
 	 * In your `config-ui.php` config file you MUST also set $wired = true.
 	 *
 	 * Example:
 	 *
 	 * 		1. $settings = null;
-	 * 		2. $settings = new Plugin_UI( wireframe_plugin_config_ui() );
+	 * 		2. $settings = new Module_UI( wireframe_plugin_config_ui() );
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   null|object Plugin_Settings( @param callable ). Default: null
+	 * @var   null|object Module_Settings( @param callable ). Default: null
 	 */
-	$ui = new Plugin_UI( wireframe_plugin_config_ui() );
+	$ui = new Module_UI( wireframe_plugin_config_ui() );
 
 	/**
 	 * Option #1: Return (array) of config data for passing into objects.

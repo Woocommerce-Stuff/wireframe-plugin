@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Settings is a Wireframe module.
+ * Module_Settings is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Settings' ) ) :
 	/**
-	 * Plugin_Settings is a Wireframe_Plugin class.
+	 * Module_Settings is a Wireframe_Plugin class.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_Settings extends Core_Module_Abstract implements Plugin_Settings_Interface {
+	final class Module_Settings extends Core_Module_Abstract implements Module_Settings_Interface {
 		/**
 		 * Sections.
 		 *
@@ -214,6 +214,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 			}
 		}
 
-	} // Plugin_Settings.
+	} // Module_Settings.
 
 endif; // Thanks for using MixaTheme products!

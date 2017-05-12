@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Settings_Interface is a Wireframe interface.
+ * Module_Settings_Interface is a Wireframe interface.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Settings_Interface' ) ) :
 	/**
-	 * Plugin_Settings_Interface contract for Custom Post Types.
+	 * Module_Settings_Interface contract for Custom Post Types.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_Settings_Interface {
+	interface Module_Settings_Interface {
 		/**
 		 * Register.
 		 *
@@ -61,6 +61,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings_Interface' ) ) 
 		 */
 		public function add_settings();
 
-	} // Plugin_Settings_Interface.
+	} // Module_Settings_Interface.
 
 endif; // Thanks for using MixaTheme products!

@@ -78,7 +78,7 @@ function wireframe_plugin_config_cpt() {
 	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
-		'example_cpt_1' => array(
+		'wireframe-cpt' => array(
 			'tag'      => 'init',
 			'function' => 'register',
 			'priority' => 10,
@@ -104,7 +104,7 @@ function wireframe_plugin_config_cpt() {
 	 * @var   array $labels
 	 */
 	$labels = array(
-		'example_cpt_1' => array(
+		'wireframe-cpt' => array(
 			'name'                  => _x( 'Wireframe CPT', 'Post Type General Name', 'wireframe-plugin' ),
 			'singular_name'         => _x( 'Wireframe CPT', 'Post Type Singular Name', 'wireframe-plugin' ),
 			'menu_name'             => __( 'Wireframe CPT', 'wireframe-plugin' ),
@@ -141,10 +141,10 @@ function wireframe_plugin_config_cpt() {
 	 * @var   array $defaults Module defaults.
 	 */
 	 $defaults = array(
-		'example_cpt_1' => array(
+		'wireframe-cpt' => array(
 			'label'               => __( 'Wireframe CPT', 'wireframe-plugin' ),
 			'description'         => __( 'Wireframe CPT Description', 'wireframe-plugin' ),
-			'labels'              => $labels['example_cpt_1'],
+			'labels'              => $labels['wireframe-cpt'],
 			'supports'            => array(),
 			'taxonomies'          => array( 'category', 'post_tag' ),
 			'hierarchical'        => false,

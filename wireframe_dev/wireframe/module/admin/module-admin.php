@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Admin is a Wireframe module.
+ * Module_Admin is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Admin' ) ) :
 	/**
-	 * Plugin_Admin class for loading back-end menu pages to plugins.
+	 * Module_Admin class for loading back-end menu pages to plugins.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_Admin extends Core_Module_Abstract implements Plugin_Admin_Interface {
+	final class Module_Admin extends Core_Module_Abstract implements Module_Admin_Interface {
 		/**
 		 * Enqueue.
 		 *
@@ -180,6 +180,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 			}
 		}
 
-	} // Plugin_Admin.
+	} // Module_Admin.
 
 endif; // Thanks for using MixaTheme products!

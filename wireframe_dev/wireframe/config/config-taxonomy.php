@@ -78,7 +78,7 @@ function wireframe_plugin_config_taxonomy() {
 	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
-		'example' => array(
+		'wireframe-tax' => array(
 			'tag'      => 'init',
 			'function' => 'register',
 			'priority' => 0,
@@ -116,7 +116,7 @@ function wireframe_plugin_config_taxonomy() {
 	 * @var   array $object_type
 	 */
 	$object_type = array(
-		'example' => array(
+		'wireframe-tax' => array(
 			'post',
 		),
 	);
@@ -129,7 +129,7 @@ function wireframe_plugin_config_taxonomy() {
 	 * @var   array $labels
 	 */
 	$labels = array(
-		'example' => array(
+		'wireframe-tax' => array(
 			'name'                       => _x( 'Wireframe Tax', 'Taxonomy General Name', 'wireframe_plugin' ),
 			'singular_name'              => _x( 'Wireframe Tax', 'Taxonomy Singular Name', 'wireframe_plugin' ),
 			'menu_name'                  => __( 'Wireframe Tax', 'wireframe_plugin' ),
@@ -161,9 +161,9 @@ function wireframe_plugin_config_taxonomy() {
 	 * @var   array $options Your custom defaults for this config.
 	 */
 	$defaults = array(
-		'example' => array(
-			'object_type'       => $object_type['example'],
-			'labels'            => $labels['example'],
+		'wireframe-tax' => array(
+			'object_type'       => $object_type['wireframe-tax'],
+			'labels'            => $labels['wireframe-tax'],
 			'hierarchical'      => true,
 			'public'            => true,
 			'show_ui'           => true,

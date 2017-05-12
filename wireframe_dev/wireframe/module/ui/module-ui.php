@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Admin_Interface is a Wireframe interface.
+ * Module_UI is a Wireframe power theme class..
  *
  * PHP version 5.6.0
  *
@@ -44,31 +44,77 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin Module_UI' ) ) :
 	/**
-	 * Plugin_Admin_Interface contract for loading back-end menu pages.
+	 * Module_UI is a theme class for wiring front-end presentation methods.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Plugin_Admin_Interface {
+	final class Module_UI extends Core_Module_Abstract implements Module_UI_Interface {
 		/**
-		 * Add a top-level menu page.
+		 * Enqueue.
+		 *
+		 * @access private
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @var   object $_enqueue
+		 */
+		private $_enqueue;
+
+		/**
+		 * Constructor runs when this class instantiates.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $config Config data.
+		 */
+		public function __construct( $config ) {
+
+			// Declare custom properties required for this class.
+			$this->_enqueue = $config['enqueue'];
+
+			// Get parent Constructor.
+			parent::__construct( $config );
+		}
+
+		/**
+		 * Enqueue Styles.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function menu_pages();
+		public function styles() {
+			if ( null !== $this->_enqueue->styles() ) {
+				$this->_enqueue->styles();
+			}
+		}
 
 		/**
-		 * Add a submenu page.
+		 * Enqueue Scripts.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function submenu_pages();
+		public function scripts() {
+			if ( null !== $this->_enqueue->scripts() ) {
+				$this->_enqueue->scripts();
+			}
+		}
 
-	} // Plugin_Admin_Interface.
+		/**
+		 * Enqueue Media Modal.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function mediamodal() {
+			if ( null !== $this->_enqueue->mediamodal() ) {
+				$this->_enqueue->mediamodal();
+			}
+		}
+
+	} // Module_UI.
 
 endif; // Thanks for using MixaTheme products!

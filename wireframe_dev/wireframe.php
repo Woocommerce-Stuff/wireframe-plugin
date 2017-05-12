@@ -270,22 +270,22 @@ require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/admin/modules-admin-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/admin/modules-admin.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/cpt/modules-cpt-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/cpt/modules-cpt.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/dbtables/modules-dbtables-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/dbtables/modules-dbtables.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/options/modules-options-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/options/modules-options.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/settings/modules-settings-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/settings/modules-settings.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/shortcode/modules-shortcode-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/shortcode/modules-shortcode.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/taxonomy/modules-taxonomy-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/taxonomy/modules-taxonomy.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/ui/modules-ui-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/ui/modules-ui.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/admin/module-admin-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/admin/module-admin.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/cpt/module-cpt-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/cpt/module-cpt.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/dbtables/module-dbtables-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/dbtables/module-dbtables.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/options/module-options-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/options/module-options.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/settings/module-settings-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/settings/module-settings.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/shortcode/module-shortcode-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/shortcode/module-shortcode.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/taxonomy/module-taxonomy-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/taxonomy/module-taxonomy.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/ui/module-ui-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/ui/module-ui.php';
 
 /**
  * Check if the `Core_Plugin` class exists then configure Wireframe_Plugin defaults.

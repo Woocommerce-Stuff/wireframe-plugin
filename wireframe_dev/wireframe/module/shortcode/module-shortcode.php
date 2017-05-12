@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Options is a Wireframe module.
+ * Module_Shortcode is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,15 +44,15 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Options' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Shortcode' ) ) :
 	/**
-	 * Plugin_Options is a Wireframe_Plugin class.
+	 * Module_Shortcode is a Wireframe_Plugin class.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_Options extends Core_Module_Abstract implements Plugin_Options_Interface {
+	final class Module_Shortcode extends Core_Module_Abstract implements Module_Shortcode_Interface {
 		/**
 		 * Defaults.
 		 *
@@ -98,8 +98,27 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Options' ) ) :
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @todo  WIP. Needs work.
 		 */
-		public function register() {}
+		public function register() {
+			if ( isset( $this->_defaults ) ) {
+				foreach ( $this->_defaults as $key => $value ) {
+					add_shortcode( $key, array( $this, 'callback' ) );
+				}
+			}
+		}
 
-	} // Plugin_Options.
+		/**
+		 * Callback.
+		 *
+		 * @access protected
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $atts Attributes.
+		 * @todo  WIP. Needs work.
+		 */
+		public  function callback( $atts ) {
+			// TODO.
+		}
+
+	} // Module_Shortcode.
 
 endif; // Thanks for using MixaTheme products!
