@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_CPT is a Wireframe module.
+ * Plugin_Shortcode is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,24 +44,24 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Shortcode' ) ) :
 	/**
-	 * Plugin_CPT class for Custom Post Types.
+	 * Plugin_Shortcode is a Wireframe_Plugin class.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_CPT extends Core_Module_Abstract implements Plugin_CPT_Interface {
+	final class Plugin_Shortcode extends Core_Module_Abstract implements Plugin_Shortcode_Interface {
 		/**
 		 * Defaults.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $defaults
+		 * @var    array $_defaults
 		 */
-		protected $defaults;
+		private $_defaults;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -72,27 +72,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->defaults = $config['defaults'];
+			// Declare custom properties required for this class.
+			$this->_defaults = $config['defaults'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -102,27 +86,39 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults() {
-			if ( isset( $this->defaults ) ) {
-				return $this->defaults;
+			if ( isset( $this->_defaults ) ) {
+				return $this->_defaults;
 			}
 		}
 
 		/**
-		 * Register custom post type.
+		 * Register.
 		 *
-		 * @since 2.9.0 WordPress
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @see   https://codex.wordpress.org/Function_Reference/register_post_type
+		 * @todo  WIP. Needs work.
 		 */
 		public function register() {
-			if ( isset( $this->defaults ) ) {
-				foreach ( $this->defaults as $post_type => $args ) {
-					register_post_type( $post_type, $args );
+			if ( isset( $this->_defaults ) ) {
+				foreach ( $this->_defaults as $key => $value ) {
+					add_shortcode( $key, array( $this, 'callback' ) );
 				}
 			}
 		}
 
-	} // Plugin_CPT.
+		/**
+		 * Callback.
+		 *
+		 * @access protected
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @param array $atts Attributes.
+		 * @todo  WIP. Needs work.
+		 */
+		public  function callback( $atts ) {
+			// TODO.
+		}
+
+	} // Plugin_Shortcode.
 
 endif; // Thanks for using MixaTheme products!

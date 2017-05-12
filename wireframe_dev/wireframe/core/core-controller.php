@@ -54,14 +54,14 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 	 */
 	final class Core_Controller extends Core_Module_Abstract implements Core_Controller_Interface {
 		/**
-		 * DB Tables.
+		 * Taxonomy.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    object $_dbtables
+		 * @var    object $_taxonomy
 		 */
-		private $_dbtables;
+		private $_taxonomy;
 
 		/**
 		 * CPT.
@@ -74,24 +74,14 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		private $_cpt;
 
 		/**
-		 * Taxonomy.
+		 * DB Tables.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    object $_taxonomy
+		 * @var    object $_dbtables
 		 */
-		private $_taxonomy;
-
-		/**
-		 * Shortcode.
-		 *
-		 * @access private
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    object $_shortcode
-		 */
-		private $_shortcode;
+		private $_dbtables;
 
 		/**
 		 * Options.
@@ -114,6 +104,36 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		private $_settings;
 
 		/**
+		 * Shortcode.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_shortcode
+		 */
+		private $_shortcode;
+
+		/**
+		 * Admin.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_admin
+		 */
+		private $_admin;
+
+		/**
+		 * UI.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_ui
+		 */
+		private $_ui;
+
+		/**
 		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
@@ -122,27 +142,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
+			// Declare custom properties required for this class.
 			$this->_dbtables = $config['dbtables'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**

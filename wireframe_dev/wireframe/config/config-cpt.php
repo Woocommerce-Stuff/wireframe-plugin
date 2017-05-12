@@ -59,7 +59,7 @@ function wireframe_plugin_config_cpt() {
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: false
 	 */
-	$wired = false;
+	$wired = true;
 
 	/**
 	 * Prefix for handles.
@@ -105,10 +105,10 @@ function wireframe_plugin_config_cpt() {
 	 */
 	$labels = array(
 		'example_cpt_1' => array(
-			'name'                  => _x( 'Wireframe Plugin CPT', 'Post Type General Name', 'wireframe-plugin' ),
-			'singular_name'         => _x( 'Wireframe Plugin CPT', 'Post Type Singular Name', 'wireframe-plugin' ),
-			'menu_name'             => __( 'Wireframe Plugin CPT', 'wireframe-plugin' ),
-			'name_admin_bar'        => __( 'Wireframe Plugin CPT', 'wireframe-plugin' ),
+			'name'                  => _x( 'Wireframe CPT', 'Post Type General Name', 'wireframe-plugin' ),
+			'singular_name'         => _x( 'Wireframe CPT', 'Post Type Singular Name', 'wireframe-plugin' ),
+			'menu_name'             => __( 'Wireframe CPT', 'wireframe-plugin' ),
+			'name_admin_bar'        => __( 'Wireframe CPT', 'wireframe-plugin' ),
 			'archives'              => __( 'Item Archives', 'wireframe-plugin' ),
 			'parent_item_colon'     => __( 'Parent Item:', 'wireframe-plugin' ),
 			'all_items'             => __( 'All Items', 'wireframe-plugin' ),
@@ -142,8 +142,8 @@ function wireframe_plugin_config_cpt() {
 	 */
 	 $defaults = array(
 		'example_cpt_1' => array(
-			'label'               => __( 'Wireframe Plugin CPT', 'wireframe-plugin' ),
-			'description'         => __( 'Wireframe Plugin CPT Description', 'wireframe-plugin' ),
+			'label'               => __( 'Wireframe CPT', 'wireframe-plugin' ),
+			'description'         => __( 'Wireframe CPT Description', 'wireframe-plugin' ),
 			'labels'              => $labels['example_cpt_1'],
 			'supports'            => array(),
 			'taxonomies'          => array( 'category', 'post_tag' ),

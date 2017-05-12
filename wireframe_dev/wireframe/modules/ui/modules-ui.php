@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_Options is a Wireframe module.
+ * Plugin_UI is a Wireframe power theme class..
  *
  * PHP version 5.6.0
  *
@@ -44,77 +44,77 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Options' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
 	/**
-	 * Plugin_Options is a Wireframe_Plugin class.
+	 * Plugin_UI is a theme class for wiring front-end presentation methods.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_Options extends Core_Module_Abstract implements Plugin_Options_Interface {
+	final class Plugin_UI extends Core_Module_Abstract implements Plugin_UI_Interface {
 		/**
-		 * Config.
+		 * Enqueue.
 		 *
 		 * @access private
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $_config
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @var   object $_enqueue
 		 */
-		private $_config;
+		private $_enqueue;
 
 		/**
-		 * Constructor runs when this class is instantiated.
+		 * Constructor runs when this class instantiates.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @param array $config Required array of config variables.
+		 * @param array $config Config data.
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->defaults = $config['defaults'];
+			// Declare custom properties required for this class.
+			$this->_enqueue = $config['enqueue'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
-		 * Get Defaults.
+		 * Enqueue Styles.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function get_defaults() {
-			if ( isset( $this->defaults ) ) {
-				return $this->defaults;
+		public function styles() {
+			if ( null !== $this->_enqueue->styles() ) {
+				$this->_enqueue->styles();
 			}
 		}
 
 		/**
-		 * Register.
+		 * Enqueue Scripts.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function register() {}
+		public function scripts() {
+			if ( null !== $this->_enqueue->scripts() ) {
+				$this->_enqueue->scripts();
+			}
+		}
 
-	} // Plugin_Options.
+		/**
+		 * Enqueue Media Modal.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function mediamodal() {
+			if ( null !== $this->_enqueue->mediamodal() ) {
+				$this->_enqueue->mediamodal();
+			}
+		}
+
+	} // Plugin_UI.
 
 endif; // Thanks for using MixaTheme products!

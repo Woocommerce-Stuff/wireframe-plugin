@@ -56,32 +56,32 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		/**
 		 * Sections.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $sections
+		 * @var    array $_sections
 		 */
-		protected $sections;
+		private $_sections;
 
 		/**
 		 * Fields.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $fields
+		 * @var    array $_fields
 		 */
-		protected $fields;
+		private $_fields;
 
 		/**
 		 * Register.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $register
+		 * @var    array $_register
 		 */
-		protected $register;
+		private $_register;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -92,29 +92,13 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->sections = $config['sections'];
-			$this->fields   = $config['fields'];
-			$this->register = $config['register'];
+			// Declare custom properties required for this class.
+			$this->_sections = $config['sections'];
+			$this->_fields   = $config['fields'];
+			$this->_register = $config['register'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -124,8 +108,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults() {
-			if ( isset( $this->defaults ) ) {
-				return $this->defaults;
+			if ( isset( $this->_defaults ) ) {
+				return $this->_defaults;
 			}
 		}
 
@@ -134,6 +118,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP.
 		 */
 		public function add_settings() {
 			$this->_register_sections();
@@ -148,10 +133,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		private function _register_sections() {
-			if ( isset( $this->sections ) ) {
-				foreach ( $this->sections as $key => $value ) {
+			if ( isset( $this->_sections ) ) {
+				foreach ( $this->_sections as $key => $value ) {
 					add_settings_section(
 						$value['id'],
 						$value['title'],
@@ -170,10 +156,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		private function _register_fields() {
-			if ( isset( $this->fields ) ) {
-				foreach ( $this->fields as $key => $value ) {
+			if ( isset( $this->_fields ) ) {
+				foreach ( $this->_fields as $key => $value ) {
 					add_settings_field(
 						$value['id'],
 						$value['title'],
@@ -194,10 +181,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		private function _register_settings() {
-			if ( isset( $this->register ) ) {
-				foreach ( $this->register as $key => $value ) {
+			if ( isset( $this->_register ) ) {
+				foreach ( $this->_register as $key => $value ) {
 					register_setting(
 						$value['option_group'],
 						$value['option_name'],
@@ -212,10 +200,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Settings' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		public function unregister() {
-			if ( isset( $this->unregister ) ) {
-				foreach ( $this->unregister as $key => $value ) {
+			if ( isset( $this->_unregister ) ) {
+				foreach ( $this->_unregister as $key => $value ) {
 					unregister_setting(
 						$value['option_group'],
 						$value['option_name'],

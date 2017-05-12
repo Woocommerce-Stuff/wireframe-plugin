@@ -59,7 +59,7 @@ function wireframe_plugin_config_taxonomy() {
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   bool $wired Wire hooks via __construct(). Default: false
 	 */
-	$wired = false;
+	$wired = true;
 
 	/**
 	 * Prefix for handles.
@@ -130,9 +130,9 @@ function wireframe_plugin_config_taxonomy() {
 	 */
 	$labels = array(
 		'example' => array(
-			'name'                       => _x( 'Wireframe Plugin Taxonomies', 'Taxonomy General Name', 'wireframe_plugin' ),
-			'singular_name'              => _x( 'Wireframe Plugin Taxonomy', 'Taxonomy Singular Name', 'wireframe_plugin' ),
-			'menu_name'                  => __( 'Wireframe Plugin Taxonomy', 'wireframe_plugin' ),
+			'name'                       => _x( 'Wireframe Tax', 'Taxonomy General Name', 'wireframe_plugin' ),
+			'singular_name'              => _x( 'Wireframe Tax', 'Taxonomy Singular Name', 'wireframe_plugin' ),
+			'menu_name'                  => __( 'Wireframe Tax', 'wireframe_plugin' ),
 			'all_items'                  => __( 'All Items', 'wireframe_plugin' ),
 			'parent_item'                => __( 'Parent Item', 'wireframe_plugin' ),
 			'parent_item_colon'          => __( 'Parent Item:', 'wireframe_plugin' ),

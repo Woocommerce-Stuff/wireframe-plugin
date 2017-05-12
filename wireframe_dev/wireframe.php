@@ -270,22 +270,22 @@ require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/admin/plugin-admin-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/admin/plugin-admin.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/cpt/plugin-cpt-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/cpt/plugin-cpt.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/dbtables/plugin-dbtables-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/dbtables/plugin-dbtables.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/options/plugin-options-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/options/plugin-options.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/settings/plugin-settings-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/settings/plugin-settings.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/shortcode/plugin-shortcode-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/shortcode/plugin-shortcode.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/taxonomy/plugin-taxonomy-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/taxonomy/plugin-taxonomy.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/ui/plugin-ui-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'plugin/ui/plugin-ui.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/admin/modules-admin-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/admin/modules-admin.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/cpt/modules-cpt-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/cpt/modules-cpt.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/dbtables/modules-dbtables-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/dbtables/modules-dbtables.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/options/modules-options-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/options/modules-options.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/settings/modules-settings-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/settings/modules-settings.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/shortcode/modules-shortcode-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/shortcode/modules-shortcode.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/taxonomy/modules-taxonomy-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/taxonomy/modules-taxonomy.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/ui/modules-ui-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'modules/ui/modules-ui.php';
 
 /**
  * Check if the `Core_Plugin` class exists then configure Wireframe_Plugin defaults.
@@ -354,22 +354,6 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	require_once WIREFRAME_PLUGIN_API . 'config/config-controller.php';
 
 	/**
-	 * § 08. Service: Language.
-	 * =========================================================================
-	 *
-	 * This closure registers a service with the Core_Container::$storage array,
-	 * and instantiates a new Core_Language object with config data passed-in.
-	 *
-	 * @since  1.0.0 Wireframe
-	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_language()
-	 * @return object Core_Language( @param array Object args. )
-	 */
-	$wireframe_plugin_container->language = function () {
-		return new Core_Language( wireframe_plugin_config_language() );
-	};
-
-	/**
 	 * §.08. Service: Core_Controller.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
@@ -377,42 +361,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
-	 * @see    wireframe_plugin_config_language()
+	 * @see    wireframe_plugin_config_controller()
 	 * @return object Core_Controller( @param array )
 	 */
 	$wireframe_plugin_container->controller = function () {
 		return new Core_Controller( wireframe_plugin_config_controller() );
-	};
-
-	/**
-	 * §.08. Service: Plugin_Admin.
-	 * =========================================================================
-	 *
-	 * This closure registers a service with the Core_Container::$storage array,
-	 * and instantiates a new Plugin_Admin object with config data passed-in.
-	 *
-	 * @since  1.0.0 Wireframe
-	 * @since  1.0.0 Wireframe_Plugin
-	 * @see    wireframe_plugin_config_language()
-	 * @return object Plugin_Admin( @param array )
-	 */
-	$wireframe_plugin_container->admin = function () {
-		return new Plugin_Admin( wireframe_plugin_config_admin() );
-	};
-
-	/**
-	 * § 08. Service: UI.
-	 *
-	 * This closure registers a service with the Core_Container::$storage array,
-	 * and instantiates a new Plugin_UI object with config data passed-in.
-	 *
-	 * @since  1.0.0 Wireframe
-	 * @since  1.0.0 Wireframe_Plugin
-	 * @see    wireframe_plugin_config_ui()
-	 * @return object Plugin_UI( @param array Object args. )
-	 */
-	$wireframe_plugin_container->ui = function () {
-		return new Plugin_UI( wireframe_plugin_config_ui() );
 	};
 
 	/**
@@ -434,17 +387,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @var    object $wireframe_plugin
 	 * @return object Core_Plugin(
-	 *         @param object Core_Language   DI the default language.
-	 *         @param object Core_Controller DI the default controller.
-	 *         @param object Plugin_Admin    DI the default Admin views.
-	 *         @param object Plugin_UI       DI the default front-end UI.
+	 *         @param object Core_Controller  DI the default core controller.
 	 * )
 	 */
 	$wireframe_plugin = new Core_Plugin(
-		$wireframe_plugin_container->language,
-		$wireframe_plugin_container->controller,
-		$wireframe_plugin_container->admin,
-		$wireframe_plugin_container->ui
+		$wireframe_plugin_container->controller
 	);
 
 	/**

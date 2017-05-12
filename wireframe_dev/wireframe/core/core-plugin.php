@@ -55,6 +55,16 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 */
 	final class Core_Plugin implements Core_Plugin_Interface {
 		/**
+		 * Controller object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_controller
+		 */
+		private $_controller;
+
+		/**
 		 * Plugins must wire Core_Language.
 		 *
 		 * @access private
@@ -65,14 +75,64 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		private $_language;
 
 		/**
-		 * Controller object.
+		 * Taxonomy object.
 		 *
 		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    object $_controller
+		 * @var    object $_taxonomy
 		 */
-		private $_controller;
+		private $_taxonomy;
+
+		/**
+		 * CPT object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_cpt
+		 */
+		private $_cpt;
+
+		/**
+		 * DBTables object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_dbtables
+		 */
+		private $_dbtables;
+
+		/**
+		 * Options object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_options
+		 */
+		private $_options;
+
+		/**
+		 * Settings object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_settings
+		 */
+		private $_settings;
+
+		/**
+		 * Shortcode object.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_shortcode
+		 */
+		private $_shortcode;
 
 		/**
 		 * Admin object.
@@ -99,18 +159,24 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @param object $language   Core_Language_Interface.
 		 * @param object $controller Core_Controller_Interface.
-		 * @param object $admin      Plugin_Admin_Interface.
-		 * @param object $ui         Plugin_UI_Interface.
 		 */
-		public function __construct( Core_Language_Interface $language, Core_Controller_Interface $controller, Plugin_Admin_Interface $admin, Plugin_UI_Interface $ui ) {
+		public function __construct( Core_Controller_Interface $controller ) {
 
 			// Default properties required for this class.
-			$this->_language   = $language;
 			$this->_controller = $controller;
-			$this->_admin      = $admin;
-			$this->_ui         = $ui;
+		}
+
+		/**
+		 * Get Controller.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function controller() {
+			if ( isset( $this->_controller ) ) {
+				return $this->_controller;
+			}
 		}
 
 		/**
@@ -127,14 +193,80 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		}
 
 		/**
-		 * Get Controller.
+		 * Get Taxonomy.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_taxonomy
 		 */
-		public function controller() {
-			if ( isset( $this->_controller ) ) {
-				return $this->_controller;
+		public function taxonomy() {
+			if ( isset( $this->_taxonomy ) ) {
+				return $this->_taxonomy;
+			}
+		}
+
+		/**
+		 * Get CPT.
+		 *
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_cpt
+		 */
+		public function cpt() {
+			if ( isset( $this->_cpt ) ) {
+				return $this->_cpt;
+			}
+		}
+
+		/**
+		 * Get DBTables.
+		 *
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_dbtables
+		 */
+		public function dbtables() {
+			if ( isset( $this->_dbtables ) ) {
+				return $this->_dbtables;
+			}
+		}
+
+		/**
+		 * Get Options.
+		 *
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_options
+		 */
+		public function options() {
+			if ( isset( $this->_options ) ) {
+				return $this->_options;
+			}
+		}
+
+		/**
+		 * Get Settings.
+		 *
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_settings
+		 */
+		public function settings() {
+			if ( isset( $this->_settings ) ) {
+				return $this->_settings;
+			}
+		}
+
+		/**
+		 * Get Shortcode.
+		 *
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @return object $_shortcode
+		 */
+		public function shortcode() {
+			if ( isset( $this->_shortcode ) ) {
+				return $this->_shortcode;
 			}
 		}
 

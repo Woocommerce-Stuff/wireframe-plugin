@@ -63,9 +63,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $defaults
+		 * @var    array $_defaults
 		 */
-		private $defaults;
+		private $_defaults;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -75,7 +75,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * @param array $config Required SQL statement.
 		 */
 		public function __construct( $config ) {
-			$this->defaults = $config['defaults'];
+
+			// Declare custom properties required for this class.
+			$this->_defaults = $config['defaults'];
+
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -83,39 +88,40 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Error message.
 		 */
 		public function get_defaults() {
-			if ( isset( $this->defaults ) ) {
-				return $this->defaults;
-			} else {
-				wp_die( 'Error getting defaults.' );
+			if ( isset( $this->_defaults ) ) {
+				return $this->_defaults;
 			}
 		}
 
 		/**
 		 * Create.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @param string $id  The key defined via your object config.
-		 * @param string $sql The query for new table creation.
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @param  string $id  The key defined via your object config.
+		 * @param  string $sql The query for new table creation.
+		 * @todo   WIP. Needs work.
 		 */
-		public function create( $id, $sql ) {
+		private function _create( $id, $sql ) {
 			if ( null !== $this->get_defaults() ) {
 				$this->_add_dbtable( $id, $sql );
-			} else {
-				wp_die( 'Error creating DB table.' );
 			}
 		}
 
 		/**
 		 * Drop.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @param string $id  The key defined via your object config.
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @param  string $id  The key defined via your object config.
+		 * @todo   WIP. Needs work.
 		 */
-		public function drop( $id ) {
+		private function _drop( $id ) {
 			if ( null !== $this->get_defaults() ) {
 				$this->_remove_dbtable( $id );
 			}
@@ -128,6 +134,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @global object $wpdb
+		 * @todo   WIP. Needs work.
 		 */
 		private function _dbprefix() {
 
@@ -154,6 +161,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * @see    _dbprefix() Determines single site or multisite table prefix.
 		 * @see    https://codex.wordpress.org/Creating_Tables_with_Plugins
 		 * @see    https://codex.wordpress.org/Class_Reference/wpdb
+		 * @todo   WIP. Needs work.
 		 */
 		private function _add_dbtable( $id, $sql ) {
 
@@ -184,8 +192,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 
 				// Execute query, create tables.
 				dbDelta( $sql );
-			} else {
-				wp_die( 'Error adding dbtable.' );
 			}
 		}
 
@@ -200,6 +206,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_DBTables' ) ) :
 		 * @see    _dbprefix() Determines single site or multisite table prefix.
 		 * @see    https://codex.wordpress.org/Creating_Tables_with_Plugins
 		 * @see    https://codex.wordpress.org/Class_Reference/wpdb
+		 * @todo   WIP. Needs work.
 		 */
 		private function _remove_dbtable( $id ) {
 

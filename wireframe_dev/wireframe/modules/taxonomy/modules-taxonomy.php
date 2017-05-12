@@ -56,12 +56,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy' ) ) :
 		/**
 		 * Defaults.
 		 *
-		 * @access protected
+		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @var    array $defaults
+		 * @var    array $_defaults
 		 */
-		protected $defaults;
+		private $_defaults;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -72,27 +72,11 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->defaults = $config['defaults'];
+			// Declare custom properties required for this class.
+			$this->_defaults = $config['defaults'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -102,8 +86,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy' ) ) :
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function get_defaults() {
-			if ( isset( $this->defaults ) ) {
-				return $this->defaults;
+			if ( isset( $this->_defaults ) ) {
+				return $this->_defaults;
 			}
 		}
 
@@ -116,8 +100,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Taxonomy' ) ) :
 		 * @see   https://codex.wordpress.org/Function_Reference/register_taxonomy
 		 */
 		public function register() {
-			if ( isset( $this->defaults ) ) {
-				foreach ( $this->defaults as $taxonomy => $args ) {
+			if ( isset( $this->_defaults ) ) {
+				foreach ( $this->_defaults as $taxonomy => $args ) {
 					register_taxonomy( $taxonomy, $args['object_type'], $args );
 				}
 			}

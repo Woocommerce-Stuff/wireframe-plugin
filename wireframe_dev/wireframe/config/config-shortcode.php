@@ -75,16 +75,24 @@ function wireframe_plugin_config_shortcode() {
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $actions Requires $enabled = true. Default: array()
+	 * @var   array $actions Requires $wired = true. Default: array()
+	 * @todo  WIP.
 	 */
-	$actions = array();
+	$actions = array(
+		'wireframe_shortcode' => array(
+			'tag'      => 'init',
+			'function' => 'register',
+			'priority' => 0,
+			'args'     => null,
+		),
+	);
 
 	/**
 	 * Filters to hook.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $filters Requires $enabled = true. Default: array()
+	 * @var   array $filters Requires $wired = true. Default: array()
 	 * @todo  WIP.
 	 */
 	$filters = array();
@@ -95,8 +103,18 @@ function wireframe_plugin_config_shortcode() {
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $options Your custom defaults for this config. Default: array()
+	 * @todo  WIP.
 	 */
-	$defaults = array();
+	$defaults = array(
+		'wireframe_shortcode_1' => array(
+			'one' => 'first',
+			'two' => 'second',
+		),
+		'wireframe_shortcode_2' => array(
+			'three' => 'third',
+			'four'  => 'fourth',
+		),
+	);
 
 	/**
 	 * Option #1: Return (array) of config data for passing into objects.

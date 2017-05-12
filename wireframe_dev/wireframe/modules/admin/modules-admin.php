@@ -56,29 +56,32 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		/**
 		 * Enqueue.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @var   object $_enqueue
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_enqueue
 		 */
 		private $_enqueue;
 
 		/**
 		 * Menu Pages.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @var   array $menu_pages
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $_menu_pages
 		 */
-		public $menu_pages;
+		private $_menu_pages;
 
 		/**
 		 * Submenu Pages.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @var   array $submenu_pages
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $_submenu_pages
 		 */
-		public $submenu_pages;
+		private $_submenu_pages;
 
 		/**
 		 * Constructor runs when this class is instantiated.
@@ -89,29 +92,13 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		 */
 		public function __construct( $config ) {
 
-			// Custom properties required for this class.
-			$this->_enqueue      = $config['enqueue'];
-			$this->menu_pages    = $config['menu_pages'];
-			$this->submenu_pages = $config['submenu_pages'];
+			// Declare custom properties required for this class.
+			$this->_enqueue       = $config['enqueue'];
+			$this->_menu_pages    = $config['menu_pages'];
+			$this->_submenu_pages = $config['submenu_pages'];
 
-			// Default properties via Wireframe abstract class.
-			$this->wired    = $config['wired'];
-			$this->prefix   = $config['prefix'];
-			$this->_actions = $config['actions'];
-			$this->_filters = $config['filters'];
-
-			/**
-			 * Most objects are not required to be wired (hooked) when instantiated.
-			 * In your object config file(s), you can set the `$wired` value
-			 * to true or false. If false, you can decouple any hooks and declare
-			 * them elsewhere. If true, then objects fire hooks onload.
-			 *
-			 * Config data files are located in: `wireframe_dev/wireframe/config/`
-			 */
-			if ( isset( $this->wired ) && true === $this->wired ) {
-				$this->wire_actions( $this->_actions );
-				$this->wire_filters( $this->_filters );
-			}
+			// Get parent Constructor.
+			parent::__construct( $config );
 		}
 
 		/**
@@ -157,8 +144,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function menu_pages() {
-			if ( isset( $this->menu_pages ) ) {
-				foreach ( $this->menu_pages as $key => $value ) {
+			if ( isset( $this->_menu_pages ) ) {
+				foreach ( $this->_menu_pages as $key => $value ) {
 					add_menu_page(
 						$value['page_title'],
 						$value['menu_title'],
@@ -179,8 +166,8 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_Admin' ) ) :
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
 		public function submenu_pages() {
-			if ( isset( $this->submenu_pages ) ) {
-				foreach ( $this->submenu_pages as $key => $value ) {
+			if ( isset( $this->_submenu_pages ) ) {
+				foreach ( $this->_submenu_pages as $key => $value ) {
 					add_submenu_page(
 						$value['parent_slug'],
 						$value['page_title'],

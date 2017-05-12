@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin_UI is a Wireframe power theme class..
+ * Plugin_CPT is a Wireframe module.
  *
  * PHP version 5.6.0
  *
@@ -44,76 +44,69 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_UI' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Plugin_CPT' ) ) :
 	/**
-	 * Plugin_UI is a theme class for wiring front-end presentation methods.
+	 * Plugin_CPT class for Custom Post Types.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Plugin_UI extends Core_Module_Abstract implements Plugin_UI_Interface {
+	final class Plugin_CPT extends Core_Module_Abstract implements Plugin_CPT_Interface {
 		/**
-		 * Enqueue.
+		 * Defaults.
 		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @var   object $_enqueue
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    array $_defaults
 		 */
-		private $_enqueue;
+		private $_defaults;
 
 		/**
-		 * Constructor runs when this class instantiates.
+		 * Constructor runs when this class is instantiated.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @param array $config Config data.
+		 * @param array $config Required array of config variables.
 		 */
 		public function __construct( $config ) {
 
 			// Declare custom properties required for this class.
-			$this->_enqueue = $config['enqueue'];
+			$this->_defaults = $config['defaults'];
 
 			// Get parent Constructor.
 			parent::__construct( $config );
 		}
 
 		/**
-		 * Enqueue Styles.
+		 * Get Defaults.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function styles() {
-			if ( null !== $this->_enqueue->styles() ) {
-				$this->_enqueue->styles();
+		public function get_defaults() {
+			if ( isset( $this->_defaults ) ) {
+				return $this->_defaults;
 			}
 		}
 
 		/**
-		 * Enqueue Scripts.
+		 * Register custom post type.
 		 *
+		 * @since 2.9.0 WordPress
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @see   https://codex.wordpress.org/Function_Reference/register_post_type
 		 */
-		public function scripts() {
-			if ( null !== $this->_enqueue->scripts() ) {
-				$this->_enqueue->scripts();
+		public function register() {
+			if ( isset( $this->_defaults ) ) {
+				foreach ( $this->_defaults as $post_type => $args ) {
+					register_post_type( $post_type, $args );
+				}
 			}
 		}
 
-		/**
-		 * Enqueue Media Modal.
-		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 */
-		public function mediamodal() {
-			if ( null !== $this->_enqueue->mediamodal() ) {
-				$this->_enqueue->mediamodal();
-			}
-		}
-
-	} // Plugin_UI.
+	} // Plugin_CPT.
 
 endif; // Thanks for using MixaTheme products!
