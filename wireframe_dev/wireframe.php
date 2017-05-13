@@ -383,6 +383,10 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *            own custom class, or make the `Core_Plugin` class abstract,
 	 *            then extend it.
 	 *
+	 * Option #3: You can also register multiple services and DI them into the
+	 *            Core_Plugin object (requires object parameters). Checkout our
+	 *            Wireframe_Theme example: @see https://github.com/mixatheme/wireframe-theme
+	 *
 	 * @since  1.0.0 Wireframe
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @var    object $wireframe_plugin
@@ -415,9 +419,9 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * =========================================================================
 	 *
 	 * Most objects are not required to be wired (hooked) when instantiated.
-	 * In your config data file(s), you can set the `$wired` value
-	 * to true or false. If false, you can decouple any hooks and declare
-	 * them here. If true, then objects fire hooks onload.
+	 * In your config data file(s), you can set the `$wired` value to true or false.
+	 * If false, you can de-couple any hooks and declare them here (below).
+	 * If $wired = true, then those objects will fire hooks onload.
 	 *
 	 * Data files are located in: `wireframe_dev/wireframe/config/`
 	 *
