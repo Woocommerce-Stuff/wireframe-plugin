@@ -31,12 +31,18 @@
  * Wireframe_Plugin only works with WordPress 4.7.4 or later. If the version is
  * incompatible, load any backwards compatibility helpers; else continue setup.
  *
+ * Note: Whenever WordPress releases a new update, we will always update this
+ * GitHub file to the latest version. Just to keep you on your toes ;-)
+ *
  * @since 1.0.0 Wireframe_Plugin
  * @todo  Probably a better way to do this?
  */
 if ( version_compare( $GLOBALS['wp_version'], '4.7.4', '<' ) ) {
 
-	// Load our backwards compatibility handlers.
+	// Make available any notices you may need.
+	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-notices.php';
+
+	// Load your backwards compatibility handlers.
 	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-compat.php';
 
 	// Hook any Admin notices.

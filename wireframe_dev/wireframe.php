@@ -224,6 +224,7 @@ define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_P
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
+require_once WIREFRAME_PLUGIN_API . 'functions/functions-notices.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-helpers.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
 
@@ -404,33 +405,39 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * Check if Wireframe_Plugin is properly initialized. You can perform any clean-up
 	 * tasks here, or simply output a warning if `$wireframe_plugin` fails. Also note:
-	 * your plugin files now have access to objects beyond this point.
+	 * your plugin files should now have access to objects beyond this point.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @todo  WIP. Use admin notice hook?
+	 * @see   functions-notices.php
 	 */
 	if ( ! isset( $wireframe_plugin ) ) {
-		esc_html_e( 'Wireframe Plugin failed to initialize. Please verify your setup.', 'wireframe-plugin' );
-	}
 
-	/**
-	 * §.11. Hooks.
-	 * =========================================================================
-	 *
-	 * Most objects are not required to be wired (hooked) when instantiated.
-	 * In your config data file(s), you can set the `$wired` value to true or false.
-	 * If false, you can de-couple any hooks and declare them here (below).
-	 * If $wired = true, then those objects will fire hooks onload.
-	 *
-	 * Data files are located in: `wireframe_dev/wireframe/config/`
-	 *
-	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 Wireframe_Plugin
-	 * @see   object $wireframe_plugin Instance of Core_Plugin.
-	 */
-	register_activation_hook( __FILE__, array( $wireframe_plugin->controller(), 'activate' ) );
-	register_deactivation_hook( __FILE__, array( $wireframe_plugin->controller(), 'deactivate' ) );
-	register_uninstall_hook( __FILE__, $wireframe_plugin->controller()->uninstall() );
+		// Init failed. Stop processing. Hook a failure notice.
+		add_action( 'admin_notices', 'wireframe_plugin_notice_init' );
+
+	} else {
+
+		/**
+		 * §.11. Hooks.
+		 * =========================================================================
+		 *
+		 * Init success! Continue processing. Run any hooks you need.
+		 *
+		 * Note: Many objects are not required to be wired (hooked) when instantiated.
+		 * In your config data file(s), you can set the `$wired` value to true or false.
+		 * If false, you can de-couple any hooks and declare them here (below).
+		 * If $wired = true, then those objects will fire hooks onload.
+		 *
+		 * Data files are located in: `wireframe_dev/wireframe/config/`
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @see   object $wireframe_plugin Instance of Core_Plugin.
+		 */
+		register_activation_hook( __FILE__, array( $wireframe_plugin->controller(), 'activate' ) );
+		register_deactivation_hook( __FILE__, array( $wireframe_plugin->controller(), 'deactivate' ) );
+		register_uninstall_hook( __FILE__, $wireframe_plugin->controller()->uninstall() );
+	}
 
 endif; // Thanks for using MixaTheme products!

@@ -21,22 +21,5 @@
  * along with this software. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * Wireframe Plugin Notice: Compatibility.
- *
- * This function is hooked via `wireframe-plugin.php` file if the version of
- * WordPress is not compatible with this plugin. Note: this Admin notice does
- * not use `is-dismissible` because the User should deactivate the plugin.
- *
- * @since 1.0.0 Wireframe
- * @since 1.0.0 Wireframe_Plugin
- * @see   wireframe-plugin.php
- */
-function wireframe_plugin_notice_compat() {
-	?>
-	<div class="notice notice-error">
-		<h1><?php esc_html_e( 'Wireframe Plugin Notice', 'wireframe-plugin' ); ?></h1>
-		<p><?php esc_html_e( 'Hey there! Sorry to bother you, but it looks like you are using an older version of WordPress. Wireframe Plugin is only compatible with WordPress 4.7.4 or later. Please deactivate Wireframe Plugin and update WordPress to dismiss this notice. Thank you for using MixaTheme products!', 'wireframe-plugin' ); ?></p>
-	</div>
-	<?php
-}
+/** ADD YOUR CUSTOM FUNCTIONS BELOW THIS LINE... */
+/** ------------------------------------------------------------------------- */
