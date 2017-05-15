@@ -36,7 +36,7 @@
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( version_compare( $GLOBALS['wp_version'], '47676.7.4', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '4.7.4', '<' ) ) {
 
 	// Incompatible version, but you still need the translation file.
 	load_plugin_textdomain( 'wireframe-plugin', false, 'wireframe-plugin/wireframe_client/lang' );
