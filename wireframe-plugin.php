@@ -27,34 +27,34 @@
 /**
  * Compatibility Checker.
  *
- * Checks WordPress version, then initializes wireframe.php. In this example,
- * Wireframe_Plugin only works with WordPress 4.7.4 or later. If the version is
- * incompatible, load any backwards compatibility helpers; else continue setup.
+ * In this example, Wireframe_Plugin only works with WordPress 4.7.4 or later.
+ * If the version is incompatible, load any backwards compatibility helpers;
+ * else continue bootstrapping wireframe.php.
  *
- * Note: Whenever WordPress releases a new update, we will always update this
- * GitHub file to the latest version. Just to keep you on your toes ;-)
+ * Note: Whenever WordPress releases a new update, we will always sync this
+ * file on GitHub to reflect the latest WordPress version ;-)
  *
  * @since 1.0.0 Wireframe_Plugin
- * @todo  Probably a better way to do this?
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.7.4', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '47676.7.4', '<' ) ) {
+
+	// Incompatible version, but you still need the translation file.
+	load_plugin_textdomain( 'wireframe-plugin', false, 'wireframe-plugin/wireframe_client/lang' );
+
+	// Load any backwards compatibility handlers.
+	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-compat.php';
 
 	// Make available any notices you may need.
 	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-notices.php';
 
-	// Load your backwards compatibility handlers.
-	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-compat.php';
-
-	// Hook any Admin notices.
+	// Finally, hook any Admin notices to alert your customers.
 	add_action( 'admin_notices', 'wireframe_plugin_notice_compat' );
-
-	// Stop processing.
-	return;
 
 } else {
 
-	// Bootstrap your Wireframe plugin.
+	// Version looks good! Bootstrap your Wireframe_Plugin...
 	require_once plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe.php';
+
 }
 
 /** ADD YOUR CUSTOM FUNCTIONS BELOW THIS LINE... */
