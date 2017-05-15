@@ -60,3 +60,6 @@ function wireframe_plugin_notice_init() {
 	</div>
 	<?php
 }
+
+/** ADD YOUR CUSTOM FUNCTIONS BELOW THIS LINE... */
+/** ------------------------------------------------------------------------- */

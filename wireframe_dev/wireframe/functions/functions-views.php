@@ -252,3 +252,7 @@ function wireframe_plugin_admin_page_callback_support() {
 	</div>
 <?php
 }
+
+/** ADD YOUR CUSTOM FUNCTIONS BELOW THIS LINE... */
+/** ------------------------------------------------------------------------- */
+

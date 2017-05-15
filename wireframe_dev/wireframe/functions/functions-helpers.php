@@ -34,3 +34,6 @@ function wireframe_plugin_admin_check() {
 		wp_die( 'You are not authorized to access this page.' );
 	}
 }
+
+/** ADD YOUR CUSTOM FUNCTIONS BELOW THIS LINE... */
+/** ------------------------------------------------------------------------- */
