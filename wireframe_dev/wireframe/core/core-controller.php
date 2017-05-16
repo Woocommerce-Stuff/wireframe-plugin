@@ -54,6 +54,16 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 	 */
 	final class Core_Controller extends Core_Module_Abstract implements Core_Controller_Interface {
 		/**
+		 * Notices.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @var    object $_notices
+		 */
+		private $_notices;
+
+		/**
 		 * Taxonomy.
 		 *
 		 * @access private
@@ -139,10 +149,12 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Required array of config variables.
+		 * @todo  WIP. Needs work.
 		 */
 		public function __construct( $config ) {
 
 			// Declare custom properties required for this class.
+			$this->_notices  = $config['notices'];
 			$this->_dbtables = $config['dbtables'];
 
 			// Get parent Constructor.
@@ -154,6 +166,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		public function activate() {
 			// $this->_create_dbtables();
@@ -164,6 +177,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		public function deactivate() {}
 
@@ -172,8 +186,22 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
 		 */
 		public static function uninstall() {}
+
+		/**
+		 * Get Notices.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @todo  WIP. Needs work.
+		 */
+		public function notices() {
+			if ( isset( $this->_notices ) ) {
+				return $this->_notices;
+			}
+		}
 
 
 		/**
@@ -188,6 +216,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @see    object DBTables
 		 * @see    wireframe_plugin_config_controller()
+		 * @todo   WIP. Needs work.
 		 */
 		private function _create_dbtables() {
 			if ( isset( $this->_dbtables ) && null !== $this->_dbtables->get_defaults() ) {
@@ -205,6 +234,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Controller' ) ) :
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @see    object DBTables
 		 * @see    wireframe_plugin_config_controller()
+		 * @todo   WIP. Needs work.
 		 */
 		private function _drop_dbtables() {
 			if ( isset( $this->_dbtables ) && null !== $this->_dbtables->get_defaults() ) {

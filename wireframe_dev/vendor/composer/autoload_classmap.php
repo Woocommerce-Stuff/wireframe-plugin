@@ -23,6 +23,8 @@ return array(
     'MixaTheme\\Wireframe\\Plugin\\Module_CPT_Interface' => $baseDir . '/wireframe_dev/wireframe/module/cpt/module-cpt-interface.php',
     'MixaTheme\\Wireframe\\Plugin\\Module_DBTables' => $baseDir . '/wireframe_dev/wireframe/module/dbtables/module-dbtables.php',
     'MixaTheme\\Wireframe\\Plugin\\Module_DBTables_Interface' => $baseDir . '/wireframe_dev/wireframe/module/dbtables/module-dbtables-interface.php',
+    'MixaTheme\\Wireframe\\Plugin\\Module_Notices' => $baseDir . '/wireframe_dev/wireframe/module/notices/module-notices.php',
+    'MixaTheme\\Wireframe\\Plugin\\Module_Notices_Interface' => $baseDir . '/wireframe_dev/wireframe/module/notices/module-notices-interface.php',
     'MixaTheme\\Wireframe\\Plugin\\Module_Options' => $baseDir . '/wireframe_dev/wireframe/module/options/module-options.php',
     'MixaTheme\\Wireframe\\Plugin\\Module_Options_Interface' => $baseDir . '/wireframe_dev/wireframe/module/options/module-options-interface.php',
     'MixaTheme\\Wireframe\\Plugin\\Module_Settings' => $baseDir . '/wireframe_dev/wireframe/module/settings/module-settings.php',

@@ -110,6 +110,23 @@ function wireframe_plugin_config_controller() {
 	$language = new Core_Language( wireframe_plugin_config_language() );
 
 	/**
+	 * Notices core.
+	 *
+	 * Enables the Module_Notices object for registering custom Admin notices.
+	 * In your `config-notices.php` config file you MUST also set $wired = true.
+	 *
+	 * Example:
+	 *
+	 * 		1. $notices = null;
+	 * 		2. $notices = new Module_Notices( wireframe_plugin_config_notices() );
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   null|object Module_Notices( @param callable ). Default: null
+	 */
+	$notices = new Module_Notices( wireframe_plugin_config_notices() );
+
+	/**
 	 * Taxonomy module.
 	 *
 	 * Enables the Module_Taxonomy module for registering custom taxonomies.
@@ -270,6 +287,7 @@ function wireframe_plugin_config_controller() {
 		'actions'   => $actions,
 		'filters'   => $filters,
 		'language'  => $language,
+		'notices'   => $notices,
 		'taxonomy'  => $taxonomy,
 		'cpt'       => $cpt,
 		'dbtables'  => $dbtables,

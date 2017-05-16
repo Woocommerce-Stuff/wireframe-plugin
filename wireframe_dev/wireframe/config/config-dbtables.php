@@ -47,6 +47,52 @@ namespace MixaTheme\Wireframe\Plugin;
  */
 function wireframe_plugin_config_dbtables() {
 	/**
+	 * Wired.
+	 *
+	 * Wires the Module_CPT actions & filters at runtime.
+	 *
+	 * Enable this configuration file:
+	 *
+	 * 		1. In this config file, set: $wired = true.
+	 * 		2. In this config file, modify any default data you need.
+	 * 		3. In `config-controller.php` instantiate Module_CPT.
+	 * 		4. In `config-controller.php` pass this config into Module_CPT.
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   bool $wired Wire hooks via __construct(). Default: false
+	 */
+	$wired = false;
+
+	/**
+	 * Prefix for handles.
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   string $prefix Default: WIREFRAME_PLUGIN_PREFIX
+	 */
+	$prefix = WIREFRAME_PLUGIN_PREFIX;
+
+	/**
+	 * Actions to hook.
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array $actions Requires $enabled = true.
+	 */
+	$actions = array();
+
+	/**
+	 * Filters to hook.
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array $filters Requires $enabled = true. Default: array()
+	 * @todo  WIP.
+	 */
+	$filters = array();
+
+	/**
 	 * Default SQL statements.
 	 *
 	 * Use single-quotes for key/values. If your SQL statement requires quotes,
@@ -106,6 +152,10 @@ function wireframe_plugin_config_dbtables() {
 	 * @return array|object
 	 */
 	return array(
+		'wired'    => $wired,
+		'prefix'   => $prefix,
+		'actions'  => $actions,
+		'filters'  => $filters,
 		'defaults' => $defaults,
 	);
 }

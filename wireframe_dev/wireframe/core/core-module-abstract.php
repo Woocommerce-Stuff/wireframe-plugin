@@ -1,6 +1,6 @@
 <?php
 /**
- * Core_Module_Abstract is a Wireframe abstract core class.
+ * Core_Module_Abstract is a Wireframe core abstract class.
  *
  * PHP version 5.6.0
  *
@@ -27,6 +27,7 @@
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Theme
+ * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
 
@@ -48,7 +49,7 @@ defined( 'ABSPATH' ) or die();
  */
 if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 	/**
-	 * Core_Module_Abstract core Wireframe contract for wiring actions & hooks.
+	 * Core_Module_Abstract is is a core theme contract for wiring actions & hooks.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Theme
@@ -65,7 +66,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @var    array $_prefix
 		 */
-		protected $_prefix = '';
+		protected $_prefix = WIREFRAME_PLUGIN_PREFIX;
 
 		/**
 		 * Wired.
@@ -103,9 +104,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Module_Abstract' ) ) :
 		/**
 		 * Constructor runs when this class instantiates.
 		 *
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Theme
-		 * @since  1.0.0 Wireframe_Plugin
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Theme
+		 * @since 1.0.0 Wireframe_Plugin
 		 * @param array $config Data via config file.
 		 */
 		public function __construct( $config ) {

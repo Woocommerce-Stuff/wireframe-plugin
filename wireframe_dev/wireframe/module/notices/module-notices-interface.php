@@ -1,12 +1,12 @@
 <?php
 /**
- * Core_Plugin_Interface is a Wireframe interface.
+ * Module_Notices_Interface is a Wireframe module interface.
  *
  * PHP version 5.6.0
  *
- * @package   Wireframe_Plugin
+ * @package   Wireframe_Theme
  * @author    MixaTheme, Tada Burke
- * @version   1.0.0 Wireframe
+ * @version   1.0.0 Wireframe_Plugin
  * @copyright 2016 MixaTheme
  * @license   GPL-2.0+
  * @see       https://mixatheme.com
@@ -25,7 +25,7 @@
  * Namespaces.
  *
  * @since 5.3.0 PHP
- * @since  1.0.0 Wireframe
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
@@ -41,34 +41,38 @@ defined( 'ABSPATH' ) or die();
 /**
  * Check if the class exists.
  *
+ * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
+if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Notices_Interface' ) ) :
 	/**
-	 * Core_Plugin_Interface core Wireframe contract for DI plugin objects.
+	 * Module_Notices_Interface contract for notifications.
+	 *
+	 * Security Reminder: If you are saving any data to the Database, you should
+	 * validate and/or sanitize untrusted data before entering into the database.
+	 * All untrusted data should be escaped before output.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @see   object Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	interface Core_Plugin_Interface {
+	interface Module_Notices_Interface {
 		/**
-		 * Get Language.
+		 * Error: Init.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function language();
+		public function error_init();
 
 		/**
-		 * Get Admin.
+		 * Warn: Activated.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		public function admin();
+		public function warn_activated();
 
-	} // Core_Plugin_Interface.
+	} // Module_Notices_Interface.
 
 endif; // Thanks for using MixaTheme products!

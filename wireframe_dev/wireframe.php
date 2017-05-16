@@ -271,6 +271,8 @@ require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-plugin.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/notices/module-notices-interface.php';
+require_once WIREFRAME_PLUGIN_OBJECTS . 'module/notices/module-notices.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'module/admin/module-admin-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'module/admin/module-admin.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'module/cpt/module-cpt-interface.php';
@@ -331,6 +333,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
 	require_once WIREFRAME_PLUGIN_API . 'config/config-language.php';
+	require_once WIREFRAME_PLUGIN_API . 'config/config-notices.php';
 	require_once WIREFRAME_PLUGIN_API . 'config/config-admin.php';
 	require_once WIREFRAME_PLUGIN_API . 'config/config-dbtables.php';
 	require_once WIREFRAME_PLUGIN_API . 'config/config-cpt.php';
@@ -341,32 +344,145 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	require_once WIREFRAME_PLUGIN_API . 'config/config-ui.php';
 
 	/**
-	 * §.07. Configs: Required config files.
+	 * § 08. Service: Language.
 	 * =========================================================================
 	 *
-	 * These config files are required for activation and deactivation of your
-	 * plugin and should be loaded last because they might use configs above.
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Core_Language object with config data passed-in.
 	 *
-	 * Config files are located in: `wireframe_dev/wireframe/config/`
-	 *
-	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 Wireframe_Plugin
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_language()
+	 * @return object Core_Language( @param array Object args. )
 	 */
-	require_once WIREFRAME_PLUGIN_API . 'config/config-controller.php';
+	$wireframe_plugin_container->language = function () {
+		return new Core_Language( wireframe_plugin_config_language() );
+	};
 
 	/**
-	 * §.08. Service: Core_Controller.
+	 * § 08. Service: Admin.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
-	 * and instantiates a new Core_Controller object with config data passed-in.
+	 * and instantiates a new Module_Admin object with config data passed-in.
 	 *
-	 * @since  1.0.0 Wireframe
-	 * @since  1.0.0 Wireframe_Plugin
-	 * @see    wireframe_plugin_config_controller()
-	 * @return object Core_Controller( @param array )
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_admin()
+	 * @return object Module_Admin( @param array Object args. )
 	 */
-	$wireframe_plugin_container->controller = function () {
-		return new Core_Controller( wireframe_plugin_config_controller() );
+	$wireframe_plugin_container->admin = function () {
+		return new Module_Admin( wireframe_plugin_config_admin() );
+	};
+
+	/**
+	 * § 08. Service: Notices.
+	 * =========================================================================
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_Notices object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_notices()
+	 * @return object Module_Notices( @param array Object args. )
+	 */
+	$wireframe_plugin_container->notices = function () {
+		return new Module_Notices( wireframe_plugin_config_notices() );
+	};
+
+	/**
+	 * § 08. Service: CPT.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_CPT object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_cpt()
+	 * @return object Module_Admin( @param array Object args. )
+	 */
+	$wireframe_plugin_container->cpt = function () {
+		return new Module_CPT( wireframe_plugin_config_cpt() );
+	};
+
+	/**
+	 * § 08. Service: Taxonomy.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_Taxonomy object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_taxonomy()
+	 * @return object Module_Taxonomy( @param array Object args. )
+	 */
+	$wireframe_plugin_container->taxonomy = function () {
+		return new Module_Taxonomy( wireframe_plugin_config_taxonomy() );
+	};
+
+	/**
+	 * § 08. Service: Shortcode.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_Shortcode object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_shortcode()
+	 * @return object Module_Shortcode( @param array Object args. )
+	 */
+	$wireframe_plugin_container->shortcode = function () {
+		return new Module_Shortcode( wireframe_plugin_config_shortcode() );
+	};
+
+	/**
+	 * § 08. Service: Options.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_Options object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_options()
+	 * @return object Module_Options( @param array Object args. )
+	 */
+	$wireframe_plugin_container->options = function () {
+		return new Module_Options( wireframe_plugin_config_options() );
+	};
+
+	/**
+	 * § 08. Service: Settings.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_Settings object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_settings()
+	 * @return object Module_Settings( @param array Object args. )
+	 */
+	$wireframe_plugin_container->settings = function () {
+		return new Module_Settings( wireframe_plugin_config_settings() );
+	};
+
+	/**
+	 * § 08. Service: UI.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_UI object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_ui()
+	 * @return object Module_UI( @param array Object args. )
+	 */
+	$wireframe_plugin_container->ui = function () {
+		return new Module_UI( wireframe_plugin_config_ui() );
+	};
+
+	/**
+	 * § 08. Service: DBTables.
+	 *
+	 * This closure registers a service with the Core_Container::$storage array,
+	 * and instantiates a new Module_DBTables object with config data passed-in.
+	 *
+	 * @since  1.0.0 Wireframe_Theme
+	 * @see    wireframe_plugin_config_dbtables()
+	 * @return object Module_DBTables( @param array Object args. )
+	 */
+	$wireframe_plugin_container->dbtables = function () {
+		return new Module_DBTables( wireframe_plugin_config_dbtables() );
 	};
 
 	/**
@@ -392,11 +508,29 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * @since  1.0.0 Wireframe_Plugin
 	 * @var    object $wireframe_plugin
 	 * @return object Core_Plugin(
-	 *         @param object Core_Controller  DI the default core controller.
+	 *         @param object Core_Language    DI the required language.
+	 *         @param object Module_Admin     DI the required Admin pages.
+	 *         @param object Module_Notices   DI the optional notices.
+	 *         @param object Module_DBTables  DI the optional database tables.
+	 *         @param object Module_CPT       DI the optional post types
+	 *         @param object Module_Taxonomy  DI the optional taxonomy.
+	 *         @param object Module_Shortcode DI the optional shortcodes.
+	 *         @param object Module_Options   DI the optional options.
+	 *         @param object Module_Settings  DI the optional settings.
+	 *         @param object Module_UI        DI the optional styles & scripts.
 	 * )
 	 */
 	$wireframe_plugin = new Core_Plugin(
-		$wireframe_plugin_container->controller
+		$wireframe_plugin_container->language,
+		$wireframe_plugin_container->admin,
+		$wireframe_plugin_container->notices,
+		$wireframe_plugin_container->cpt,
+		$wireframe_plugin_container->taxonomy,
+		$wireframe_plugin_container->shortcode,
+		$wireframe_plugin_container->options,
+		$wireframe_plugin_container->settings,
+		$wireframe_plugin_container->ui,
+		$wireframe_plugin_container->dbtables
 	);
 
 	/**
@@ -414,13 +548,13 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	if ( ! isset( $wireframe_plugin ) ) {
 
 		// Init failed. Stop processing. Hook a failure notice.
-		add_action( 'admin_notices', 'wireframe_plugin_notice_init' );
+		add_action( 'admin_notices', array( $wireframe_plugin_container->notices, 'error_init' ), 10, 0 );
 
 	} else {
 
 		/**
 		 * §.11. Hooks.
-		 * =========================================================================
+		 * =====================================================================
 		 *
 		 * Init success! Continue processing. Run any hooks you need.
 		 *
@@ -434,10 +568,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
 		 * @see   object $wireframe_plugin Instance of Core_Plugin.
+		 * @todo  WIP. Needs work.
 		 */
-		register_activation_hook( __FILE__, array( $wireframe_plugin->controller(), 'activate' ) );
-		register_deactivation_hook( __FILE__, array( $wireframe_plugin->controller(), 'deactivate' ) );
-		register_uninstall_hook( __FILE__, $wireframe_plugin->controller()->uninstall() );
+		// register_activation_hook( __FILE__, array( $wireframe_plugin->controller(), 'activate' ) );
+		// register_deactivation_hook( __FILE__, array( $wireframe_plugin->controller(), 'deactivate' ) );
+		// register_uninstall_hook( __FILE__, $wireframe_plugin->controller()->uninstall() );
 	}
 
 endif; // Thanks for using MixaTheme products!

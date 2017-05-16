@@ -34,6 +34,8 @@ class ComposerStaticInit8e005a614c615605ae3b968eb91c54c4
         'MixaTheme\\Wireframe\\Plugin\\Module_CPT_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/cpt/module-cpt-interface.php',
         'MixaTheme\\Wireframe\\Plugin\\Module_DBTables' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/dbtables/module-dbtables.php',
         'MixaTheme\\Wireframe\\Plugin\\Module_DBTables_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/dbtables/module-dbtables-interface.php',
+        'MixaTheme\\Wireframe\\Plugin\\Module_Notices' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/notices/module-notices.php',
+        'MixaTheme\\Wireframe\\Plugin\\Module_Notices_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/notices/module-notices-interface.php',
         'MixaTheme\\Wireframe\\Plugin\\Module_Options' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/options/module-options.php',
         'MixaTheme\\Wireframe\\Plugin\\Module_Options_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/options/module-options-interface.php',
         'MixaTheme\\Wireframe\\Plugin\\Module_Settings' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/module/settings/module-settings.php',

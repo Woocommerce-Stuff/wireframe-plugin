@@ -57,7 +57,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 	 * @see   https://codex.wordpress.org/Creating_Tables_with_Plugins
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_DBTables implements Module_DBTables_Interface {
+	final class Module_DBTables extends Core_Module_Abstract implements Module_DBTables_Interface {
 		/**
 		 * Defaults.
 		 *
