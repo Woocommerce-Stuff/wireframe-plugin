@@ -18,7 +18,7 @@ Wireframe Plugin is an OOP WordPress plugin boilerplate. Wireframe Plugin enable
 
 * **Created by:** [Tada Burke](https://twitter.com/tadaburke)
 * **Maintained by:** ![MixaTheme Logo](https://avatars3.githubusercontent.com/u/16634291?v=3&s=16) [MixaTheme](https://github.com/mixatheme/wireframe-plugin#about-mixatheme)
-* **Phase:** Beta-1
+* **Phase:** Refactoring Beta-1
 * **Version:** 1.0.0
 * **Tested:** WordPress 4.6+, PHP 5.6+
 
