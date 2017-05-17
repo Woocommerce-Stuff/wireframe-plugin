@@ -89,7 +89,6 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
-		 * @todo  WIP. Error message.
 		 */
 		public function get_defaults() {
 			if ( isset( $this->_defaults ) ) {
@@ -98,18 +97,30 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 		}
 
 		/**
-		 * Create.
+		 * Add.
 		 *
-		 * @access private
-		 * @since  1.0.0 Wireframe
-		 * @since  1.0.0 Wireframe_Plugin
-		 * @param  string $id  The key defined via your object config.
-		 * @param  string $sql The query for new table creation.
-		 * @todo   WIP. Needs work.
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
 		 */
-		private function _create( $id, $sql ) {
-			if ( null !== $this->get_defaults() ) {
-				$this->_add_dbtable( $id, $sql );
+		public function add() {
+			if ( $this->get_defaults() ) {
+				foreach ( $this->get_defaults() as $id => $sql ) {
+					$this->_add_dbtable( $id, $sql );
+				}
+			}
+		}
+
+		/**
+		 * Remove.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function remove() {
+			if ( $this->get_defaults() ) {
+				foreach ( $this->get_defaults() as $id => $sql ) {
+					$this->_drop( $id );
+				}
 			}
 		}
 
@@ -119,8 +130,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 		 * @access private
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
-		 * @param  string $id  The key defined via your object config.
-		 * @todo   WIP. Needs work.
+		 * @param  string $id The key defined via your object config.
 		 */
 		private function _drop( $id ) {
 			if ( null !== $this->get_defaults() ) {
@@ -135,11 +145,10 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @global object $wpdb
-		 * @todo   WIP. Needs work.
+		 * @todo   WIP. Pass $wpdb through constructor.
 		 */
 		private function _dbprefix() {
 
-			// Grab the DB object.
 			global $wpdb;
 
 			// Return a multisite or singlesite prefix.
@@ -162,11 +171,9 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 		 * @see    _dbprefix() Determines single site or multisite table prefix.
 		 * @see    https://codex.wordpress.org/Creating_Tables_with_Plugins
 		 * @see    https://codex.wordpress.org/Class_Reference/wpdb
-		 * @todo   WIP. Needs work.
 		 */
 		private function _add_dbtable( $id, $sql ) {
 
-			// Grab the DB object.
 			global $wpdb;
 
 			// Concat your table $id with a prefix and object config key.
@@ -175,25 +182,21 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 			 // Get the character set and collation @since 3.5.0 WordPress.
 			$charset_collate = $wpdb->get_charset_collate();
 
-			// Check if we have a SQL statement.
-			if ( isset( $this->defaults ) ) {
+			// Loop your object config and build your SQL statements.
+			foreach ( $this->get_defaults() as $sql_key => $sql_statement ) {
 
-				// Loop your object config and build your SQL statements.
-				foreach ( $this->defaults as $sql_key => $sql_statement ) {
+				// Create DB table.
+				$sql = 'CREATE TABLE ' . $table_name;
 
-					// Create DB table.
-					$sql = 'CREATE TABLE ' . $table_name;
-
-					// Build SQL statements.
-					$sql .= ' ( ' . implode( ', ', $sql_statement ) . ' ) ' . $charset_collate . ';';
-				}
-
-				// You need dbDelta() from upgrade.php.
-				require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-
-				// Execute query, create tables.
-				dbDelta( $sql );
+				// Build SQL statements.
+				$sql .= ' ( ' . implode( ', ', $sql_statement ) . ' ) ' . $charset_collate . ';';
 			}
+
+			// You need dbDelta() from upgrade.php.
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+			// Execute query, create tables.
+			dbDelta( $sql );
 		}
 
 		/**
@@ -211,14 +214,13 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_DBTables' ) ) :
 		 */
 		private function _remove_dbtable( $id ) {
 
-			// Grab the DB object.
 			global $wpdb;
 
 			// Concat table $id with a prefix and object config key.
 			$table_name = $this->_dbprefix() . $id;
 
 			// Loop object config and build SQL statements.
-			foreach ( $this->defaults as $sql_key => $sql_statement ) {
+			foreach ( $this->get_defaults() as $sql_key => $sql_statement ) {
 
 				// CAUTION: Dropping tables like it's hot!
 				$sql = 'DROP TABLE IF EXISTS ' . $table_name;

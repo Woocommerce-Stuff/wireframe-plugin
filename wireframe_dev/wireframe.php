@@ -263,8 +263,6 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-module-abstract.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-container-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-container.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-controller-interface.php';
-require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-controller.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-enqueue-interface.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-enqueue.php';
 require_once WIREFRAME_PLUGIN_OBJECTS . 'core/core-language-interface.php';
@@ -352,7 +350,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_language()
-	 * @return object Core_Language( @param array Object args. )
+	 * @return object Core_Language( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->language = function () {
 		return new Core_Language( wireframe_plugin_config_language() );
@@ -366,7 +364,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_admin()
-	 * @return object Module_Admin( @param array Object args. )
+	 * @return object Module_Admin( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->admin = function () {
 		return new Module_Admin( wireframe_plugin_config_admin() );
@@ -381,7 +379,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_notices()
-	 * @return object Module_Notices( @param array Object args. )
+	 * @return object Module_Notices( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->notices = function () {
 		return new Module_Notices( wireframe_plugin_config_notices() );
@@ -395,7 +393,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_cpt()
-	 * @return object Module_Admin( @param array Object args. )
+	 * @return object Module_Admin( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->cpt = function () {
 		return new Module_CPT( wireframe_plugin_config_cpt() );
@@ -409,7 +407,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_taxonomy()
-	 * @return object Module_Taxonomy( @param array Object args. )
+	 * @return object Module_Taxonomy( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->taxonomy = function () {
 		return new Module_Taxonomy( wireframe_plugin_config_taxonomy() );
@@ -423,7 +421,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_shortcode()
-	 * @return object Module_Shortcode( @param array Object args. )
+	 * @return object Module_Shortcode( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->shortcode = function () {
 		return new Module_Shortcode( wireframe_plugin_config_shortcode() );
@@ -437,7 +435,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_options()
-	 * @return object Module_Options( @param array Object args. )
+	 * @return object Module_Options( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->options = function () {
 		return new Module_Options( wireframe_plugin_config_options() );
@@ -451,7 +449,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_settings()
-	 * @return object Module_Settings( @param array Object args. )
+	 * @return object Module_Settings( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->settings = function () {
 		return new Module_Settings( wireframe_plugin_config_settings() );
@@ -465,7 +463,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_ui()
-	 * @return object Module_UI( @param array Object args. )
+	 * @return object Module_UI( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->ui = function () {
 		return new Module_UI( wireframe_plugin_config_ui() );
@@ -479,7 +477,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 *
 	 * @since  1.0.0 Wireframe_Theme
 	 * @see    wireframe_plugin_config_dbtables()
-	 * @return object Module_DBTables( @param array Object args. )
+	 * @return object Module_DBTables( @param callable|array Config data. )
 	 */
 	$wireframe_plugin_container->dbtables = function () {
 		return new Module_DBTables( wireframe_plugin_config_dbtables() );
@@ -547,32 +545,34 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 */
 	if ( ! isset( $wireframe_plugin ) ) {
 
-		// Init failed. Stop processing. Hook a failure notice.
+		// Init failed. Hook a failure notice.
 		add_action( 'admin_notices', array( $wireframe_plugin_container->notices, 'error_init' ), 10, 0 );
 
-	} else {
-
-		/**
-		 * §.11. Hooks.
-		 * =====================================================================
-		 *
-		 * Init success! Continue processing. Run any hooks you need.
-		 *
-		 * Note: Many objects are not required to be wired (hooked) when instantiated.
-		 * In your config data file(s), you can set the `$wired` value to true or false.
-		 * If false, you can de-couple any hooks and declare them here (below).
-		 * If $wired = true, then those objects will fire hooks onload.
-		 *
-		 * Data files are located in: `wireframe_dev/wireframe/config/`
-		 *
-		 * @since 1.0.0 Wireframe
-		 * @since 1.0.0 Wireframe_Plugin
-		 * @see   object $wireframe_plugin Instance of Core_Plugin.
-		 * @todo  WIP. Needs work.
-		 */
-		// register_activation_hook( __FILE__, array( $wireframe_plugin->controller(), 'activate' ) );
-		// register_deactivation_hook( __FILE__, array( $wireframe_plugin->controller(), 'deactivate' ) );
-		// register_uninstall_hook( __FILE__, $wireframe_plugin->controller()->uninstall() );
 	}
+
+	/**
+	 * §.11. Hooks.
+	 * =====================================================================
+	 *
+	 * Init success! Continue processing. Run any hooks you need.
+	 *
+	 * Note: Many objects are not required to be wired (hooked) when instantiated.
+	 * In your config data file(s), you can set the `$wired` value to true or false.
+	 * If false, you can de-couple any hooks and declare them here (below).
+	 * If $wired = true, then those objects will fire hooks onload.
+	 *
+	 * Data files are located in: `wireframe_dev/wireframe/config/`
+	 *
+	 * Examples:
+	 *
+	 * 		register_activation_hook( __FILE__, array( $wireframe_plugin, 'activate' ) );
+	 * 		register_deactivation_hook( __FILE__, array( $wireframe_plugin, 'deactivate' ) );
+	 * 		register_uninstall_hook( __FILE__, $wireframe_plugin, 'uninstall' );
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @see   object $wireframe_plugin Instance of Core_Plugin.
+	 */
+	register_deactivation_hook( __FILE__, array( $wireframe_plugin, 'deactivate' ) );
 
 endif; // Thanks for using MixaTheme products!

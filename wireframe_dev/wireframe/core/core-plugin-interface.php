@@ -54,7 +54,34 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 	 */
 	interface Core_Plugin_Interface {
 		/**
-		 * Get Language.
+		 * All plugins must register an activation hook.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @see   https://codex.wordpress.org/Function_Reference/register_activation_hook
+		 */
+		public function activate();
+
+		/**
+		 * All plugins must register a deactivation hook.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @see   https://codex.wordpress.org/Function_Reference/register_deactivation_hook
+		 */
+		public function deactivate();
+
+		/**
+		 * All plugins must register an uninstall hook.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 * @see   https://developer.wordpress.org/reference/functions/register_uninstall_hook
+		 */
+		public function uninstall();
+
+		/**
+		 * All plugins must be translatable with a language file.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin
@@ -62,7 +89,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin_Interface' ) ) :
 		public function language();
 
 		/**
-		 * Get Admin.
+		 * All plugins must have an Admin screen of some kind.
 		 *
 		 * @since 1.0.0 Wireframe
 		 * @since 1.0.0 Wireframe_Plugin

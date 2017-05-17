@@ -188,6 +188,30 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		}
 
 		/**
+		 * Activate.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function activate() {}
+
+		/**
+		 * Deactivate.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function deactivate() {}
+
+		/**
+		 * Uninstall.
+		 *
+		 * @since 1.0.0 Wireframe
+		 * @since 1.0.0 Wireframe_Plugin
+		 */
+		public function uninstall() {}
+
+		/**
 		 * Get Language.
 		 *
 		 * @since  1.0.0 Wireframe
@@ -311,6 +335,46 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		public function dbtables() {
 			if ( isset( $this->_dbtables ) ) {
 				return $this->_dbtables;
+			}
+		}
+
+		/**
+		 * Create DB Tables.
+		 *
+		 * Checks if the DBTables object is instantiated with SQl statement(s)
+		 * passed-in, then creates database tables. If the DBTables object is not
+		 * instantiated or missing a valid SQL statement, no tables are created.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @see    object DBTables
+		 * @see    wireframe_plugin_config_controller()
+		 * @todo   WIP. Needs work.
+		 */
+		private function _create_dbtables() {
+			if ( isset( $this->_dbtables ) && null !== $this->_dbtables->get_defaults() ) {
+				foreach ( $this->_dbtables->get_defaults() as $id => $sql ) {
+					$this->_dbtables->create( $id, $sql );
+				}
+			}
+		}
+
+		/**
+		 * Drop DB Tables.
+		 *
+		 * @access private
+		 * @since  1.0.0 Wireframe
+		 * @since  1.0.0 Wireframe_Plugin
+		 * @see    object DBTables
+		 * @see    wireframe_plugin_config_controller()
+		 * @todo   WIP. Needs work.
+		 */
+		private function _drop_dbtables() {
+			if ( isset( $this->_dbtables ) && null !== $this->_dbtables->get_defaults() ) {
+				foreach ( $this->_dbtables->get_defaults() as $id => $sql ) {
+					$this->_dbtables->drop( $id, $sql );
+				}
 			}
 		}
 

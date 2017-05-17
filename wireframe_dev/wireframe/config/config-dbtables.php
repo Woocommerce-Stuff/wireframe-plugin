@@ -29,6 +29,7 @@
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
+use wpdb;
 
 /**
  * Stores array of default config data for passing into objects.
@@ -76,11 +77,26 @@ function wireframe_plugin_config_dbtables() {
 	/**
 	 * Actions to hook.
 	 *
+	 * Add a table:
+	 *
+	 * 		'function' => 'add',
+	 *
+	 * Remove a table:
+	 *
+	 * 		'function' => 'remove',
+	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Requires $enabled = true.
 	 */
-	$actions = array();
+	$actions = array(
+		'wireframe-dbtables' => array(
+			'tag'      => 'admin_init',
+			'function' => 'add',
+			'priority' => 10,
+			'args'     => null,
+		),
+	);
 
 	/**
 	 * Filters to hook.
@@ -88,7 +104,6 @@ function wireframe_plugin_config_dbtables() {
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Requires $enabled = true. Default: array()
-	 * @todo  WIP.
 	 */
 	$filters = array();
 
