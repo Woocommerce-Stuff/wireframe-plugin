@@ -19,8 +19,6 @@ class ComposerStaticInit8e005a614c615605ae3b968eb91c54c4
     public static $classMap = array (
         'MixaTheme\\Wireframe\\Plugin\\Core_Container' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-container.php',
         'MixaTheme\\Wireframe\\Plugin\\Core_Container_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-container-interface.php',
-        'MixaTheme\\Wireframe\\Plugin\\Core_Controller' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-controller.php',
-        'MixaTheme\\Wireframe\\Plugin\\Core_Controller_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-controller-interface.php',
         'MixaTheme\\Wireframe\\Plugin\\Core_Enqueue' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-enqueue.php',
         'MixaTheme\\Wireframe\\Plugin\\Core_Enqueue_Interface' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-enqueue-interface.php',
         'MixaTheme\\Wireframe\\Plugin\\Core_Language' => __DIR__ . '/../../..' . '/wireframe_dev/wireframe/core/core-language.php',

@@ -8,8 +8,6 @@ $baseDir = dirname(dirname($vendorDir));
 return array(
     'MixaTheme\\Wireframe\\Plugin\\Core_Container' => $baseDir . '/wireframe_dev/wireframe/core/core-container.php',
     'MixaTheme\\Wireframe\\Plugin\\Core_Container_Interface' => $baseDir . '/wireframe_dev/wireframe/core/core-container-interface.php',
-    'MixaTheme\\Wireframe\\Plugin\\Core_Controller' => $baseDir . '/wireframe_dev/wireframe/core/core-controller.php',
-    'MixaTheme\\Wireframe\\Plugin\\Core_Controller_Interface' => $baseDir . '/wireframe_dev/wireframe/core/core-controller-interface.php',
     'MixaTheme\\Wireframe\\Plugin\\Core_Enqueue' => $baseDir . '/wireframe_dev/wireframe/core/core-enqueue.php',
     'MixaTheme\\Wireframe\\Plugin\\Core_Enqueue_Interface' => $baseDir . '/wireframe_dev/wireframe/core/core-enqueue-interface.php',
     'MixaTheme\\Wireframe\\Plugin\\Core_Language' => $baseDir . '/wireframe_dev/wireframe/core/core-language.php',
