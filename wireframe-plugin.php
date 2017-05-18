@@ -32,8 +32,17 @@
  */
 
 /**
- * §.01. Constant: Plugin text-domain.
+ * § 01. Constant: WordPress Version.
  * =============================================================================
+ *
+ * The minimum version of WordPress compatible with Wireframe_Plugin.
+ *
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_WP', '4.7.5' );
+
+/**
+ * §.01. Constant: Plugin text-domain.
  *
  * Plugin text-domain (must match slug).
  *
@@ -54,17 +63,6 @@ define( 'WIREFRAME_PLUGIN_TEXTDOMAIN', 'wireframe-plugin' );
 define( 'WIREFRAME_PLUGIN_PRODUCT', 'Wireframe Plugin' );
 
 /**
- * §.01. Constant: Plugin prefix.
- *
- * A prefix for various strings, handles and helpers. This is primarily used
- * for keeping names short and helps avoid clashes. 3-5 characters preferred.
- *
- * @since 1.0.0 Wireframe
- * @since 1.0.0 Wireframe_Plugin
- */
-define( 'WIREFRAME_PLUGIN_PREFIX', 'wireframe_plugin' );
-
-/**
  * §.01. Constant: Plugin version.
  *
  * Tagged version number for this release. This is used throughout many
@@ -75,6 +73,17 @@ define( 'WIREFRAME_PLUGIN_PREFIX', 'wireframe_plugin' );
  * @since 1.0.0 Wireframe_Plugin
  */
 define( 'WIREFRAME_PLUGIN_VERSION', '1.0.0' );
+
+/**
+ * §.01. Constant: Plugin prefix.
+ *
+ * A prefix for various strings, handles and helpers. This is primarily used
+ * for keeping names short and helps avoid clashes. 3-5 characters preferred.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_PREFIX', 'wireframe_plugin' );
 
 /**
  * §.01. Constant: Plugin directory.
