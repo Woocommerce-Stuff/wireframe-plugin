@@ -106,7 +106,7 @@ define( 'WIREFRAME_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_DEV', WIREFRAME_PLUGIN_DIR . 'wireframe_dev/' );
+define( 'WIREFRAME_PLUGIN_DEV', trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_dev' ) );
 
 /**
  * §.01. Constant: Plugin path to client files.
@@ -117,7 +117,7 @@ define( 'WIREFRAME_PLUGIN_DEV', WIREFRAME_PLUGIN_DIR . 'wireframe_dev/' );
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_CLIENT', 'wireframe_client/' );
+define( 'WIREFRAME_PLUGIN_CLIENT', trailingslashit( 'wireframe_client' ) );
 
 /**
  * §.01. Constant: Plugin URI for assets, etc.
@@ -141,7 +141,7 @@ define( 'WIREFRAME_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_API', WIREFRAME_PLUGIN_DEV . 'wireframe/' );
+define( 'WIREFRAME_PLUGIN_API', trailingslashit( WIREFRAME_PLUGIN_DEV . 'wireframe' ) );
 
 /**
  * § 03. Constant: Wireframe Objects.
@@ -152,7 +152,7 @@ define( 'WIREFRAME_PLUGIN_API', WIREFRAME_PLUGIN_DEV . 'wireframe/' );
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_OBJECTS', WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wireframe/' );
+define( 'WIREFRAME_PLUGIN_OBJECTS', trailingslashit( WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wireframe' ) );
 
 /**
  * §.01. Constant: Plugin path to template files (optional).
@@ -160,7 +160,7 @@ define( 'WIREFRAME_PLUGIN_OBJECTS', WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wiref
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_TPL', WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT . 'tpl/' );
+define( 'WIREFRAME_PLUGIN_TPL', trailingslashit( WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT . 'tpl' ) );
 
 /**
  * §.01. Constant: Plugin URI for CSS files (optional).
@@ -168,7 +168,7 @@ define( 'WIREFRAME_PLUGIN_TPL', WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT .
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_CSS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'css/' );
+define( 'WIREFRAME_PLUGIN_CSS', trailingslashit( WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'css' ) );
 
 /**
  * §.01. Constant: Plugin URI for images (optional).
@@ -176,7 +176,7 @@ define( 'WIREFRAME_PLUGIN_CSS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT .
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_IMG', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'img/' );
+define( 'WIREFRAME_PLUGIN_IMG', trailingslashit( WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'img' ) );
 
 /**
  * §.01. Constant: Plugin URI for JavaScript files (optional).
@@ -184,7 +184,7 @@ define( 'WIREFRAME_PLUGIN_IMG', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT .
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_JS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'js/' );
+define( 'WIREFRAME_PLUGIN_JS', trailingslashit( WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'js' ) );
 
 /**
  * §.01. Constant: Plugin URI for language files.
@@ -192,7 +192,7 @@ define( 'WIREFRAME_PLUGIN_JS', WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_PLUGIN_CLIENT . 'lang/' );
+define( 'WIREFRAME_PLUGIN_LANG', trailingslashit( WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_PLUGIN_CLIENT . 'lang' ) );
 
 /**
  * § 02. Compatibility: Checker.
