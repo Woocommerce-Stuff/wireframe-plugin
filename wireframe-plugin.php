@@ -210,7 +210,7 @@ define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_P
 if ( version_compare( $GLOBALS['wp_version'], '4.7.5', '<' ) ) {
 
 	// Incompatible version, but you still need the translation file.
-	load_plugin_textdomain( WIREFRAME_PLUGIN_TEXTDOMAIN, false, WIREFRAME_PLUGIN_TEXTDOMAIN );
+	load_plugin_textdomain( WIREFRAME_PLUGIN_TEXTDOMAIN, false, WIREFRAME_PLUGIN_LANG );
 
 	// Load any backwards compatibility handlers.
 	require WIREFRAME_PLUGIN_API . 'functions/functions-compat.php';
