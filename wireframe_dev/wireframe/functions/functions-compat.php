@@ -38,12 +38,8 @@
  * @see   wireframe-plugin.php
  */
 function wireframe_plugin_compat_wordpress() {
-	?>
-	<div class="notice notice-error">
-		<h1><?php esc_html_e( 'Wireframe Plugin: Compatibility', 'wireframe-plugin' ); ?></h1>
-		<p><?php esc_html_e( 'Hey there! Sorry to bother you, but it looks like you are using an older version of WordPress. Wireframe Plugin is only compatible with the latest version of WordPress. Please deactivate Wireframe Plugin and update WordPress to dismiss this notice. Thank you for using MixaTheme products!', 'wireframe-plugin' ); ?></p>
-	</div>
-	<?php
+	$message = sprintf( __( '%1$s requires at least WordPress %2$s. You are running WordPress %3$s. Please upgrade WordPress and re-activate %1$s.', 'wireframe-plugin' ), WIREFRAME_PLUGIN_PRODUCT, WIREFRAME_PLUGIN_WP, $GLOBALS['wp_version'] );
+	printf( __( '<div class="error"><p>%s</p></div>', 'wireframe-plugin' ), $message ); // XSS ok.
 }
 
 /** ADD YOUR CUSTOM FUNCTIONS BELOW THIS LINE... */
