@@ -41,7 +41,7 @@ function wireframe_plugin_compat_wordpress() {
 	?>
 	<div class="notice notice-error">
 		<h1><?php esc_html_e( 'Wireframe Plugin: Compatibility', 'wireframe-plugin' ); ?></h1>
-		<p><?php esc_html_e( 'Hey there! Sorry to bother you, but it looks like you are using an older version of WordPress. Wireframe Plugin is only compatible with WordPress 4.7.4 or later. Please deactivate Wireframe Plugin and update WordPress to dismiss this notice. Thank you for using MixaTheme products!', 'wireframe-plugin' ); ?></p>
+		<p><?php esc_html_e( 'Hey there! Sorry to bother you, but it looks like you are using an older version of WordPress. Wireframe Plugin is only compatible with the latest version of WordPress. Please deactivate Wireframe Plugin and update WordPress to dismiss this notice. Thank you for using MixaTheme products!', 'wireframe-plugin' ); ?></p>
 	</div>
 	<?php
 }
