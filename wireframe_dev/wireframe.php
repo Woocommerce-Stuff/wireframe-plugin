@@ -224,7 +224,6 @@ define( 'WIREFRAME_PLUGIN_LANG', WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_P
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
  */
-require_once WIREFRAME_PLUGIN_API . 'functions/functions-notices.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-helpers.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
 

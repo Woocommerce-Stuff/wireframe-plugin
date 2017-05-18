@@ -36,7 +36,7 @@
  *
  * @since 1.0.0 Wireframe_Plugin
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.7.4', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '4.9.4', '<' ) ) {
 
 	// Incompatible version, but you still need the translation file.
 	load_plugin_textdomain( 'wireframe-plugin', false, 'wireframe-plugin/wireframe_client/lang' );
@@ -44,11 +44,8 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7.4', '<' ) ) {
 	// Load any backwards compatibility handlers.
 	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-compat.php';
 
-	// Make available any notices you may need.
-	require plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/functions/functions-notices.php';
-
 	// Finally, hook any Admin notices to alert your customers.
-	add_action( 'admin_notices', 'wireframe_plugin_notice_compat' );
+	add_action( 'admin_notices', 'wireframe_plugin_compat_wordpress' );
 
 } else {
 
