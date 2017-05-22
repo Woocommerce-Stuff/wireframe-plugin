@@ -53,7 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Options' ) ) :
 	 * @see   https://codex.wordpress.org/Options_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_Options extends Core_Module_Abstract implements Module_Options_Interface {
+	class Module_Options extends Core_Module_Abstract implements Module_Options_Interface {
 		/**
 		 * Defaults.
 		 *

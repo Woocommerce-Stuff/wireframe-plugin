@@ -53,7 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Settings' ) ) :
 	 * @see   https://codex.wordpress.org/Settings_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_Settings extends Core_Module_Abstract implements Module_Settings_Interface {
+	class Module_Settings extends Core_Module_Abstract implements Module_Settings_Interface {
 		/**
 		 * Sections.
 		 *

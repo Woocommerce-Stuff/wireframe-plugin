@@ -54,7 +54,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin Module_UI' ) ) :
 	 * @see   https://codex.wordpress.org/Javascript_Reference/wp.media
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_UI extends Core_Module_Abstract implements Module_UI_Interface {
+	class Module_UI extends Core_Module_Abstract implements Module_UI_Interface {
 		/**
 		 * Enqueue.
 		 *

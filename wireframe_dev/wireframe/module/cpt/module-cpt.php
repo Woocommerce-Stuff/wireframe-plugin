@@ -53,7 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_CPT' ) ) :
 	 * @see   https://codex.wordpress.org/Post_Types
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_CPT extends Core_Module_Abstract implements Module_CPT_Interface {
+	class Module_CPT extends Core_Module_Abstract implements Module_CPT_Interface {
 		/**
 		 * Defaults.
 		 *

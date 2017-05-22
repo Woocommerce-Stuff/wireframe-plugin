@@ -53,7 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Taxonomy' ) ) :
 	 * @see   https://codex.wordpress.org/Taxonomies
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_Taxonomy extends Core_Module_Abstract implements Module_Taxonomy_Interface {
+	class Module_Taxonomy extends Core_Module_Abstract implements Module_Taxonomy_Interface {
 		/**
 		 * Defaults.
 		 *

@@ -53,7 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Shortcode' ) ) :
 	 * @see   https://codex.wordpress.org/Shortcode_API
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	final class Module_Shortcode extends Core_Module_Abstract implements Module_Shortcode_Interface {
+	class Module_Shortcode extends Core_Module_Abstract implements Module_Shortcode_Interface {
 		/**
 		 * Defaults.
 		 *

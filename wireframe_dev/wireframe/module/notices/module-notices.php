@@ -53,7 +53,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Module_Notices' ) ) :
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @see   https://github.com/mixatheme/Wireframe
 	 */
-	class Module_Notices extends Core_Module_Abstract implements Module_Notices_Interface {
+	Module_Notices extends Core_Module_Abstract implements Module_Notices_Interface {
 		/**
 		 * Notices.
 		 *
