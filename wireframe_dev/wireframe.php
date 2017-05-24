@@ -23,22 +23,23 @@
  *
  * Table of Contents:
  *
- *    §.01. Namespaces
- *    §.02. Access
- *    §.03. Functions
- *    §.04. Autoload
- *    §.05. Container
- *    §.06. Configs
- *    §.07. Service
- *    §.08. Wireframe
- *    §.09. Housekeeping
- *    §.10. Hooks
+ *    § 01. Namespaces
+ *    § 02. Access
+ *    § 03. Constants
+ *    § 04. Functions
+ *    § 05. Autoload
+ *    § 06. Container
+ *    § 07. Configs
+ *    § 08. Services
+ *    § 09. Wireframe
+ *    § 10. Housekeeping
+ *    § 11. Hooks
  *
  * (New sections are separated by lines.)
  */
 
 /**
- * §.01. Namespaces.
+ * § 01. Namespaces.
  * =============================================================================
  *
  * @since 5.3.0 PHP
@@ -48,7 +49,7 @@
 namespace MixaTheme\Wireframe\Plugin;
 
 /**
- * §.02. Access.
+ * § 02. Access.
  * =============================================================================
  *
  * No direct access to this file.
@@ -59,7 +60,170 @@ namespace MixaTheme\Wireframe\Plugin;
 defined( 'ABSPATH' ) or die();
 
 /**
- * §.03. Functions: Load helper functions.
+ * § 03. Constants: WordPress Version.
+ * =============================================================================
+ *
+ * The minimum version of WordPress compatible with Wireframe_Plugin.
+ *
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_WP', '4.7.5' );
+
+/**
+ * § 03. Constants: Plugin text-domain.
+ *
+ * Plugin text-domain (must match slug).
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_TEXTDOMAIN', 'wireframe-plugin' );
+
+/**
+ * § 03. Constants: Plugin product name.
+ *
+ * Official product name for your plugin. This is used in various headings,
+ * titles and menus. Your official product name should be consistent.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_PRODUCT', 'Wireframe Plugin' );
+
+/**
+ * § 03. Constants: Plugin version.
+ *
+ * Tagged version number for this release. This is used throughout many
+ * dependencies, especially when you enqueue your styles & scripts.
+ * This can also be used for version checking backwards compatibility.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_VERSION', '1.0.0' );
+
+/**
+ * § 03. Constants: Plugin prefix.
+ *
+ * A prefix for various strings, handles and helpers. This is primarily used
+ * for keeping names short and helps avoid clashes. 3-5 characters preferred.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_PREFIX', 'wireframe_plugin' );
+
+/**
+ * § 03. Constants: Plugin directory.
+ *
+ * Plugin directory path. Retrieves the absolute path to the directory
+ * of the current plugin. Returns an absolute server path, for example:
+ * `/srv/www/wp/htdocs/wp-content/plugins/wireframe-plugin/` - not a URI.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_DIR', plugin_dir_path( __DIR__ ) );
+
+/**
+ * § 03. Constants: Plugin path to developer files.
+ *
+ * Absolute path to the `wireframe_dev` directory. This directory is specifically
+ * for Developers and contains functions, classes, JS, SCSS, etc.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_DEV', trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_dev' ) );
+
+/**
+ * § 03. Constants: Plugin path to client files.
+ *
+ * Absolute path to the `wireframe_client` directory. This directory primarily
+ * holds front-end assets, such as: images, fonts, scripts, stylesheets, etc.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_CLIENT', trailingslashit( 'wireframe_client' ) );
+
+/**
+ * § 03. Constants: Plugin URI for assets, etc.
+ *
+ * Plugin URI. Retrieve plugin directory URI. Checks for SSL. Returns URI with
+ * a trailing slash following the directory address. This is primarily used for
+ * loading your plugin assets.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_URI', plugin_dir_url( __DIR__ ) );
+
+/**
+ * § 03. Constants: Plugin path to the Wireframe API.
+ *
+ * Absolute path to the Wireframe API. This directory holds core classes,
+ * module classes, helper functions, utilities, config data, etc.
+ * NO leading slash. HAS trailing slash.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_API', trailingslashit( WIREFRAME_PLUGIN_DEV . 'wireframe' ) );
+
+/**
+ * § 03. Constants: Wireframe Objects.
+ *
+ * Absolute path to the Wireframe API for loading class files. This should
+ * only be used if you choose to NOT use Composer's autoloading feature.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_OBJECTS', trailingslashit( WIREFRAME_PLUGIN_DIR . '/wireframe_dev/wireframe' ) );
+
+/**
+ * § 03. Constants: Plugin path to template files (optional).
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_TPL', trailingslashit( WIREFRAME_PLUGIN_DIR . WIREFRAME_PLUGIN_CLIENT . 'tpl' ) );
+
+/**
+ * § 03. Constants: Plugin URI for CSS files (optional).
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_CSS', trailingslashit( WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'css' ) );
+
+/**
+ * § 03. Constants: Plugin URI for images (optional).
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_IMG', trailingslashit( WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'img' ) );
+
+/**
+ * § 03. Constants: Plugin URI for JavaScript files (optional).
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_JS', trailingslashit( WIREFRAME_PLUGIN_URI . WIREFRAME_PLUGIN_CLIENT . 'js' ) );
+
+/**
+ * § 03. Constants: Plugin URI for language files.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+define( 'WIREFRAME_PLUGIN_LANG', trailingslashit( WIREFRAME_PLUGIN_TEXTDOMAIN . '/' . WIREFRAME_PLUGIN_CLIENT . 'lang' ) );
+
+/**
+ * § 04. Functions: Load helper functions.
  * =============================================================================
  *
  * Loads helper functions and callbacks. These functions should load before your
@@ -73,7 +237,7 @@ require_once WIREFRAME_PLUGIN_API . 'functions/functions-helpers.php';
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
 
 /**
- * § 04. Objects.
+ * § 05. Objects.
  * =============================================================================
  *
  * Option #1: Use `require_once()` to load your class dependencies 1-by-1.
@@ -144,7 +308,7 @@ require_once WIREFRAME_PLUGIN_OBJECTS . 'module/ui/module-ui.php';
  */
 if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	/**
-	 * §.05. Container.
+	 * § 06. Container.
 	 * =========================================================================
 	 *
 	 * Wireframe Plugin needs to wire objects to the Core_Container::$storage array.
@@ -157,7 +321,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	$wireframe_plugin_container = new Core_Container();
 
 	/**
-	 * §.06. Configs.
+	 * § 07. Configs.
 	 * =========================================================================
 	 *
 	 * Option #1: Load config data for passing arrays into plugin objects.
@@ -186,7 +350,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	require_once WIREFRAME_PLUGIN_API . 'config/config-ui.php';
 
 	/**
-	 * § 07. Service: Language.
+	 * § 08. Services: Language.
 	 * =========================================================================
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
@@ -201,7 +365,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: Admin.
+	 * § 08. Services: Admin.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_Admin object with config data passed-in.
@@ -215,7 +379,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: Notices.
+	 * § 08. Services: Notices.
 	 * =========================================================================
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
@@ -230,7 +394,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: CPT.
+	 * § 08. Services: CPT.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_CPT object with config data passed-in.
@@ -244,7 +408,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: Taxonomy.
+	 * § 08. Services: Taxonomy.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_Taxonomy object with config data passed-in.
@@ -258,7 +422,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: Shortcode.
+	 * § 08. Services: Shortcode.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_Shortcode object with config data passed-in.
@@ -272,7 +436,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: Options.
+	 * § 08. Services: Options.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_Options object with config data passed-in.
@@ -286,7 +450,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: Settings.
+	 * § 08. Services: Settings.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_Settings object with config data passed-in.
@@ -300,7 +464,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: UI.
+	 * § 08. Services: UI.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_UI object with config data passed-in.
@@ -314,7 +478,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * § 07. Service: DBTables.
+	 * § 08. Services: DBTables.
 	 *
 	 * This closure registers a service with the Core_Container::$storage array,
 	 * and instantiates a new Module_DBTables object with config data passed-in.
@@ -328,7 +492,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	};
 
 	/**
-	 * §.08. Wireframe is alive!
+	 * § 09. Wireframe is alive!
 	 * =========================================================================
 	 *
 	 * Instantiates the base `Core_Plugin` object, then wires together the default
@@ -376,7 +540,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	);
 
 	/**
-	 * §.09. Housekeeping.
+	 * § 10. Housekeeping.
 	 * =========================================================================
 	 *
 	 * Check if Wireframe_Plugin is properly initialized. You can perform any clean-up
@@ -395,7 +559,7 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	}
 
 	/**
-	 * §.10. Hooks.
+	 * § 11. Hooks.
 	 * =====================================================================
 	 *
 	 * Init success! Continue processing. Run any hooks you need.
