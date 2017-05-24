@@ -25,6 +25,17 @@
  */
 
 /**
+ * Constants.
+ * =============================================================================
+ *
+ * Loads constants available to your plugin.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe Plugin
+ */
+require_once plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/config/config-constants.php';
+
+/**
  * Compatibility: Checker.
  * =============================================================================
  *
@@ -39,21 +50,21 @@
  * @see   callable wireframe_plugin_hook_language_loader()  The callback for language loader.
  * @see   callable wireframe_plugin_hook_update_wordpress() The callback for update notice.
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.7.5', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], WIREFRAME_PLUGIN_WP, '<' ) ) {
 
 	// Incompatible WP: Load backwards compatibility handlers.
-	require_once plugin_dir_path( __FILE__ ) . '/wireframe_dev/wireframe/functions/functions-compat.php';
+	require_once WIREFRAME_PLUGIN_API . 'functions/functions-compat.php';
 
 	// Incompatible WP: Call language translation hook.
-	do_action( 'wireframe_plugin_hook_language_loader', 'wireframe-plugin', false, '/wireframe_client/lang' );
+	do_action( 'wireframe_plugin_hook_language_loader', WIREFRAME_PLUGIN_TEXTDOMAIN, false, '/wireframe_client/lang' );
 
 	// Incompatible WP: Call update notice hook.
-	do_action( 'wireframe_plugin_hook_update_wordpress', 'Wireframe Plugin', '4.7.5' );
+	do_action( 'wireframe_plugin_hook_update_wordpress', WIREFRAME_PLUGIN_PRODUCT, WIREFRAME_PLUGIN_WP );
 
 } else {
 
 	// Compatible WP: Continue bootstrapping Wireframe.
-	require_once plugin_dir_path( __FILE__ ) . '/wireframe_dev/wireframe.php';
+	require_once WIREFRAME_PLUGIN_DEV . 'wireframe.php';
 
 }
 
