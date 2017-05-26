@@ -32,14 +32,14 @@ Wireframe Plugin encourage Developers to use the requirements listed below, but 
 2. **PHP version 5.6** or greater. PHP 7.1+ is highly recommended.
 3. MySQL version 5.5 or greater OR MariaDB version 10.0 or greater.
 4. WordPress version 4.7.5 or greater.
-5. Intermediate knowledge of the [Wordpress Codex](https://codex.wordpress.org), [Theme Development](https://developer.wordpress.org/themes/) and [Plugin Development](https://developer.wordpress.org/plugins/).
+5. Intermediate knowledge of the [Wordpress Codex](https://codex.wordpress.org) and [Plugin Development](https://developer.wordpress.org/plugins/).
 
 [Top](https://github.com/mixatheme/wireframe-plugin#wireframe-plugin)
 
 ---
 
 ## Points Of Interest
-Wireframe Plugin takes a unique approach to WordPress theme development...
+Wireframe Plugin takes a unique approach to WordPress plugin development...
 
 * [Object Oriented Programming](http://stackoverflow.com/questions/1530868/simple-explanation-php-oop-vs-procedural) (OOP)
 * [Inversion of Control](http://stackoverflow.com/questions/18562752/understanding-ioc-containers-and-dependency-injection) (IoC)
@@ -114,7 +114,7 @@ Think you've found a bug or wish to help make Wireframe_Plugin better? We love a
 
 ## History
 
-* [TODO](https://github.com/mixatheme)
+* Initial release in 2016.
 
 [Top](https://github.com/mixatheme/wireframe-plugin#wireframe-plugin)
 
@@ -128,7 +128,7 @@ Wireframe Plugin is Copyright © 2016 [MixaTheme](https://mixatheme.com). All ri
 
 Wireframe Plugin is licensed under GPL-2.0+ ( see [LICENSE](https://github.com/mixatheme/wireframe-plugin/blob/master/LICENSE) )<br>
 
-Wireframe_Plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Wireframe Plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
