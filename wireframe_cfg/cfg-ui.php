@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_Admin config file for Wireframe themes & plugins.
+ * Module_UI config data file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -31,6 +31,14 @@
 namespace MixaTheme\Wireframe\Plugin;
 
 /**
+ * No direct access to this file.
+ *
+ * @since 1.0.0 Wireframe
+ * @since 1.0.0 Wireframe_Plugin
+ */
+defined( 'ABSPATH' ) or die();
+
+/**
  * Stores array of default config data for passing into objects.
  *
  * Option #1: We use a function so the config data can be called and reused
@@ -42,22 +50,22 @@ namespace MixaTheme\Wireframe\Plugin;
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Module_Admin
+ * @see    object Module_UI
  * @return array  Default configuration values.
  */
-function wireframe_plugin_config_admin() {
+function wireframe_plugin_cfg_ui() {
 	/**
 	 * Wired.
 	 *
-	 * Wires the Module_Admin actions & filters at runtime. Since all plugins
-	 * & themes should have an admin/about page, this should always be set to true.
+	 * Wires the Module_UI actions & filters at runtime. Since most plugins
+	 * will need UI styles & scripts, this should usually be set to true.
 	 *
 	 * Enable this configuration file:
 	 *
 	 * 		1. In this config file, set: $wired = true.
 	 * 		2. In this config file, modify any default data you need.
-	 * 		3. In `config-controller.php` instantiate Module_Admin.
-	 * 		4. In `config-controller.php` pass this config into Module_Admin.
+	 * 		3. In `config-controller.php` instantiate Module_UI.
+	 * 		4. In `config-controller.php` pass this config into Module_UI.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
@@ -66,11 +74,15 @@ function wireframe_plugin_config_admin() {
 	$wired = true;
 
 	/**
-	 * Prefix for handles.
+	 * Prefix.
+	 *
+	 * Many objects use a prefix for various strings, handles, scripts, etc.
+	 * Generally, you should use a constant defined in wireframe.php. However,
+	 * you can change it here if needed. Default: WIREFRAME_PLUGIN_PREFIX
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   string $prefix Default: WIREFRAME_PLUGIN_PREFIX
+	 * @var   string $prefix Prefix for handles.
 	 */
 	$prefix = WIREFRAME_PLUGIN_PREFIX;
 
@@ -87,37 +99,29 @@ function wireframe_plugin_config_admin() {
 	 */
 	$actions = array(
 		'styles' => array(
-			'tag'      => 'admin_enqueue_scripts',
+			'tag'      => 'wp_enqueue_scripts',
 			'function' => 'styles',
 			'priority' => 10,
 			'args'     => null,
 		),
 		'scripts' => array(
-			'tag'      => 'admin_enqueue_scripts',
+			'tag'      => 'wp_enqueue_scripts',
 			'function' => 'scripts',
 			'priority' => 10,
 			'args'     => null,
 		),
-		'menu_pages' => array(
-			'tag'      => 'admin_menu',
-			'function' => 'menu_pages',
-			'priority' => 10,
-			'args'     => 1,
-		),
-		'submenu_pages' => array(
-			'tag'      => 'admin_menu',
-			'function' => 'submenu_pages',
-			'priority' => 10,
-			'args'     => 1,
-		),
 	);
 
 	/**
-	 * Filters to hook.
+	 * Filters.
+	 *
+	 * Objects don't generally need filters here, but you have the option.
+	 * You can set your filters in a multi-dimensional array and remember
+	 * to set the property $wired = true (above).
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $filters Requires $enabled = true.
+	 * @var   array $filters Filters to hook. Default: array()
 	 * @todo  WIP.
 	 */
 	$filters = array();
@@ -125,17 +129,41 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Stylesheet(s) to load.
 	 *
+	 *		1. Set a multi-dimensional array holding 2 default arrays (optional).
+	 *		2. The `ui` array will load any styles for your plugin UI.
+	 *		3. The `print` array will load styles for plugin printing.
+	 *		4. Remember to set array key values to `media' => 'all' or 'print' etc.
+	 *		5. If your plugin does not require styles, you can declare an empty array().
+	 *
+	 * Example:
+	 *
+	 * 		'lowercase_underscored_stylesheet_handle' => array(
+	 * 			'path'    => 'plugin_path/to/stylesheet',
+	 * 			'file'    => 'stylesheet-filename-without-extension',
+	 * 			'deps'    => array(),
+	 * 			'version' => '1.0.0',
+	 * 			'media'   => 'all',
+	 * 		),
+	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $styles Array of stylesheets to enqueue.
 	 */
 	$styles = array(
-		'admin_css' => array(
+		'ui' => array(
 			'path'    => WIREFRAME_PLUGIN_CSS,
-			'file'    => 'wireframe-plugin-admin-min',
+			'file'    => 'wireframe-plugin-ui-min',
 			'deps'    => array(),
-			'version' => WIREFRAME_PLUGIN_VERSION,
-			'media'   => 'screen',
+			'version' => '1.0.0',
+			'media'   => 'all',
+
+		),
+		'print' => array(
+			'path'    => WIREFRAME_PLUGIN_CSS,
+			'file'    => 'wireframe-plugin-print-min',
+			'deps'    => array(),
+			'version' => '1.0.0',
+			'media'   => 'print',
 
 		),
 	);
@@ -143,14 +171,37 @@ function wireframe_plugin_config_admin() {
 	/**
 	 * Script(s) to load.
 	 *
+	 * 		1. Set a multi-dimensional array holding 2 default arrays (optional).
+	 *		2. The default `wphead` array will load early scripts to `wp_head()` in a theme.
+	 *		3. The default `wpfooter` array will load late scripts to `wp_footer()` in a theme.
+	 *		4. Set array key values to `footer' => true or false, respectively.
+	 *		5. If your plugin does not require scripts, you can declare an empty array().
+	 *
+	 * Example:
+	 *
+	 * 		'lowercase_underscored_script_handle' => array(
+	 * 			'path'     => 'plugin_path/to/script',
+	 * 			'file'     => 'script-filename-without-extension',
+	 * 			'deps'     => array( 'jquery' ),
+	 * 			'footer'   => true,
+	 * 			'localize' => array(),
+	 * 		),
+	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $scripts Array of scripts to enqueue.
 	 */
 	$scripts = array(
-		'admin_js' => array(
+		'wphead' => array(
 			'path'     => WIREFRAME_PLUGIN_JS,
-			'file'     => 'wireframe-plugin-admin-min',
+			'file'     => 'wireframe-plugin-wphead-min',
+			'deps'     => array( 'jquery' ),
+			'footer'   => false,
+			'localize' => array(),
+		),
+		'wpfooter' => array(
+			'path'     => WIREFRAME_PLUGIN_JS,
+			'file'     => 'wireframe-plugin-wpfooter-min',
 			'deps'     => array( 'jquery' ),
 			'footer'   => true,
 			'localize' => array(),
@@ -185,60 +236,6 @@ function wireframe_plugin_config_admin() {
 	$enqueue = new Core_Enqueue( $prefix, $styles, $scripts, $mediamodal );
 
 	/**
-	 * Top-level Admin pages.
-	 *
-	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $menu_pages
-	 */
-	$menu_pages = array(
-		'quickstart' => array(
-			'page_title' => 'Wireframe Plugin',
-			'menu_title' => 'Wireframe Plugin',
-			'capability' => 'manage_options',
-			'menu_slug'  => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'callback'   => 'wireframe_plugin_admin_page_callback_quickstart',
-			'icon_url'   => esc_url( '' ),
-			'position'   => 9999,
-		),
-	);
-
-	/**
-	 * Submenu Admin pages.
-	 *
-	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $submenu_pages
-	 * @see   https://wordpress.stackexchange.com/questions/66498
-	 */
-	$submenu_pages = array(
-		'quickstart' => array(
-			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'Quickstart',
-			'menu_title'  => 'Quickstart',
-			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'callback'    => 'wireframe_plugin_admin_page_callback_quickstart',
-		),
-		'faq' => array(
-			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'FAQ',
-			'menu_title'  => 'FAQ',
-			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-faq' ),
-			'callback'    => 'wireframe_plugin_admin_page_callback_faq',
-		),
-		'support' => array(
-			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'Support',
-			'menu_title'  => 'Support',
-			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-support' ),
-			'callback'    => 'wireframe_plugin_admin_page_callback_support',
-		),
-	);
-
-	/**
 	 * Option #1: Return (array) of config data for passing into objects.
 	 *
 	 * Option #2: Cast array as an (object) and use object/property sytnax
@@ -255,12 +252,11 @@ function wireframe_plugin_config_admin() {
 	 * @return array|object
 	 */
 	return array(
-		'wired'         => $wired,
-		'prefix'        => $prefix,
-		'actions'       => $actions,
-		'filters'       => $filters,
-		'enqueue'       => $enqueue,
-		'menu_pages'    => $menu_pages,
-		'submenu_pages' => $submenu_pages,
+		'wired'   => $wired,
+		'prefix'  => $prefix,
+		'actions' => $actions,
+		'filters' => $filters,
+		'enqueue' => $enqueue,
 	);
-}
+
+} // Thanks for using MixaTheme products!

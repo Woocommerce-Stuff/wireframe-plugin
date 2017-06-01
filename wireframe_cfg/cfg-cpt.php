@@ -45,7 +45,7 @@ namespace MixaTheme\Wireframe\Plugin;
  * @see    object Module_CPT
  * @return array  Default configuration values.
  */
-function wireframe_plugin_config_cpt() {
+function wireframe_plugin_cfg_cpt() {
 	/**
 	 * Wired.
 	 *

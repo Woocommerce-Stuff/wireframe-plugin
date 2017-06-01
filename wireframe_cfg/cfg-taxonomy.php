@@ -1,6 +1,6 @@
 <?php
 /**
- * Module_DBTables config file for Wireframe themes & plugins.
+ * Module_Taxonomy config file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -29,7 +29,6 @@
  * @since 1.0.0 Wireframe_Plugin
  */
 namespace MixaTheme\Wireframe\Plugin;
-use wpdb;
 
 /**
  * Stores array of default config data for passing into objects.
@@ -43,21 +42,21 @@ use wpdb;
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Module_DBTables
+ * @see    object Module_Taxonomy
  * @return array  Default configuration values.
  */
-function wireframe_plugin_config_dbtables() {
+function wireframe_plugin_cfg_taxonomy() {
 	/**
 	 * Wired.
 	 *
-	 * Wires the Module_CPT actions & filters at runtime.
+	 * Wires the Module_Taxonomy actions & filters at runtime.
 	 *
 	 * Enable this configuration file:
 	 *
 	 * 		1. In this config file, set: $wired = true.
 	 * 		2. In this config file, modify any default data you need.
-	 * 		3. In `config-controller.php` instantiate Module_CPT.
-	 * 		4. In `config-controller.php` pass this config into Module_CPT.
+	 * 		3. In `config-controller.php` instantiate Module_Taxonomy.
+	 * 		4. In `config-controller.php` pass this config into Module_Taxonomy.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
@@ -77,23 +76,15 @@ function wireframe_plugin_config_dbtables() {
 	/**
 	 * Actions to hook.
 	 *
-	 * Add a table:
-	 *
-	 * 		'function' => 'add',
-	 *
-	 * Remove a table:
-	 *
-	 * 		'function' => 'remove',
-	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
-		'wireframe-dbtables' => array(
-			'tag'      => 'admin_init',
-			'function' => 'add',
-			'priority' => 10,
+		'wireframe-tax' => array(
+			'tag'      => 'init',
+			'function' => 'register',
+			'priority' => 0,
 			'args'     => null,
 		),
 	);
@@ -104,49 +95,84 @@ function wireframe_plugin_config_dbtables() {
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 * @var   array $filters Requires $enabled = true. Default: array()
+	 * @todo  WIP.
 	 */
 	$filters = array();
 
 	/**
-	 * Default SQL statements.
+	 * Object type.
 	 *
-	 * Use single-quotes for key/values. If your SQL statement requires quotes,
-	 * use double-quotes inside the single-quoted string value.
+	 * (array/string) (required) Name of the object type for the taxonomy object.
+	 * Object-types can be built-in Post Type or any Custom Post Type that may be
+	 * registered. Default: None
 	 *
-	 * Example SQL statement:
+	 * Example object types:
 	 *
-	 * 	+ 'your_key' => 'time datetime DEFAULT "0000-00-00 00:00:00" NOT NULL',
-	 *
-	 * Example dbDelta() notes:
-	 *
-	 * 	+ You must put each field on its own line in your SQL statement.
-	 *  + You must have two spaces between the words PRIMARY KEY and the
-	 *    definition of your primary key.
-	 * 	+ You must use the keyword KEY rather than its synonym INDEX and you
-	 * 	  must include at least one KEY.
-	 *  + KEY must be followed by a SINGLE SPACE, then the key name, then a space,
-	 *    then open parenthesis with the field name, then a closed parenthesis.
-	 *  + You must not use any apostrophes or backticks around field names.
-	 *  + Field types must be all lowercase.
-	 *  + SQL keywords, like CREATE TABLE and UPDATE, must be uppercase.
-	 *  + You must specify the length of all fields that accept a length
-	 *    parameter, for example: int(11).
+	 *    - post
+	 *    - page
+	 *    - attachment
+	 *    - revision
+	 *    - nav_menu_item
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array
-	 * @see   https://codex.wordpress.org/Creating_Tables_with_Plugins
+	 * @var   array $object_type
+	 */
+	$object_type = array(
+		'wireframe-tax' => array(
+			'post',
+		),
+	);
+
+	/**
+	 * Labels.
 	 *
-	 * @internal THIS SHOULD CREATE A NEW TABLE IN YOUR DB: `wp_wireframe_plugin_example`
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array $labels
+	 */
+	$labels = array(
+		'wireframe-tax' => array(
+			'name'                       => _x( 'Wireframe Tax', 'Taxonomy General Name', 'wireframe_plugin' ),
+			'singular_name'              => _x( 'Wireframe Tax', 'Taxonomy Singular Name', 'wireframe_plugin' ),
+			'menu_name'                  => __( 'Wireframe Tax', 'wireframe_plugin' ),
+			'all_items'                  => __( 'All Items', 'wireframe_plugin' ),
+			'parent_item'                => __( 'Parent Item', 'wireframe_plugin' ),
+			'parent_item_colon'          => __( 'Parent Item:', 'wireframe_plugin' ),
+			'new_item_name'              => __( 'New Item Name', 'wireframe_plugin' ),
+			'add_new_item'               => __( 'Add New Item', 'wireframe_plugin' ),
+			'edit_item'                  => __( 'Edit Item', 'wireframe_plugin' ),
+			'update_item'                => __( 'Update Item', 'wireframe_plugin' ),
+			'view_item'                  => __( 'View Item', 'wireframe_plugin' ),
+			'separate_items_with_commas' => __( 'Separate items with commas', 'wireframe_plugin' ),
+			'add_or_remove_items'        => __( 'Add or remove items', 'wireframe_plugin' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'wireframe_plugin' ),
+			'popular_items'              => __( 'Popular Items', 'wireframe_plugin' ),
+			'search_items'               => __( 'Search Items', 'wireframe_plugin' ),
+			'not_found'                  => __( 'Not Found', 'wireframe_plugin' ),
+			'no_terms'                   => __( 'No items', 'wireframe_plugin' ),
+			'items_list'                 => __( 'Items list', 'wireframe_plugin' ),
+			'items_list_navigation'      => __( 'Items list navigation', 'wireframe_plugin' ),
+		),
+	);
+
+	/**
+	 * Defaults. This is just a placeholder array for you to modify.
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array $options Your custom defaults for this config.
 	 */
 	$defaults = array(
-		'wireframe_plugin_example' => array(
-			'id'          => 'id mediumint(9) NOT NULL AUTO_INCREMENT',
-			'time'        => 'time datetime DEFAULT "0000-00-00 00:00:00" NOT NULL',
-			'name'        => 'name tinytext NOT NULL',
-			'text'        => 'text text NOT NULL',
-			'url'         => 'url varchar(55) DEFAULT "" NOT NULL',
-			'primary_key' => 'PRIMARY KEY  (id)',
+		'wireframe-tax' => array(
+			'object_type'       => $object_type['wireframe-tax'],
+			'labels'            => $labels['wireframe-tax'],
+			'hierarchical'      => true,
+			'public'            => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+			'show_tagcloud'     => true,
 		),
 	);
 

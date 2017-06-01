@@ -33,7 +33,7 @@
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe Plugin
  */
-require_once plugin_dir_path( __FILE__ ) . 'wireframe_dev/wireframe/config/config-constants.php';
+require_once plugin_dir_path( __FILE__ ) . 'wireframe_cfg/cfg-constants.php';
 
 /**
  * Compatibility: Checker.
@@ -56,7 +56,7 @@ if ( version_compare( $GLOBALS['wp_version'], WIREFRAME_PLUGIN_WP, '<' ) ) {
 	require_once WIREFRAME_PLUGIN_API . 'functions/functions-compat.php';
 
 	// Incompatible WP: Call language translation hook.
-	do_action( 'wireframe_plugin_hook_language_loader', WIREFRAME_PLUGIN_TEXTDOMAIN, false, '/wireframe_client/lang' );
+	do_action( 'wireframe_plugin_hook_language_loader', WIREFRAME_PLUGIN_TEXTDOMAIN, false, '/wireframe_usr/lang' );
 
 	// Incompatible WP: Call update notice hook.
 	do_action( 'wireframe_plugin_hook_update_wordpress', WIREFRAME_PLUGIN_PRODUCT, WIREFRAME_PLUGIN_WP );

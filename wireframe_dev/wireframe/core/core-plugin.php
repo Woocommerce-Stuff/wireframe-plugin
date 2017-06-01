@@ -349,7 +349,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @see    object DBTables
-		 * @see    wireframe_plugin_config_controller()
+		 * @see    wireframe_plugin_cfg_controller()
 		 * @todo   WIP. Needs work.
 		 */
 		private function _create_dbtables() {
@@ -367,7 +367,7 @@ if ( ! class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 		 * @since  1.0.0 Wireframe
 		 * @since  1.0.0 Wireframe_Plugin
 		 * @see    object DBTables
-		 * @see    wireframe_plugin_config_controller()
+		 * @see    wireframe_plugin_cfg_controller()
 		 * @todo   WIP. Needs work.
 		 */
 		private function _drop_dbtables() {

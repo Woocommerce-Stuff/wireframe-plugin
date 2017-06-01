@@ -135,10 +135,10 @@ function wireframe_plugin_admin_page_tabs_support() {
  * @since 1.0.0 Wireframe_Plugin
  * @see   functions-helpers.php Admin check function.
  * @see   wp-admin/images/wordpress-logo-white.svg
- * @see   wireframe-plugin/wireframe_client/img/wireframe-plugin-badge-white.svg
- * @see   wireframe-plugin/wireframe_client/img/wireframe-plugin-badge-white.png
- * @see   wireframe-plugin/wireframe_client/css/wireframe-plugin-admin.scss
- * @see   wireframe-plugin/wireframe_client/css/wireframe-plugin-admin-min.css
+ * @see   wireframe-plugin/wireframe_usr/img/wireframe-plugin-badge-white.svg
+ * @see   wireframe-plugin/wireframe_usr/img/wireframe-plugin-badge-white.png
+ * @see   wireframe-plugin/wireframe_usr/css/wireframe-plugin-admin.scss
+ * @see   wireframe-plugin/wireframe_usr/css/wireframe-plugin-admin-min.css
  */
 function wireframe_plugin_admin_page_badge() {
 	wireframe_plugin_admin_check();

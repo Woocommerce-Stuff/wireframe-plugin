@@ -45,7 +45,7 @@ namespace MixaTheme\Wireframe\Plugin;
  * @see    object Module_Shortcode
  * @return array  Default configuration values.
  */
-function wireframe_plugin_config_shortcode() {
+function wireframe_plugin_cfg_shortcode() {
 	/**
 	 * Wired.
 	 *

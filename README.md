@@ -1,4 +1,4 @@
-![Wireframe IDE](wireframe_client/img/mixatheme-wireframe-logo-fill.gif)
+![Wireframe IDE](wireframe_usr/img/mixatheme-wireframe-logo-fill.gif)
 
 # Wireframe Plugin
 

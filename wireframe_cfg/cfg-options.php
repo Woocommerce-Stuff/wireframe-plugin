@@ -45,7 +45,7 @@ namespace MixaTheme\Wireframe\Plugin;
  * @see    object Module_Options
  * @return array  Default configuration values.
  */
-function wireframe_plugin_config_options() {
+function wireframe_plugin_cfg_options() {
 	/**
 	 * Wired.
 	 *

@@ -1,6 +1,6 @@
 <?php
 /**
- * Core_Language config data file for Wireframe themes & plugins.
+ * Module_Settings config file for Wireframe themes & plugins.
  *
  * PHP version 5.6.0
  *
@@ -31,14 +31,6 @@
 namespace MixaTheme\Wireframe\Plugin;
 
 /**
- * No direct access to this file.
- *
- * @since 1.0.0 Wireframe
- * @since 1.0.0 Wireframe_Plugin
- */
-defined( 'ABSPATH' ) or die();
-
-/**
  * Stores array of default config data for passing into objects.
  *
  * Option #1: We use a function so the config data can be called and reused
@@ -50,106 +42,119 @@ defined( 'ABSPATH' ) or die();
  *
  * @since  1.0.0 Wireframe
  * @since  1.0.0 Wireframe_Plugin
- * @see    object Core_Language
+ * @see    object Module_Settings
  * @return array  Default configuration values.
  */
-function wireframe_plugin_config_language() {
-	/**
-	 * Module.
-	 *
-	 * Is this module for a theme or a plugin?
-	 *
-	 * @since 1.0.0 Wireframe
-	 * @since 1.0.0 Wireframe_Theme
-	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   string $module The module type. Default: plugin
-	 */
-	$module = 'plugin';
-
+function wireframe_plugin_cfg_settings() {
 	/**
 	 * Wired.
 	 *
-	 * Wires the Core_Language actions & filters at runtime. Since all plugins
-	 * should have use translation, this should always be set to true.
+	 * Wires the Module_Settings actions & filters at runtime.
 	 *
 	 * Enable this configuration file:
 	 *
 	 * 		1. In this config file, set: $wired = true.
 	 * 		2. In this config file, modify any default data you need.
-	 * 		3. In `config-controller.php` instantiate Core_Language.
-	 * 		4. In `config-controller.php` pass this config into Core_Language.
+	 * 		3. In `config-controller.php` instantiate Module_Settings.
+	 * 		4. In `config-controller.php` pass this config into Module_Settings.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   bool $wired Wire hooks via __construct(). Default: true
+	 * @var   bool $wired Wire hooks via __construct(). Default: false
 	 */
-	$wired = true;
+	$wired = false;
 
 	/**
-	 * Prefix.
-	 *
-	 * Many objects use a prefix for various strings, handles, scripts, etc.
-	 * Generally, you should use a constant defined in wireframe.php. However,
-	 * you can change it here if needed. Default: WIREFRAME_PLUGIN_PREFIX
+	 * Prefix for handles.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   string $prefix Prefix for handles. Default: WIREFRAME_PLUGIN_TEXTDOMAIN
+	 * @var   string $prefix Default: WIREFRAME_PLUGIN_PREFIX
 	 */
-	$prefix = WIREFRAME_PLUGIN_TEXTDOMAIN;
+	$prefix = WIREFRAME_PLUGIN_PREFIX;
 
 	/**
-	 * Actions.
-	 *
-	 * Most objects will usually need actions to be hooked at some point.
-	 * You can set your actions in a multi-dimensional array and remember
-	 * to set the property $wired = true (above).
+	 * Actions to hook.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $actions Actions to hook.
+	 * @var   array $actions Requires $enabled = true.
 	 */
 	$actions = array(
-		'after_setup_theme' => array(
-			'tag'      => 'after_setup_theme',
-			'function' => 'textdomain',
+		'example_setting' => array(
+			'tag'      => 'admin_init',
+			'function' => 'add_settings',
 			'priority' => 10,
 			'args'     => null,
 		),
 	);
 
 	/**
-	 * Filters.
-	 *
-	 * Objects don't generally need filters here, but you have the option.
-	 * You can set your filters in a multi-dimensional array and remember
-	 * to set the property $wired = true (above).
+	 * Filters to hook.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   array $filters Filters to hook. Default: array()
+	 * @var   array $filters Requires $enabled = true. Default: array()
 	 * @todo  WIP.
 	 */
 	$filters = array();
 
 	/**
-	 * Language: Use the $plugin_rel_path parameter instead?
+	 * Sections.
+	 *
+	 * Add the section to reading settings so we can add our fields to it.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   bool $deprecated Language path. Default: false
-	 * @see   https://developer.wordpress.org/reference/functions/load_plugin_textdomain/
+	 * @var   array
 	 */
-	$deprecated = false;
+	$sections = array(
+		'example_setting' => array(
+			'id'       => 'eg_setting_section',
+			'title'    => 'Example settings section in reading',
+			'callback' => 'eg_setting_section_callback_function',
+			'page'     => 'reading',
+		),
+	);
 
 	/**
-	 * Language: Relative path.
+	 * Fields.
+	 *
+	 * Add the field with the names and function to use for our new
+	 * settings, put it in our new section.
 	 *
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
-	 * @var   string $path Language path. Default: WIREFRAME_PLUGIN_LANG
+	 * @var   array
 	 */
-	$path = WIREFRAME_PLUGIN_LANG;
+	$fields = array(
+		'example_setting' => array(
+			'id'       => 'eg_setting_name',
+			'title'    => 'Example setting Name',
+			'callback' => 'eg_setting_callback_function',
+			'page'     => 'eg_setting_section',
+			'section'  => 'default',
+			'args'     => array(),
+		),
+	);
+
+	/**
+	 * Register.
+	 *
+	 * Register our setting so that $_POST handling is done for us and
+	 * our callback function just has to echo the <input>
+	 *
+	 * @since 1.0.0 Wireframe
+	 * @since 1.0.0 Wireframe_Plugin
+	 * @var   array
+	 */
+	$register = array(
+		'example_setting' => array(
+			'option_group'      => 'reading',
+			'option_name'       => 'eg_setting_name',
+			'sanitize_callback' => '',
+		),
+	);
 
 	/**
 	 * Option #1: Return (array) of config data for passing into objects.
@@ -168,13 +173,12 @@ function wireframe_plugin_config_language() {
 	 * @return array|object
 	 */
 	return array(
-		'module'     => $module,
-		'wired'      => $wired,
-		'prefix'     => $prefix,
-		'actions'    => $actions,
-		'filters'    => $filters,
-		'deprecated' => $deprecated,
-		'path'       => $path,
+		'wired'    => $wired,
+		'prefix'   => $prefix,
+		'actions'  => $actions,
+		'filters'  => $filters,
+		'sections' => $sections,
+		'fields'   => $fields,
+		'register' => $register,
 	);
-
-} // Thanks for using MixaTheme products!
+}

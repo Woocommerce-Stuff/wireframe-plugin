@@ -174,16 +174,16 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * @since 1.0.0 Wireframe
 	 * @since 1.0.0 Wireframe_Plugin
 	 */
-	require_once WIREFRAME_PLUGIN_API . 'config/config-language.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-notices.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-admin.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-dbtables.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-cpt.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-taxonomy.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-shortcode.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-options.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-settings.php';
-	require_once WIREFRAME_PLUGIN_API . 'config/config-ui.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-language.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-notices.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-admin.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-dbtables.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-cpt.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-taxonomy.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-shortcode.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-options.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-settings.php';
+	require_once trailingslashit( WIREFRAME_PLUGIN_DIR . 'wireframe_cfg' ) . 'cfg-ui.php';
 
 	/**
 	 * § 07. Services: Language.
@@ -193,11 +193,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Core_Language object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_language()
-	 * @return object Core_Language( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_language()
+	 * @return object Core_Language( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->language = function () {
-		return new Core_Language( wireframe_plugin_config_language() );
+		return new Core_Language( wireframe_plugin_cfg_language() );
 	};
 
 	/**
@@ -207,11 +207,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_Admin object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_admin()
-	 * @return object Module_Admin( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_admin()
+	 * @return object Module_Admin( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->admin = function () {
-		return new Module_Admin( wireframe_plugin_config_admin() );
+		return new Module_Admin( wireframe_plugin_cfg_admin() );
 	};
 
 	/**
@@ -222,11 +222,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_Notices object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_notices()
-	 * @return object Module_Notices( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_notices()
+	 * @return object Module_Notices( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->notices = function () {
-		return new Module_Notices( wireframe_plugin_config_notices() );
+		return new Module_Notices( wireframe_plugin_cfg_notices() );
 	};
 
 	/**
@@ -236,11 +236,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_CPT object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_cpt()
-	 * @return object Module_Admin( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_cpt()
+	 * @return object Module_Admin( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->cpt = function () {
-		return new Module_CPT( wireframe_plugin_config_cpt() );
+		return new Module_CPT( wireframe_plugin_cfg_cpt() );
 	};
 
 	/**
@@ -250,11 +250,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_Taxonomy object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_taxonomy()
-	 * @return object Module_Taxonomy( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_taxonomy()
+	 * @return object Module_Taxonomy( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->taxonomy = function () {
-		return new Module_Taxonomy( wireframe_plugin_config_taxonomy() );
+		return new Module_Taxonomy( wireframe_plugin_cfg_taxonomy() );
 	};
 
 	/**
@@ -264,11 +264,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_Shortcode object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_shortcode()
-	 * @return object Module_Shortcode( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_shortcode()
+	 * @return object Module_Shortcode( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->shortcode = function () {
-		return new Module_Shortcode( wireframe_plugin_config_shortcode() );
+		return new Module_Shortcode( wireframe_plugin_cfg_shortcode() );
 	};
 
 	/**
@@ -278,11 +278,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_Options object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_options()
-	 * @return object Module_Options( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_options()
+	 * @return object Module_Options( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->options = function () {
-		return new Module_Options( wireframe_plugin_config_options() );
+		return new Module_Options( wireframe_plugin_cfg_options() );
 	};
 
 	/**
@@ -292,11 +292,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_Settings object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_settings()
-	 * @return object Module_Settings( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_settings()
+	 * @return object Module_Settings( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->settings = function () {
-		return new Module_Settings( wireframe_plugin_config_settings() );
+		return new Module_Settings( wireframe_plugin_cfg_settings() );
 	};
 
 	/**
@@ -306,11 +306,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_UI object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_ui()
-	 * @return object Module_UI( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_ui()
+	 * @return object Module_UI( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->ui = function () {
-		return new Module_UI( wireframe_plugin_config_ui() );
+		return new Module_UI( wireframe_plugin_cfg_ui() );
 	};
 
 	/**
@@ -320,11 +320,11 @@ if ( class_exists( 'MixaTheme\Wireframe\Plugin\Core_Plugin' ) ) :
 	 * and instantiates a new Module_DBTables object with config data passed-in.
 	 *
 	 * @since  1.0.0 Wireframe_Theme
-	 * @see    wireframe_plugin_config_dbtables()
-	 * @return object Module_DBTables( @param callable|array Config data. )
+	 * @see    wireframe_plugin_cfg_dbtables()
+	 * @return object Module_DBTables( @param array|callable Config data. )
 	 */
 	$wireframe_plugin_container->dbtables = function () {
-		return new Module_DBTables( wireframe_plugin_config_dbtables() );
+		return new Module_DBTables( wireframe_plugin_cfg_dbtables() );
 	};
 
 	/**
