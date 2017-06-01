@@ -24,6 +24,8 @@
 /**
  * Namespaces.
  *
+ * You should namespace configs to access to your objects.
+ *
  * @since 5.3.0 PHP
  * @since 1.0.0 Wireframe
  * @since 1.0.0 Wireframe_Plugin
