@@ -220,6 +220,14 @@ function wireframe_plugin_cfg_admin() {
 			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
 			'callback'    => 'wireframe_plugin_admin_page_callback_quickstart',
 		),
+		'settings' => array(
+			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
+			'page_title'  => 'Settings',
+			'menu_title'  => 'Settings',
+			'capability'  => 'manage_options',
+			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-settings' ),
+			'callback'    => 'wireframe_plugin_admin_page_callback_settings',
+		),
 		'faq' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
 			'page_title'  => 'FAQ',
@@ -228,13 +236,13 @@ function wireframe_plugin_cfg_admin() {
 			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-faq' ),
 			'callback'    => 'wireframe_plugin_admin_page_callback_faq',
 		),
-		'support' => array(
+		'help' => array(
 			'parent_slug' => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN ),
-			'page_title'  => 'Support',
-			'menu_title'  => 'Support',
+			'page_title'  => 'Help',
+			'menu_title'  => 'Help',
 			'capability'  => 'manage_options',
-			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-support' ),
-			'callback'    => 'wireframe_plugin_admin_page_callback_support',
+			'menu_slug'   => sanitize_title( WIREFRAME_PLUGIN_TEXTDOMAIN . '-help' ),
+			'callback'    => 'wireframe_plugin_admin_page_callback_help',
 		),
 	);
 
