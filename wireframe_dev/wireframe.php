@@ -70,7 +70,7 @@ defined( 'ABSPATH' ) or die();
  * @since 1.0.0 Wireframe_Plugin
  */
 require_once WIREFRAME_PLUGIN_API . 'functions/functions-helpers.php';
-require_once WIREFRAME_PLUGIN_API . 'functions/functions-views.php';
+require_once WIREFRAME_PLUGIN_API . 'functions/functions-admin.php';
 
 /**
  * § 04. Objects.
